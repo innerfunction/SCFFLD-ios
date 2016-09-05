@@ -145,7 +145,7 @@
         }
         // If the URI specifies a formatter then apply it to the URI result.
         if (rscURI.format) {
-            id<SCURIValueFormatter> formatter = _formats[rscURI.format];
+            id<IFURIValueFormatter> formatter = _formats[rscURI.format];
             if (formatter) {
                 value = [formatter formatValue:value fromURI:rscURI];
             }

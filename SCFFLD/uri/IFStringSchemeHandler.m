@@ -21,7 +21,7 @@
 
 @implementation IFStringSchemeHandler
 
-- (id)dereference:(SCCompoundURI *)uri parameters:(NSDictionary*)params {
+- (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary*)params {
     NSString *value = uri.name;
     if ([params count] > 0) {
         // The URI name is treated as a string template to be populated with the parameter values.

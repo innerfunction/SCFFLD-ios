@@ -21,11 +21,11 @@
 
 @implementation IFPostScheme
 
-- (SCCompoundURI *)resolve:(SCCompoundURI *)uri against:(SCCompoundURI *)reference {
+- (IFCompoundURI *)resolve:(IFCompoundURI *)uri against:(IFCompoundURI *)reference {
     return uri;
 }
 
-- (id)dereference:(SCCompoundURI *)uri parameters:(NSDictionary *)params {
+- (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
     IFMessage *message = [[IFMessage alloc] initWithTarget:uri.fragment
                                                       name:uri.name
                                                 parameters:params];
