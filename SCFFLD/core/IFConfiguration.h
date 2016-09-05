@@ -62,7 +62,7 @@
 @property (nonatomic, strong) NSDictionary *context;
 
 /// A URI handler used to derefence URIs within the configuration.
-@property (nonatomic, strong) id<SCURIHandler> uriHandler;
+@property (nonatomic, strong) id<IFURIHandler> uriHandler;
 
 /// Initialize the configuration with the specified data.
 - (id)initWithData:(id)data;
@@ -73,7 +73,7 @@
  */
 - (id)initWithData:(id)data parent:(IFConfiguration *)parent;
 /// Initialize the configuration with the specified data and URI handler.
-- (id)initWithData:(id)data uriHandler:(id<SCURIHandler>)uriHandler;
+- (id)initWithData:(id)data uriHandler:(id<IFURIHandler>)uriHandler;
 
 /**
  * Try to convert a value to a configuration object.
