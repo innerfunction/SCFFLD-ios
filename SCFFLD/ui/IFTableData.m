@@ -20,8 +20,6 @@
 #import "IFTypeConversions.h"
 #import "objc/runtime.h"
 
-// TODO: Original EPTableData implementation included a category on NSDictionary implementing the EPValues
-// protocol - not clear if something similar is required here.
 @implementation IFTableData
 
 - (id)init {
@@ -49,16 +47,16 @@
     // * The first grouping format is as an array of arrays. The section header title is extracted as the first character
     // of the title of the first item in each group.
     // * The second grouping format is as an array of dictionaries. Each dictionary represents a section object with
-    // 'sectionTitle' and 'sectionData' properties.
+    // 'title' and 'rows' properties.
     // Data can also be presented as an array of strings, in which case each string is used as a row title.
     id firstItem = [data count] > 0 ? [data objectAtIndex:0] : nil;
     if ([firstItem isKindOfClass:[NSArray class]]) {
         isGrouped = YES;
         NSMutableArray *titles = [[NSMutableArray alloc] initWithCapacity:[data count]];
         for (NSArray *section in data) {
-            NSDictionary *row = [section objectAtIndex:0];
+            NSDictionary *row = section[0];
             if (row) {
-                [titles addObject:[(NSString*)[row valueForKey:@"title"] substringToIndex:1]];
+                [titles addObject:[(NSString*)row[@"title"] substringToIndex:1]];
             }
             else {
                 [titles addObject:@""];
@@ -68,19 +66,19 @@
         sectionHeaderTitles = titles;
     }
     else if([firstItem isKindOfClass:[NSDictionary class]]) {
-        // TODO: Use hasValue, getValueAsString methods?
-        if ([firstItem valueForKey:@"sectionTitle"] || [firstItem valueForKey:@"sectionData"]) {
+        // A 'rows' property on the row indicates a table section.
+        if (firstItem[@"rows"]) {
             isGrouped = YES;
             NSMutableArray *titles = [[NSMutableArray alloc] initWithCapacity:[data count]];
             NSMutableArray *sections = [[NSMutableArray alloc] initWithCapacity:[data count]];
             for (NSDictionary *section in data) {
                 NSString *sectionTitle = [_delegate getTableDataSectionTitle:section tableData:self];
                 if (sectionTitle == nil) {
-                    sectionTitle = [section valueForKey:@"sectionTitle"];
+                    sectionTitle = section[@"title"];
                 }
                 [titles addObject:(sectionTitle ? sectionTitle : @"")];
-                NSArray *sectionData = [section valueForKey:@"sectionData"];
-                [sections addObject:(sectionData ? sectionData : [NSArray array])];
+                NSArray *sectionRows = section[@"rows"];
+                [sections addObject:(sectionRows ? sectionRows : @[])];
             }
             _data = sections;
             sectionHeaderTitles = titles;
@@ -94,14 +92,13 @@
         isGrouped = NO;
         NSMutableArray *rows = [[NSMutableArray alloc] initWithCapacity:[data count]];
         for (NSString *title in data) {
-            NSDictionary *row = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", nil];
-            [rows addObject:row];
+            [rows addObject:@{ @"title": title }];
         }
         _data = rows;
     }
     else {
         isGrouped = NO;
-        _data = [NSArray array];
+        _data = @[];
     }
     visibleData = _data;
 }
