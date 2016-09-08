@@ -81,6 +81,7 @@
 - (void)setTitleBarColor:(UIColor *)titleBarColor {
     _titleBarColor = titleBarColor;
     self.navigationBar.barTintColor = titleBarColor;
+    self.navigationBar.translucent = NO;    
 }
 
 - (void)setTitleTextColor:(UIColor *)titleTextColor {
