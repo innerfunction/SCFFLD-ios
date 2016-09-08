@@ -46,22 +46,20 @@
     return result;
 }
 
-- (NSString *)joinWithSeparator:(NSString *)separator {
-    NSMutableString *result = [[NSMutableString alloc] init];
-    for (id item in self) {
-        if ([result length]) {
-            [result appendString:separator];
-        }
-        [result appendString:[item description]];
-    }
-    return result;
-}
-
 - (NSArray *)arrayWithoutItem:(id)item {
     NSPredicate *filter = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return ![item isEqual:evaluatedObject];
     }];
     return [self filteredArrayUsingPredicate:filter];
+}
+
+- (NSArray *)arrayWithoutHeadItem {
+    NSInteger length = [self count];
+    if (length > 1) {
+        NSRange range = NSMakeRange(1, length - 2);
+        return [self subarrayWithRange:range];
+    }
+    return @[];
 }
 
 @end

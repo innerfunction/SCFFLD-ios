@@ -26,8 +26,8 @@
 
 + (NSArray *)arrayWithItem:(id)item repeated:(NSInteger)repeats;
 
-- (NSString *)joinWithSeparator:(NSString *)separator;
-
 - (NSArray *)arrayWithoutItem:(id)item;
+
+- (NSArray *)arrayWithoutHeadItem;
 
 @end
