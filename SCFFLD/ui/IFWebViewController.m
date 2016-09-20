@@ -225,6 +225,7 @@
 - (BOOL)receiveMessage:(IFMessage *)message sender:(id)sender {
     if ([message hasName:@"load"]) {
         self.content = [message.parameters objectForKey:@"content"];
+        [self loadContent];
         return YES;
     }
     return [super receiveMessage:message sender:sender];
