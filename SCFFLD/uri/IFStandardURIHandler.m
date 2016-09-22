@@ -92,70 +92,69 @@
     return [_schemeHandlers valueForKey:scheme];
 }
 
-- (id)dereference:(id)uri {
-    IFCompoundURI *rscURI;
-    if ([uri isKindOfClass:[IFCompoundURI class]]) {
-        rscURI = (IFCompoundURI *)uri;
-    }
-    else {
-        rscURI = [self promoteToCompoundURI:uri];
-    }
+- (id)dereference:(id)uriRef {
+    IFCompoundURI *uri = [self promoteToCompoundURI:uriRef];
     id value = nil;
-    if (rscURI) {
+    if (uri) {
         // Resolve a handler for the URI scheme.
-        id<IFSchemeHandler> schemeHandler = [_schemeHandlers valueForKey:rscURI.scheme];
+        id<IFSchemeHandler> schemeHandler = [_schemeHandlers valueForKey:uri.scheme];
         if (schemeHandler) {
-            // Dictionary of resolved URI parameters.
-            NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:[rscURI.parameters count]];
-            // Iterate over the URIs parameter values (which are also URIs) and dereference each
-            // of them.
-            for (NSString *name in [rscURI.parameters allKeys]) {
-                IFCompoundURI *paramURI = [rscURI.parameters valueForKey:name];
-                id paramValue = [self dereference:paramURI];
-                if (paramValue) {
-                    [params setValue:paramValue forKey:name];
-                }
-            }
+            NSDictionary *params = [self dereferenceParameters:uri];
             // Resolve the current URI to an absolute form (potentially).
             if ([schemeHandler respondsToSelector:@selector(resolve:against:)]) {
-                IFCompoundURI *reference = [_schemeContexts valueForKey:rscURI.scheme];
+                IFCompoundURI *reference = [_schemeContexts valueForKey:uri.scheme];
                 if (reference) {
-                    rscURI = [schemeHandler resolve:rscURI against:reference];
+                    uri = [schemeHandler resolve:uri against:reference];
                 }
             }
             // Dereference the current URI.
-            value = [schemeHandler dereference:rscURI parameters:params];
+            value = [schemeHandler dereference:uri parameters:params];
         }
-        else if ([@"a" isEqualToString:rscURI.scheme]) {
+        else if ([@"a" isEqualToString:uri.scheme]) {
             // The a: scheme is a pseudo-scheme which is handled by the URI handler rather than a specific
             // scheme handler. Lookup a URI alias and dereference that.
-            NSString *aliasedURI = _aliases[rscURI.name];
+            NSString *aliasedURI = _aliases[uri.name];
             value = [self dereference:aliasedURI];
         }
         else {
-            NSString *reason = [NSString stringWithFormat:@"Handler not found for scheme %@:", rscURI.scheme];
+            NSString *reason = [NSString stringWithFormat:@"Handler not found for scheme %@:", uri.scheme];
             @throw [[NSException alloc] initWithName:@"IFURIResolver" reason:reason userInfo:nil];
         }
         // If the value is a resource then set its URI, and its URI handler as a copy of this handler,
         // with the scheme context modified with the resource's URI.
         if ([value isKindOfClass:[IFResource class]]) {
             IFResource *resource = (IFResource *)value;
-            resource.uri = rscURI;
-            resource.uriHandler = [self modifySchemeContext:rscURI];
+            resource.uri = uri;
+            resource.uriHandler = [self modifySchemeContext:uri];
         }
         // If the URI specifies a formatter then apply it to the URI result.
-        if (rscURI.format) {
-            id<IFURIValueFormatter> formatter = _formats[rscURI.format];
+        if (uri.format) {
+            id<IFURIValueFormatter> formatter = _formats[uri.format];
             if (formatter) {
-                value = [formatter formatValue:value fromURI:rscURI];
+                value = [formatter formatValue:value fromURI:uri];
             }
             else {
-                NSString *reason = [NSString stringWithFormat:@"Formatter not found for name %@:", rscURI.format];
+                NSString *reason = [NSString stringWithFormat:@"Formatter not found for name %@:", uri.format];
                 @throw [[NSException alloc] initWithName:@"IFURIResolver" reason:reason userInfo:nil];
             }
         }
     }
     return value;
+}
+
+- (NSDictionary *)dereferenceParameters:(IFCompoundURI *)uri {
+    // Dictionary of resolved URI parameters.
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithCapacity:[uri.parameters count]];
+    // Iterate over the URIs parameter values (which are also URIs) and dereference each
+    // of them.
+    for (NSString *name in [uri.parameters allKeys]) {
+        IFCompoundURI *valueURI = uri.parameters[name];
+        id value = [self dereference:valueURI];
+        if (value) {
+            params[name] = value;
+        }
+    }
+    return params;
 }
 
 - (id<IFURIHandler>)modifySchemeContext:(IFCompoundURI *)uri {
@@ -177,6 +176,9 @@
 - (IFCompoundURI *)promoteToCompoundURI:(id)uri {
     if (!uri) {
         return nil;
+    }
+    if ([uri isKindOfClass:[IFCompoundURI class]]) {
+        return (IFCompoundURI *)uri;
     }
     // Attempt to promote the argument to a compound URI by first converting to a string, followed
     // by parsing the string.

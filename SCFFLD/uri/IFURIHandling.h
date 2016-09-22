@@ -29,7 +29,13 @@
  * @param uri A compound URI, either as a non-parsed string or a parsed URI @see <IFCompoundURI>.
  * @return The deferenced value. Can be _nil_.
  */
-- (id)dereference:(id)uri;
+- (id)dereference:(id)uriRef;
+/**
+ * Deferefence all of a URI's parameters.
+ * @param uri   A parsed compound URI.
+ * @return A dictionary mapping parameter names to the dereferenced parameter value.
+ */
+- (NSDictionary *)dereferenceParameters:(IFCompoundURI *)uri;
 /**
  * Return a new URI handler with a modified scheme context (used to dereference relative URIs).
  */

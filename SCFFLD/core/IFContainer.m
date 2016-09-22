@@ -214,7 +214,7 @@
         // Build the object only if it has not already been built and added to _named_.
         // (Objects which are dependencies of other objects may be configured via getNamed:
         // before this loop has iterated around to them; or core names).
-        if ([_named objectForKey:name] == nil) {
+        if (_named[name] == nil) {
             [self buildNamedObject:name];
         }
     }
@@ -227,7 +227,7 @@
     id object = [_containerConfigurer configureNamed:name withConfiguration:_containerConfig];
     if (object != nil) {
         // Map the named object.
-        [_named setObject:object forKey:name];
+        _named[name] = object;
     }
     // Object is configured, notify any pending named references
     NSArray *pendings = _pendingNames[name];
@@ -259,7 +259,7 @@
 
 // Get a named object. Will attempt building the object if necessary.
 - (id)getNamed:(NSString *)name {
-    id object = [_named objectForKey:name];
+    id object = _named[name];
     // If named object not found then consider whether to try building it.
     if (object == nil) {
         // Check for a dependency cycle. If the requested name exists in _pendingNames_ then the named object is currently
@@ -383,7 +383,7 @@
     else {
         // Look-up the message target in named objects.
         NSString *targetHead = [message targetHead];
-        id target = [_named objectForKey:targetHead];
+        id target = _named[targetHead];
         if (target) {
             message = [message popTargetHead];
             // If we have the intended target, and the target is a message handler, then let it handle the message.
