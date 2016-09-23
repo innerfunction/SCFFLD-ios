@@ -18,6 +18,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IFIOCContainerAware.h"
+#import "IFIOCConfigurationAware.h"
 #import "IFMessageReceiver.h"
 #import "IFMessageRouter.h"
 #import "IFActionProxy.h"
@@ -50,7 +51,7 @@
  * this class to be subclassed, so long as the referencing outlets are named appropriately
  * in the layout file.
  */
-@interface IFViewController : UIViewController <IFIOCContainerAware, IFMessageReceiver, IFMessageRouter, IFActionProxy, IFViewBehaviourController> {
+@interface IFViewController : UIViewController <IFIOCContainerAware, IFIOCConfigurationAware, IFMessageReceiver, IFMessageRouter, IFActionProxy, IFViewBehaviourController> {
     NSMutableDictionary *_actionProxyLookup;
     BOOL _loadingLayout;
     NSMutableDictionary *_namedViewPlaceholders;

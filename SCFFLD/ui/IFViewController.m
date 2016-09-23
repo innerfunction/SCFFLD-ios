@@ -46,7 +46,7 @@
     return self;
 }
 
-#pragma mark - IFIOCContainerAware protocol
+#pragma mark - IFIOCConfigurationAware protocol
 
 - (void)beforeIOCConfiguration:(IFConfiguration *)configuration {
     _layoutName = [configuration getValueAsString:@"layoutName" defaultValue:_layoutName];

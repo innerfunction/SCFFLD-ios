@@ -21,6 +21,7 @@
 #import "IFIOCTypeInspectable.h"
 #import "IFIOCConfigurationInitable.h"
 #import "IFIOCContainerAware.h"
+#import "IFIOCConfigurationAware.h"
 #import "IFIOCObjectAware.h"
 #import "IFIOCObjectFactory.h"
 #import "IFIOCProxy.h"
@@ -244,10 +245,10 @@
                 [_pendingValueRefCounts removeObjectForKey:pending.objectKey];
                 id completed = pending.object;
                 // The property object is now fully configured, invoke its afterConfiguration: method if it
-                // implements IFIOCContainerAware protocol.
-                if ([completed conformsToProtocol:@protocol(IFIOCContainerAware)]) {
+                // implements IFIOCConfigurationAware protocol.
+                if ([completed conformsToProtocol:@protocol(IFIOCConfigurationAware)]) {
                     IFConfiguration *objConfig = _pendingValueObjectConfigs[pending.objectKey];
-                    [(id<IFIOCContainerAware>)completed afterIOCConfiguration:objConfig];
+                    [(id<IFIOCConfigurationAware>)completed afterIOCConfiguration:objConfig];
                     [_pendingValueObjectConfigs removeObjectForKey:pending.objectKey];
                 }
             }

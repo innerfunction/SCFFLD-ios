@@ -89,7 +89,7 @@
     return nil;
 }
 
-#pragma mark - IFIOCContainerAware
+#pragma mark - IFIOCConfigurationAware
 
 - (void)beforeIOCConfiguration:(IFConfiguration *)configuration {}
 

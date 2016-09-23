@@ -18,7 +18,7 @@
 
 #import "IFObjectConfigurer.h"
 #import "IFContainer.h"
-#import "IFIOCContainerAware.h"
+#import "IFIOCConfigurationAware.h"
 #import "IFIOCTypeInspectable.h"
 #import "IFIOCObjectFactory.h"
 #import "IFIOCObjectAware.h"
@@ -98,8 +98,8 @@
           keyPathPrefix:(NSString *)kpPrefix {
 
     // Pre-configuration.
-    if ([object conformsToProtocol:@protocol(IFIOCContainerAware)]) {
-        [(id<IFIOCContainerAware>)object beforeIOCConfiguration:configuration];
+    if ([object conformsToProtocol:@protocol(IFIOCConfigurationAware)]) {
+        [(id<IFIOCConfigurationAware>)object beforeIOCConfiguration:configuration];
     }
     // Iterate over each property name defined in the configuration.
     NSArray *valueNames = [configuration getValueNames];
@@ -139,13 +139,13 @@
         }
     }
     // Post configuration.
-    if ([object conformsToProtocol:@protocol(IFIOCContainerAware)]) {
+    if ([object conformsToProtocol:@protocol(IFIOCConfigurationAware)]) {
         NSValue *objectKey = [NSValue valueWithNonretainedObject:object];
         if ([_container hasPendingValueRefsForObjectKey:objectKey]) {
             [_container recordPendingValueObjectConfiguration:configuration forObjectKey:objectKey];
         }
         else {
-            [(id<IFIOCContainerAware>)object afterIOCConfiguration:configuration];
+            [(id<IFIOCConfigurationAware>)object afterIOCConfiguration:configuration];
         }
     }
     [_container doPostConfiguration:object];

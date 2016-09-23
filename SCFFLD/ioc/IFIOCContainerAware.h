@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-//  Created by Julian Goacher on 26/10/2015.
-//  Copyright © 2015 InnerFunction. All rights reserved.
+//  Created by Julian Goacher on 23/09/2016.
+//  Copyright © 2016 InnerFunction. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -28,17 +28,5 @@
 
 /// The component's container.
 @property (nonatomic, weak) IFContainer *iocContainer;
-
-/**
- * Called immediately before the object is configured via dependency injection.
- * @param configuration The object's configuration.
- */
-- (void)beforeIOCConfiguration:(IFConfiguration *)configuration;
-
-/**
- * Called immediately after the object is configured via dependency injection.
- * @param configuration The object's configuration.
- */
-- (void)afterIOCConfiguration:(IFConfiguration *)configuration;
 
 @end
