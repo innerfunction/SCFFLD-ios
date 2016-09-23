@@ -47,10 +47,10 @@
     NSMutableDictionary *_globals;
     /// Access to the app's local storage.
     IFLocals *_locals;
+    /// The URI handler instantiated by this container.
+    IFStandardURIHandler *_appURIHandler;
 }
 
-/// The app's URI handler.
-@property (nonatomic, strong) IFStandardURIHandler *uriHandler;
 /// The app's default background colour.
 @property (nonatomic, strong) UIColor *appBackgroundColor;
 /// The app's window.

@@ -202,6 +202,7 @@
 //   cycle won't be fully configured when injected into the dependent.
 - (void)configureWith:(IFConfiguration *)configuration {
     _containerConfig = configuration;
+    self.uriHandler = configuration.uriHandler;
     
     // Build the priority names first.
     for (NSString *name in _priorityNames) {
@@ -259,6 +260,10 @@
 
 // Get a named object. Will attempt building the object if necessary.
 - (id)getNamed:(NSString *)name {
+    // Allow the container to be referenced as named:*container
+    if ([@"*container" isEqualToString:name]) {
+        return self;
+    }
     id object = _named[name];
     // If named object not found then consider whether to try building it.
     if (object == nil) {

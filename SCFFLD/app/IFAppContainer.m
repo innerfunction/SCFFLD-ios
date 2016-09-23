@@ -38,7 +38,8 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.uriHandler = [[IFStandardURIHandler alloc] init];
+        _appURIHandler = [[IFStandardURIHandler alloc] init];
+        self.uriHandler = _appURIHandler;
         // Core names which should be built before processing the rest of the container's configuration.
         self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"makes" ];
     }
@@ -103,19 +104,19 @@
 }
 
 - (void)setFormats:(NSDictionary *)formats {
-    _uriHandler.formats = formats;
+    _appURIHandler.formats = formats;
 }
 
 - (NSDictionary *)formats {
-    return _uriHandler.formats;
+    return _appURIHandler.formats;
 }
 
 - (void)setAliases:(NSDictionary *)aliases {
-    _uriHandler.aliases = aliases;
+    _appURIHandler.aliases = aliases;
 }
 
 - (NSDictionary *)aliases {
-    return _uriHandler.aliases;
+    return _appURIHandler.aliases;
 }
 
 - (void)configureWith:(IFConfiguration *)configuration {
@@ -128,10 +129,10 @@
     [self addTypes:[configuration getValueAsConfiguration:@"types"]];
     
     // Add additional schemes to the resolver/dispatcher.
-    [_uriHandler addHandler:[[IFNewScheme alloc] initWithContainer:self] forScheme:@"new"];
-    [_uriHandler addHandler:[[IFMakeScheme alloc] initWithAppContainer:self] forScheme:@"make"];
-    [_uriHandler addHandler:[[IFNamedSchemeHandler alloc] initWithContainer:self] forScheme:@"named"];
-    [_uriHandler addHandler:[[IFPostScheme alloc] init] forScheme:@"post"];
+    [_appURIHandler addHandler:[[IFNewScheme alloc] initWithContainer:self] forScheme:@"new"];
+    [_appURIHandler addHandler:[[IFMakeScheme alloc] initWithAppContainer:self] forScheme:@"make"];
+    [_appURIHandler addHandler:[[IFNamedSchemeHandler alloc] initWithContainer:self] forScheme:@"named"];
+    [_appURIHandler addHandler:[[IFPostScheme alloc] init] forScheme:@"post"];
     
     // Default local settings.
     _locals = [[IFLocals alloc] initWithPrefix:@"semo"];
@@ -140,7 +141,7 @@
         [_locals setValues:settings forceReset:ForceResetDefaultSettings];
     }
     
-    [_named setObject:_uriHandler forKey:@"uriHandler"];
+    [_named setObject:_appURIHandler forKey:@"uriHandler"];
     [_named setObject:_globals forKey:@"globals"];
     [_named setObject:_locals forKey:@"locals"];
     [_named setObject:self forKey:@"app"];
@@ -153,7 +154,7 @@
     for (id schemeName in _schemes) {
         id scheme = _schemes[schemeName];
         if ([scheme conformsToProtocol:@protocol(IFSchemeHandler)]) {
-            [_uriHandler addHandler:scheme forScheme:schemeName];
+            [_appURIHandler addHandler:scheme forScheme:schemeName];
         }
     }
     _schemes = nil; // Remove the property to avoid a retain cycle.
@@ -264,7 +265,7 @@
         // and some views (e.g. web views) have to be instantiated on the UI thread.
         dispatch_async(dispatch_get_main_queue(), ^{
             // See if the URI resolves to a post message object.
-            id message = [_uriHandler dereference:uri];
+            id message = [_appURIHandler dereference:uri];
             if (![message isKindOfClass:[IFMessage class]]) {
                 // Automatically promote views to 'show' messages.
                 if ([message isKindOfClass:[UIViewController class]]) {
@@ -283,7 +284,7 @@
 }
 
 - (BOOL)isInternalURISchemeName:(NSString *)schemeName {
-    return [_uriHandler hasHandlerForURIScheme:schemeName];
+    return [_appURIHandler hasHandlerForURIScheme:schemeName];
 }
 
 #pragma mark - IFIOCTypeInspectable

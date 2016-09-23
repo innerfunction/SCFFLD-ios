@@ -77,6 +77,8 @@
  * Names should be listed in priority order.
  */
 @property (nonatomic, strong) NSArray *priorityNames;
+/// The container's URI handler. This is resolved from the container's configuration.
+@property (nonatomic, strong) id<IFURIHandler> uriHandler;
 
 /**
  * Get a named component.
