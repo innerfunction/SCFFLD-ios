@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCFFLD"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "Dependency Injection framework for iOS"
 
   # This description is used to generate tags and improve search results.
@@ -87,7 +87,7 @@ Pod::Spec.new do |s|
   #s.source       = { :git => "https://github.com/innerfunction/SCFFLD.git" } #, :tag => "0.0.1" }
   s.source       = { :git => "git@github.com:innerfunction/SCFFLD-ios.git" } #, :tag => "0.0.1" }
 
-  s.source_files  = "SCFFLD/*.{h,m}", "SCFFLD/{app,core,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
+  s.source_files  = "SCFFLD/*.{h,m}", "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
   s.exclude_files = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{m,mm,c}"
   s.requires_arc = true
 
