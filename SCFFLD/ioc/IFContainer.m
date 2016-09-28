@@ -22,6 +22,7 @@
 #import "IFIOCConfigurationInitable.h"
 #import "IFIOCContainerAware.h"
 #import "IFIOCConfigurationAware.h"
+#import "IFIOCSingleton.h"
 #import "IFIOCObjectAware.h"
 #import "IFIOCObjectFactory.h"
 #import "IFIOCProxy.h"
@@ -166,12 +167,21 @@
         DDLogError(@"%@: Class not found %@", LogTag, className);
         return nil;
     }
-    id instance = [class alloc];
-    if ([instance conformsToProtocol:@protocol(IFIOCConfigurationInitable)]) {
-        instance = [(id<IFIOCConfigurationInitable>)instance initWithConfiguration:configuration];
+    id instance;
+    // Check for singleton classes.
+    if ([class conformsToProtocol:@protocol(IFIOCSingleton)]) {
+        // Return the class' singleton instance.
+        instance = [(id<IFIOCSingleton>)class iocSingleton];
     }
     else {
-        instance = [instance init];
+        // Allocate and instantiate a new class instance.
+        instance = [class alloc];
+        if ([instance conformsToProtocol:@protocol(IFIOCConfigurationInitable)]) {
+            instance = [(id<IFIOCConfigurationInitable>)instance initWithConfiguration:configuration];
+        }
+        else {
+            instance = [instance init];
+        }
     }
     [self doPostInstantiation:instance];
     return instance;

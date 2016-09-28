@@ -30,6 +30,7 @@
 		074C3DC31C944D32009BBEEF /* IFViewBehaviour.h in Headers */ = {isa = PBXBuildFile; fileRef = 074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */; };
 		074C3DC61C944FC3009BBEEF /* IFViewBehaviourObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */; };
 		074C3DC71C944FC3009BBEEF /* IFViewBehaviourObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */; };
+		077C195C1D9C0D4A00783E9D /* IFIOCSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 077C195B1D9C0D4A00783E9D /* IFIOCSingleton.h */; };
 		078BBBD91CBED3EB00E4DE02 /* IFURIValueFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */; };
 		07933EF61C8A588B003D6227 /* IFUILabelProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 07933EF41C8A588B003D6227 /* IFUILabelProxy.h */; };
 		07933EF71C8A588B003D6227 /* IFUILabelProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07933EF51C8A588B003D6227 /* IFUILabelProxy.m */; };
@@ -201,6 +202,7 @@
 		074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviour.h; path = ui/IFViewBehaviour.h; sourceTree = SOURCE_ROOT; };
 		074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviourObject.h; path = ui/IFViewBehaviourObject.h; sourceTree = SOURCE_ROOT; };
 		074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFViewBehaviourObject.m; path = ui/IFViewBehaviourObject.m; sourceTree = SOURCE_ROOT; };
+		077C195B1D9C0D4A00783E9D /* IFIOCSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCSingleton.h; sourceTree = "<group>"; };
 		078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFURIValueFormatter.h; path = uri/IFURIValueFormatter.h; sourceTree = SOURCE_ROOT; };
 		07933EF41C8A588B003D6227 /* IFUILabelProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFUILabelProxy.h; path = ui/IFUILabelProxy.h; sourceTree = SOURCE_ROOT; };
 		07933EF51C8A588B003D6227 /* IFUILabelProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFUILabelProxy.m; path = ui/IFUILabelProxy.m; sourceTree = SOURCE_ROOT; };
@@ -680,6 +682,7 @@
 				07D760E71D9578CC0043F371 /* IFIOCProxy.h */,
 				07D760E81D9578CC0043F371 /* IFIOCProxyObject.h */,
 				07D760E91D9578CC0043F371 /* IFIOCProxyObject.m */,
+				077C195B1D9C0D4A00783E9D /* IFIOCSingleton.h */,
 				07D760EA1D9578CC0043F371 /* IFIOCTypeInspectable.h */,
 				07D760EB1D9578CC0043F371 /* IFJSONData.h */,
 				07D760EC1D9578CC0043F371 /* IFJSONData.m */,
@@ -749,6 +752,7 @@
 				07BD8A781C7653670058D7A8 /* IFAppContainer.h in Headers */,
 				07BD8B1E1C7653F00058D7A8 /* DDLog.h in Headers */,
 				07BD8B031C7653AD0058D7A8 /* UIColor+IF.h in Headers */,
+				077C195C1D9C0D4A00783E9D /* IFIOCSingleton.h in Headers */,
 				07933F021C8F7EE8003D6227 /* IFUITextFieldProxy.h in Headers */,
 				07BD8B4C1C7653FC0058D7A8 /* mztools.h in Headers */,
 				07BD8B501C7653FC0058D7A8 /* zip.h in Headers */,
