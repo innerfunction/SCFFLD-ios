@@ -152,7 +152,6 @@
 		07D761011D9578CC0043F371 /* IFCoreTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D760DE1D9578CC0043F371 /* IFCoreTypes.m */; };
 		07D761021D9578CC0043F371 /* IFIOCConfigurationAware.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760DF1D9578CC0043F371 /* IFIOCConfigurationAware.h */; };
 		07D761031D9578CC0043F371 /* IFIOCConfigurationInitable.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760E01D9578CC0043F371 /* IFIOCConfigurationInitable.h */; };
-		07D761041D9578CC0043F371 /* IFIOCConfigurer.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760E11D9578CC0043F371 /* IFIOCConfigurer.h */; };
 		07D761051D9578CC0043F371 /* IFIOCContainerAware.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760E21D9578CC0043F371 /* IFIOCContainerAware.h */; };
 		07D761061D9578CC0043F371 /* IFIOCObjectAware.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760E31D9578CC0043F371 /* IFIOCObjectAware.h */; };
 		07D761071D9578CC0043F371 /* IFIOCObjectFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760E41D9578CC0043F371 /* IFIOCObjectFactory.h */; };
@@ -330,7 +329,6 @@
 		07D760DE1D9578CC0043F371 /* IFCoreTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCoreTypes.m; sourceTree = "<group>"; };
 		07D760DF1D9578CC0043F371 /* IFIOCConfigurationAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCConfigurationAware.h; sourceTree = "<group>"; };
 		07D760E01D9578CC0043F371 /* IFIOCConfigurationInitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCConfigurationInitable.h; sourceTree = "<group>"; };
-		07D760E11D9578CC0043F371 /* IFIOCConfigurer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCConfigurer.h; sourceTree = "<group>"; };
 		07D760E21D9578CC0043F371 /* IFIOCContainerAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCContainerAware.h; sourceTree = "<group>"; };
 		07D760E31D9578CC0043F371 /* IFIOCObjectAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCObjectAware.h; sourceTree = "<group>"; };
 		07D760E41D9578CC0043F371 /* IFIOCObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCObjectFactory.h; sourceTree = "<group>"; };
@@ -673,7 +671,6 @@
 				07D760DE1D9578CC0043F371 /* IFCoreTypes.m */,
 				07D760DF1D9578CC0043F371 /* IFIOCConfigurationAware.h */,
 				07D760E01D9578CC0043F371 /* IFIOCConfigurationInitable.h */,
-				07D760E11D9578CC0043F371 /* IFIOCConfigurer.h */,
 				07D760E21D9578CC0043F371 /* IFIOCContainerAware.h */,
 				07D760E31D9578CC0043F371 /* IFIOCObjectAware.h */,
 				07D760E41D9578CC0043F371 /* IFIOCObjectFactory.h */,
@@ -732,7 +729,6 @@
 				07BD8B011C7653AD0058D7A8 /* NSString+IF.h in Headers */,
 				07D7610B1D9578CC0043F371 /* IFIOCProxyObject.h in Headers */,
 				07D761141D9578CC0043F371 /* IFObjectConfigurer.h in Headers */,
-				07D761041D9578CC0043F371 /* IFIOCConfigurer.h in Headers */,
 				072DA4A41C848D680023FAEC /* JTSImageViewController.h in Headers */,
 				07BD8B201C7653F00058D7A8 /* DDTTYLogger.h in Headers */,
 				072DA4B61C8491070023FAEC /* UIViewController+Toast.h in Headers */,
