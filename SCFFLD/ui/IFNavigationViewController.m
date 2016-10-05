@@ -18,7 +18,7 @@
 
 #import "IFNavigationViewController.h"
 #import "IFViewController.h"
-#import "IFLogging.h"
+#import "IFLogger.h"
 
 @implementation IFNavigationViewController
 
@@ -118,7 +118,7 @@
             }
         }
         else {
-            DDLogWarn(@"%@: Unable to push view parameter of type %@", LogTag, [view.class description]);
+            [IFLogger withTag:@"IFNavigationViewController" error:@"Unable to push view parameter of type %@", [view.class description]];
         }
         return YES;
     }

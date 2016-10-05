@@ -19,6 +19,7 @@
 #import <Foundation/Foundation.h>
 #import "IFConfiguration.h"
 #import "IFTypeInfo.h"
+#import "IFLogger.h"
 
 @class IFContainer;
 
@@ -31,6 +32,8 @@
     IFContainer *_container;
     /// The container's property type information.
     IFTypeInfo *_containerTypeInfo;
+    /// The object logger.
+    IFLogger *_logger;
 }
 
 /**

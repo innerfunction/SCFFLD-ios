@@ -23,6 +23,7 @@
 #import "IFService.h"
 #import "IFTypeInfo.h"
 #import "IFPendingNamed.h"
+#import "IFLogger.h"
 
 @class IFObjectConfigurer;
 
@@ -68,6 +69,8 @@
     BOOL _running;
     /// An object configurer for the container.
     IFObjectConfigurer *_containerConfigurer;
+    /// The container logger.
+    IFLogger *_logger;
 }
 
 /// The parent container of a nested container.

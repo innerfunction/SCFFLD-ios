@@ -25,7 +25,6 @@
 #import "IFIOCProxy.h"
 #import "IFPendingNamed.h"
 #import "IFJSONData.h"
-#import "IFLogging.h"
 
 @interface IFObjectConfigurer ()
 
@@ -64,6 +63,7 @@
     if (self) {
         _container = container;
         _containerTypeInfo = [[IFContainerTypeInfo alloc] initWithContainer:_container];
+        _logger = [[IFLogger alloc] initWithTag:@"IFObjectConfigurer"];
     }
     return self;
 }
@@ -133,7 +133,7 @@
                     value = [self injectIntoObject:object value:value intoProperty:propName propInfo:propInfo];
                 }
                 @catch (id exception) {
-                    DDLogError(@"%@: Error injecting value into %@: %@", LogTag, kpRef, exception);
+                    [_logger error:@"Error injecting value into %@: %@", kpRef, exception];
                 }
             }
         }
@@ -241,7 +241,7 @@
                         // aren't properties of the container.
                     }
                     else {
-                        DDLogError(@"%@: Reading %@ %@", LogTag, kpRef, e);
+                        [_logger error:@"Reading %@ %@", kpRef, e];
                     }
                 }
                 if (value != nil) {
@@ -259,7 +259,7 @@
                         value = [_container newInstanceForClassName:className withConfiguration:valueConfig];
                     }
                     @catch (NSException *e) {
-                        DDLogInfo(@"%@: Error creating new instance of inferred type %@: %@", LogTag, className, e );
+                        [_logger error:@"Error creating new instance of inferred type %@: %@", className, e ];
                     }
                 }
                 // If we now have either an in-place or inferred type value by this point, then
@@ -273,7 +273,7 @@
                             value = [(NSDictionary *)value mutableCopy];
                         }
                         @catch (id exception) {
-                            DDLogError(@"%@: Unable to make mutable NSDictionary copy of %@", LogTag, kpRef);
+                            [_logger error:@"Unable to make mutable NSDictionary copy of %@", kpRef];
                         }
                         typeInfo = [[IFCollectionTypeInfo alloc] initWithCollection:value parent:object propName:propName];
                     }
@@ -282,7 +282,7 @@
                             value = [(NSArray *)value mutableCopy];
                         }
                         @catch (id exception) {
-                            DDLogError(@"%@: Unable to make mutable NSArray copy of %@", LogTag, kpRef);
+                            [_logger error:@"Unable to make mutable NSArray copy of %@", kpRef];
                         }
                         typeInfo = [[IFCollectionTypeInfo alloc] initWithCollection:value parent:object propName:propName];
                     }

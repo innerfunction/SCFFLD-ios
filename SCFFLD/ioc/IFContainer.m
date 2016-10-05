@@ -30,7 +30,6 @@
 #import "IFObjectConfigurer.h"
 #import "IFPostScheme.h"
 #import "IFTypeConversions.h"
-#import "IFLogging.h"
 
 /** Entry for a configurable proxy in the proxy lookup table. */
 @interface IFIOCProxyLookupEntry : NSObject {
@@ -74,6 +73,7 @@
         _pendingValueRefCounts = [NSMutableDictionary new];
         _pendingValueObjectConfigs = [NSMutableDictionary new];
         _containerConfigurer = [[IFObjectConfigurer alloc] initWithContainer:self];
+        _logger = [[IFLogger alloc] initWithTag:@"IFContainer"];
     }
     return self;
 }
@@ -108,7 +108,7 @@
             [self doPostConfiguration:object];
         }
         else {
-            DDLogError(@"%@: Building %@, invalid factory class '%@'", LogTag, identifier, [factory class]);
+            [_logger error:@"Building %@, invalid factory class '%@'", identifier, [factory class]];
         }
     }
     else {
@@ -131,11 +131,11 @@
         if (type) {
             className = [_types getValueAsString:type];
             if (!className) {
-                DDLogError(@"%@: Instantiating %@, no class name found for type %@", LogTag, identifier, type);
+                [_logger error:@"Instantiating %@, no class name found for type %@", identifier, type];
             }
         }
         else {
-            DDLogError(@"%@: Instantiating %@, Component configuration missing *type or *ios-class property", LogTag, identifier);
+            [_logger error:@"Instantiating %@, Component configuration missing *type or *ios-class property", identifier];
         }
     }
     if (className) {
@@ -148,7 +148,7 @@
 - (id)newInstanceForTypeName:(NSString *)typeName withConfiguration:(IFConfiguration *)configuration {
     NSString *className = [_types getValueAsString:typeName];
     if (!className) {
-        DDLogError(@"%@: newInstanceForTypeName, no class name found for type %@", LogTag, typeName);
+        [_logger error:@"newInstanceForTypeName, no class name found for type %@", typeName];
         return nil;
     }
     return [self newInstanceForClassName:className withConfiguration:configuration];
@@ -164,7 +164,7 @@
     // Otherwise continue with class instantiation.
     Class class = NSClassFromString(className);
     if (class == nil) {
-        DDLogError(@"%@: Class not found %@", LogTag, className);
+        [_logger error:@"Class not found %@", className];
         return nil;
     }
     id instance;
@@ -282,7 +282,7 @@
         // being configured.
         NSArray *pending = _pendingNames[name];
         if (pending != nil) {
-            DDLogInfo(@"IDO: Named dependency cycle detected, creating pending entry for %@...", name);
+            [_logger info:@"IDO: Named dependency cycle detected, creating pending entry for %@...", name];
             // Create a placeholder object and record in the list of placeholders waiting for the named configuration to complete.
             // Note that the placeholder is returned in place of the named - code above detects the placeholder and ensures that
             // the correct value is resolved instead.
@@ -358,7 +358,7 @@
             [service startService];
         }
         @catch (NSException *exception) {
-            DDLogCError(@"Error starting service %@: %@", [service class], exception);
+            [_logger error:@"Error starting service %@: %@", [service class], exception];
         }
     }
 }
@@ -372,7 +372,7 @@
             }
         }
         @catch (NSException *exception) {
-            DDLogCError(@"Error stopping service %@: %@", [service class], exception);
+            [_logger error:@"Error stopping service %@: %@", [service class], exception];
         }
     }
     _running = NO;

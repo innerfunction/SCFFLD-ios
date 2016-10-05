@@ -19,7 +19,6 @@
 #import "IFResource.h"
 #import "IFCompoundURI.h"
 #import "IFTypeConversions.h"
-#import "IFLogging.h"
 
 // Standard URI resource. Recognizes NSString, NSNumber and NSData resource types
 // and resolves different representations appropriately.

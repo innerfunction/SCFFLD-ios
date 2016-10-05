@@ -18,7 +18,7 @@
 
 #import "IFFileIO.h"
 #import "ZipArchive.h"
-#import "IFLogging.h"
+#import "IFLogger.h"
 
 @interface IFZipArchiveDelegate : NSObject <ZipArchiveDelegate> {
     NSString *zipPath;
@@ -67,12 +67,12 @@
             ok = YES;
         }
         else {
-            DDLogError(@"IFFileIO: Failed to unzip %@ to %@", zipPath, outPath );
+            [IFLogger withTag:@"IFFileIO" error:@"Failed to unzip %@ to %@", zipPath, outPath];
         }
         [archive UnzipCloseFile];
     }
     else {
-        DDLogError(@"IFFileIO: Failed to open zip file %@", zipPath);
+        [IFLogger withTag:@"IFFileIO" error:@"Failed to open zip file %@", zipPath];
     }
     return ok;
 }
@@ -92,7 +92,7 @@
 #pragma mark - ZipArchiveDelegate
 
 - (void)ErrorMessage:(NSString *)msg {
-    DDLogError(@"IFFileIO: Error processing zip file %@: %@", zipPath, msg);
+    [IFLogger withTag:@"IFFileIO" error:@"Error processing zip file %@: %@", zipPath, msg];
 }
 
 

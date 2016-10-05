@@ -23,7 +23,6 @@
 #import "NSDictionary+IF.h"
 #import "UIColor+IF.h"
 #import "IFJSONData.h"
-#import "IFLogging.h"
 
 #define ValueOrDefault(v,dv)    (v == nil ? dv : v)
 

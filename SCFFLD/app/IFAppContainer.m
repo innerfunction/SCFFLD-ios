@@ -24,7 +24,6 @@
 #import "IFPostScheme.h"
 #import "IFCoreTypes.h"
 #import "IFI18nMap.h"
-#import "IFLogging.h"
 #import "NSString+IF.h"
 
 @interface IFAppContainer ()
@@ -42,6 +41,9 @@
         self.uriHandler = _appURIHandler;
         // Core names which should be built before processing the rest of the container's configuration.
         self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"makes" ];
+        
+        _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
+
     }
     return self;
 }
@@ -68,14 +70,14 @@
             NSError *error = nil;
             uri = [IFCompoundURI parse:(NSString *)configSource error:&error];
             if (error) {
-                DDLogCError(@"%@: Error parsing app container configuration URI: %@", LogTag, error);
+                [_logger error:@"Error parsing app container configuration URI: %@", error];
                 return;
             }
         }
         id configData = nil;
         if (uri) {
             // If a configuration source URI has been resolved then attempt loading the configuration from the URI.
-            DDLogInfo(@"%@: Attempting to load app container configuration from %@", LogTag, uri);
+            [_logger info:@"Attempting to load app container configuration from %@", uri ];
             configData = [self.uriHandler dereference:uri];
         }
         else {
@@ -99,7 +101,7 @@
         [self configureWith:configuration];
     }
     else {
-        DDLogWarn(@"%@: Unable to resolve configuration from %@", LogTag, configSource);
+        [_logger warn:@"Unable to resolve configuration from %@", configSource ];
     }
 }
 
@@ -174,12 +176,12 @@
     [values setObject:platformValues forKey:@"platform"];
     
     NSString *mode = [configuration getValueAsString:@"mode" defaultValue:@"LIVE"];
-    DDLogInfo(@"%@: Configuration mode: %@", LogTag, mode);
+    [_logger info:@"Configuration mode: %@", mode];
     [values setObject:mode forKey:@"mode"];
     
     NSLocale *locale = [NSLocale currentLocale];
     NSString *lang = nil;
-    DDLogInfo(@"%@: Current locale is %@", LogTag, locale.localeIdentifier);
+    [_logger info:@"Current locale is %@", locale.localeIdentifier];
     
     // The 'supportedLocales' setting can be used to declare a list of the locales that app assets are
     // available in. If the platform's default locale (above) isn't on this list then the code below
@@ -222,7 +224,7 @@
         // If the user's preferred language hasn't been selected, then use the current locale's.
         lang = [locale objectForKey:NSLocaleLanguageCode];
     }
-    DDLogInfo(@"%@: Using language %@", LogTag, lang);
+    [_logger info:@"Using language %@", lang];
     
     NSDictionary *localeValues = @{
         @"id":       [locale objectForKey:NSLocaleIdentifier],
@@ -238,7 +240,7 @@
 - (UIViewController *)getRootView {
     id rootView = [_named objectForKey:@"rootView"];
     if (!rootView) {
-        DDLogError(@"%@: No component named 'rootView' found", LogTag);
+        [_logger error:@"No component named 'rootView' found"];
     }
     else if ([rootView isKindOfClass:[UIView class]]) {
         // Promote UIView to a view controller.
@@ -246,7 +248,7 @@
         rootView = viewController;
     }
     else if (![rootView isKindOfClass:[UIViewController class]]) {
-        DDLogError(@"%@: The component named 'rootView' is not an instance of UIView or UIViewController", LogTag);
+        [_logger error:@"The component named 'rootView' is not an instance of UIView or UIViewController"];
         rootView = nil;
     }
     return rootView;

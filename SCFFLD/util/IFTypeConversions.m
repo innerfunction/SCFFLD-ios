@@ -19,7 +19,7 @@
 #import "IFTypeConversions.h"
 #import "IFRegExp.h"
 #import "ISO8601DateFormatter.h"
-#import "IFLogging.h"
+#import "IFLogger.h"
 #import "objc/runtime.h"
 
 #define Retina4DisplayHeight    568
@@ -133,7 +133,7 @@ static void *IFTypeConversions_threadDateFormatter;
             NSData *data = [IFTypeConversions asData:value];
             jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-                DDLogCError(@"[SCTypeConversions asJSONData] Parsing JSON %@\n%@", value, error);
+                [IFLogger withTag:@"IFTypeConversions" error:@"Parsing JSON %@\n%@", value, error];
                 jsonData = value;
             }
         }

@@ -17,7 +17,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IFLogging.h"
 
 @interface IFLogger : NSObject {
     NSString *_tag;
@@ -28,5 +27,8 @@
 - (void)info:(NSString *)message, ...;
 - (void)warn:(NSString *)message, ...;
 - (void)error:(NSString *)message, ...;
+
++ (void)withTag:(NSString *)tag error:(NSString *)message, ...;
++ (void)withTag:(NSString *)tag warn:(NSString *)message, ...;
 
 @end

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCFFLD"
-  s.version      = "0.0.9"
+  s.version      = "0.0.10"
   s.summary      = "Dependency Injection framework for iOS"
 
   # This description is used to generate tags and improve search results.
@@ -69,7 +69,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -88,7 +88,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "git@github.com:innerfunction/SCFFLD-ios.git" } #, :tag => "0.0.1" }
 
   s.source_files  = "SCFFLD/*.{h,m}", "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
-  s.exclude_files = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{m,mm,c}"
+  s.exclude_files = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
   s.requires_arc = true
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -100,11 +100,16 @@ Pod::Spec.new do |s|
   #
 
   s.subspec 'noarc' do |sp|
-    sp.source_files = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}", "SCFFLD/Externals/ZipArchive/**/*.{h,m,mm,c}"
-    # This next line necessary to ensure that #include "minizip/zip.h" will still work.
-    sp.header_mappings_dir = 'SCFFLD/Externals/ZipArchive'
+    sp.source_files = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
     sp.requires_arc = false
   end
+  
+  #s.subspec 'zip' do |sp|
+    #sp.source_files = "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
+    # This next line necessary to ensure that #include "minizip/zip.h" will still work.
+    #sp.header_mappings_dir = 'SCFFLD/Externals/ZipArchive'
+    #sp.requires_arc = false
+  #end
 
   # s.public_header_files = "Classes/**/*.h"
 
@@ -142,5 +147,6 @@ Pod::Spec.new do |s|
 
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**" }
   # s.dependency "JSONKit", "~> 1.4"
+  s.dependency 'ZipArchive'
 
 end

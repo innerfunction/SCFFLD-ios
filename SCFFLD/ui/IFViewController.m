@@ -18,7 +18,6 @@
 
 #import "IFViewController.h"
 #import "IFAppContainer.h"
-#import "IFLogging.h"
 #import "UIViewController+Toast.h"
 #import "UIViewController+ImageView.h"
 
@@ -34,6 +33,7 @@
         _actionProxyLookup = [NSMutableDictionary new];
         _behaviours = @[];
         _useAutoLayout = YES;
+        _logger = [[IFLogger alloc] initWithTag:@"IFViewController"];
     }
     return self;
 }
@@ -204,7 +204,7 @@
         _loadingLayout = YES;
         NSArray *result = [[NSBundle mainBundle] loadNibNamed:_layoutName owner:self options:nil];
         if (![result count]) {
-            DDLogWarn(@"%@: Failed to load layout from %@.xib", LogTag, _layoutName);
+            [_logger warn:@"Failed to load layout from %@.xib", _layoutName];
         }
         else {
             self.view = result[0];
@@ -231,11 +231,11 @@
                 [self replaceSubview:placeholder withView:controller.view];
             }
             else {
-                DDLogWarn(@"%@: Named view '%@' has non-view class '%@'", LogTag, name, [view class]);
+                [_logger warn:@"Named view '%@' has non-view class '%@'", name, [view class]];
             }
         }
         else {
-            DDLogWarn(@"%@: No placeholder for named view '%@'", LogTag, name);
+            [_logger warn:@"No placeholder for named view '%@'", name];
         }
     }
     // Discard the placeholder views.

@@ -21,9 +21,9 @@
 #import "IFAppContainer.h"
 #import "UIViewController+Toast.h"
 #import "NSDictionary+IFValues.h"
-#import "IFLogging.h"
 #import "UIImage+CropScale.h"
 #import "IFTypeConversions.h"
+#import "IFLogger.h"
 
 #define SectionHeaderHeight     (22.0f)
 #define SectionHeaderViewHeight (18.0f)
@@ -131,7 +131,7 @@
         _tableData.uriHandler = resource.uriHandler;
     }
     else {
-        DDLogWarn(@"%@: Unable to set content of type %@", LogTag, [[content class] description]);
+        [IFLogger withTag:@"IFTableViewController" error:@"Unable to set content of type %@", [[content class] description]];
     }
     if (data) {
         _tableData.data = [self formatData:data];

@@ -23,6 +23,7 @@
 #import "IFMessageRouter.h"
 #import "IFActionProxy.h"
 #import "IFViewBehaviour.h"
+#import "IFLogger.h"
 
 /**
  * A configurable version of the _UIViewController_ class.
@@ -55,6 +56,7 @@
     NSMutableDictionary *_actionProxyLookup;
     BOOL _loadingLayout;
     NSMutableDictionary *_namedViewPlaceholders;
+    IFLogger *_logger;
 }
 
 /** Flag indicating whether to show or hide the title bar. */

@@ -33,7 +33,6 @@
     va_start(args, message);
     NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
     va_end(args);
-    //DDLogCVerbose(@"%@: %@", _tag, msg);
     NSLog(@"%@: %@", _tag, msg);
 }
 
@@ -42,7 +41,6 @@
     va_start(args, message);
     NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
     va_end(args);
-    //DDLogInfo(@"%@: %@", _tag, msg);
     NSLog(@"%@: %@", _tag, msg);
 }
 
@@ -51,7 +49,6 @@
     va_start(args, message);
     NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
     va_end(args);
-    //DDLogWarn(@"%@: %@", _tag, msg);
     NSLog(@"%@: %@", _tag, msg);
 }
 
@@ -60,8 +57,15 @@
     va_start(args, message);
     NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
     va_end(args);
-    //DDLogError(@"%@: %@", _tag, msg);
     NSLog(@"%@: %@", _tag, msg);
+}
+
++ (void)withTag:(NSString *)tag error:(NSString *)message, ... {
+    va_list args;
+    va_start(args, message);
+    NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
+    va_end(args);
+    NSLog(@"%@: %@", tag, msg);
 }
 
 @end

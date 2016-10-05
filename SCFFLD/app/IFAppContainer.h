@@ -23,6 +23,7 @@
 #import "IFNamedScheme.h"
 #import "IFJSONData.h"
 #import "IFIOCTypeInspectable.h"
+#import "IFLogger.h"
 
 #define ForceResetDefaultSettings   (NO)
 #define Platform                    (@"ios")

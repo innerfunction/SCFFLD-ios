@@ -90,7 +90,6 @@
 		07BD8AF11C7653AD0058D7A8 /* IFLocals.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AD41C7653AD0058D7A8 /* IFLocals.m */; };
 		07BD8AF21C7653AD0058D7A8 /* IFLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8AD51C7653AD0058D7A8 /* IFLogger.h */; };
 		07BD8AF31C7653AD0058D7A8 /* IFLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AD61C7653AD0058D7A8 /* IFLogger.m */; };
-		07BD8AF41C7653AD0058D7A8 /* IFLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8AD71C7653AD0058D7A8 /* IFLogging.h */; };
 		07BD8AF51C7653AD0058D7A8 /* IFRegExp.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8AD81C7653AD0058D7A8 /* IFRegExp.h */; };
 		07BD8AF61C7653AD0058D7A8 /* IFRegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AD91C7653AD0058D7A8 /* IFRegExp.m */; };
 		07BD8AF71C7653AD0058D7A8 /* IFStringTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8ADA1C7653AD0058D7A8 /* IFStringTemplate.h */; };
@@ -107,20 +106,6 @@
 		07BD8B021C7653AD0058D7A8 /* NSString+IF.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AE51C7653AD0058D7A8 /* NSString+IF.m */; };
 		07BD8B031C7653AD0058D7A8 /* UIColor+IF.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8AE61C7653AD0058D7A8 /* UIColor+IF.h */; };
 		07BD8B041C7653AD0058D7A8 /* UIColor+IF.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AE71C7653AD0058D7A8 /* UIColor+IF.m */; };
-		07BD8B181C7653F00058D7A8 /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B081C7653F00058D7A8 /* DDAbstractDatabaseLogger.h */; };
-		07BD8B191C7653F00058D7A8 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B091C7653F00058D7A8 /* DDAbstractDatabaseLogger.m */; };
-		07BD8B1A1C7653F00058D7A8 /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B0A1C7653F00058D7A8 /* DDASLLogger.h */; };
-		07BD8B1B1C7653F00058D7A8 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B0B1C7653F00058D7A8 /* DDASLLogger.m */; };
-		07BD8B1C1C7653F00058D7A8 /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B0C1C7653F00058D7A8 /* DDFileLogger.h */; };
-		07BD8B1D1C7653F00058D7A8 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B0D1C7653F00058D7A8 /* DDFileLogger.m */; };
-		07BD8B1E1C7653F00058D7A8 /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B0E1C7653F00058D7A8 /* DDLog.h */; };
-		07BD8B1F1C7653F00058D7A8 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B0F1C7653F00058D7A8 /* DDLog.m */; };
-		07BD8B201C7653F00058D7A8 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B101C7653F00058D7A8 /* DDTTYLogger.h */; };
-		07BD8B211C7653F00058D7A8 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B111C7653F00058D7A8 /* DDTTYLogger.m */; };
-		07BD8B221C7653F00058D7A8 /* ContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B131C7653F00058D7A8 /* ContextFilterLogFormatter.h */; };
-		07BD8B231C7653F00058D7A8 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B141C7653F00058D7A8 /* ContextFilterLogFormatter.m */; };
-		07BD8B241C7653F00058D7A8 /* DispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B151C7653F00058D7A8 /* DispatchQueueLogFormatter.h */; };
-		07BD8B251C7653F00058D7A8 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B161C7653F00058D7A8 /* DispatchQueueLogFormatter.m */; };
 		07BD8B401C7653FC0058D7A8 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B281C7653FC0058D7A8 /* ISO8601DateFormatter.h */; };
 		07BD8B411C7653FC0058D7A8 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B291C7653FC0058D7A8 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		07BD8B421C7653FC0058D7A8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B2B1C7653FC0058D7A8 /* JSONKit.h */; };
@@ -262,7 +247,6 @@
 		07BD8AD41C7653AD0058D7A8 /* IFLocals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFLocals.m; path = util/IFLocals.m; sourceTree = SOURCE_ROOT; };
 		07BD8AD51C7653AD0058D7A8 /* IFLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFLogger.h; path = util/IFLogger.h; sourceTree = SOURCE_ROOT; };
 		07BD8AD61C7653AD0058D7A8 /* IFLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFLogger.m; path = util/IFLogger.m; sourceTree = SOURCE_ROOT; };
-		07BD8AD71C7653AD0058D7A8 /* IFLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFLogging.h; path = util/IFLogging.h; sourceTree = SOURCE_ROOT; };
 		07BD8AD81C7653AD0058D7A8 /* IFRegExp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFRegExp.h; path = util/IFRegExp.h; sourceTree = SOURCE_ROOT; };
 		07BD8AD91C7653AD0058D7A8 /* IFRegExp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFRegExp.m; path = util/IFRegExp.m; sourceTree = SOURCE_ROOT; };
 		07BD8ADA1C7653AD0058D7A8 /* IFStringTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFStringTemplate.h; path = util/IFStringTemplate.h; sourceTree = SOURCE_ROOT; };
@@ -279,21 +263,6 @@
 		07BD8AE51C7653AD0058D7A8 /* NSString+IF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IF.m"; path = "util/NSString+IF.m"; sourceTree = SOURCE_ROOT; };
 		07BD8AE61C7653AD0058D7A8 /* UIColor+IF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+IF.h"; path = "util/UIColor+IF.h"; sourceTree = SOURCE_ROOT; };
 		07BD8AE71C7653AD0058D7A8 /* UIColor+IF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+IF.m"; path = "util/UIColor+IF.m"; sourceTree = SOURCE_ROOT; };
-		07BD8B081C7653F00058D7A8 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
-		07BD8B091C7653F00058D7A8 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
-		07BD8B0A1C7653F00058D7A8 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
-		07BD8B0B1C7653F00058D7A8 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
-		07BD8B0C1C7653F00058D7A8 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
-		07BD8B0D1C7653F00058D7A8 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
-		07BD8B0E1C7653F00058D7A8 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
-		07BD8B0F1C7653F00058D7A8 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
-		07BD8B101C7653F00058D7A8 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
-		07BD8B111C7653F00058D7A8 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		07BD8B131C7653F00058D7A8 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
-		07BD8B141C7653F00058D7A8 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
-		07BD8B151C7653F00058D7A8 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
-		07BD8B161C7653F00058D7A8 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
-		07BD8B171C7653F00058D7A8 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		07BD8B281C7653FC0058D7A8 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		07BD8B291C7653FC0058D7A8 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		07BD8B2B1C7653FC0058D7A8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -511,7 +480,6 @@
 				07BD8AD01C7653AD0058D7A8 /* IFI18nMap.m */,
 				07BD8AD31C7653AD0058D7A8 /* IFLocals.h */,
 				07BD8AD41C7653AD0058D7A8 /* IFLocals.m */,
-				07BD8AD71C7653AD0058D7A8 /* IFLogging.h */,
 				07BD8AD51C7653AD0058D7A8 /* IFLogger.h */,
 				07BD8AD61C7653AD0058D7A8 /* IFLogger.m */,
 				07BD8AD81C7653AD0058D7A8 /* IFRegExp.h */,
@@ -543,41 +511,9 @@
 				07BD8B2D1C7653FC0058D7A8 /* SWRevealViewController */,
 				07BD8B301C7653FC0058D7A8 /* Toast */,
 				07BD8B331C7653FC0058D7A8 /* ZipArchive */,
-				07BD8B071C7653F00058D7A8 /* CocoaLumberjack */,
 			);
 			name = Externals;
 			path = SCFFLD;
-			sourceTree = "<group>";
-		};
-		07BD8B071C7653F00058D7A8 /* CocoaLumberjack */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B081C7653F00058D7A8 /* DDAbstractDatabaseLogger.h */,
-				07BD8B091C7653F00058D7A8 /* DDAbstractDatabaseLogger.m */,
-				07BD8B0A1C7653F00058D7A8 /* DDASLLogger.h */,
-				07BD8B0B1C7653F00058D7A8 /* DDASLLogger.m */,
-				07BD8B0C1C7653F00058D7A8 /* DDFileLogger.h */,
-				07BD8B0D1C7653F00058D7A8 /* DDFileLogger.m */,
-				07BD8B0E1C7653F00058D7A8 /* DDLog.h */,
-				07BD8B0F1C7653F00058D7A8 /* DDLog.m */,
-				07BD8B101C7653F00058D7A8 /* DDTTYLogger.h */,
-				07BD8B111C7653F00058D7A8 /* DDTTYLogger.m */,
-				07BD8B121C7653F00058D7A8 /* Extensions */,
-			);
-			name = CocoaLumberjack;
-			path = Externals/CocoaLumberjack;
-			sourceTree = SOURCE_ROOT;
-		};
-		07BD8B121C7653F00058D7A8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B131C7653F00058D7A8 /* ContextFilterLogFormatter.h */,
-				07BD8B141C7653F00058D7A8 /* ContextFilterLogFormatter.m */,
-				07BD8B151C7653F00058D7A8 /* DispatchQueueLogFormatter.h */,
-				07BD8B161C7653F00058D7A8 /* DispatchQueueLogFormatter.m */,
-				07BD8B171C7653F00058D7A8 /* README.txt */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		07BD8B271C7653FC0058D7A8 /* ISO8601DateFormatter */ = {
@@ -718,19 +654,16 @@
 				07BD8AA11C76537E0058D7A8 /* IFTableViewController.h in Headers */,
 				07D761031D9578CC0043F371 /* IFIOCConfigurationInitable.h in Headers */,
 				07D760FC1D9578CC0043F371 /* IFConfiguredLocals.h in Headers */,
-				07BD8B221C7653F00058D7A8 /* ContextFilterLogFormatter.h in Headers */,
 				072DA4A61C848D680023FAEC /* JTSSimpleImageDownloader.h in Headers */,
 				07BD8A821C7653670058D7A8 /* IFNewScheme.h in Headers */,
 				074C3DC61C944FC3009BBEEF /* IFViewBehaviourObject.h in Headers */,
 				07BD8AA31C76537E0058D7A8 /* IFViewController.h in Headers */,
-				07BD8AF41C7653AD0058D7A8 /* IFLogging.h in Headers */,
 				072DA4A81C848D680023FAEC /* UIApplication+JTSImageViewController.h in Headers */,
 				07BD8AC51C7653930058D7A8 /* IFStandardURIHandler.h in Headers */,
 				07BD8B011C7653AD0058D7A8 /* NSString+IF.h in Headers */,
 				07D7610B1D9578CC0043F371 /* IFIOCProxyObject.h in Headers */,
 				07D761141D9578CC0043F371 /* IFObjectConfigurer.h in Headers */,
 				072DA4A41C848D680023FAEC /* JTSImageViewController.h in Headers */,
-				07BD8B201C7653F00058D7A8 /* DDTTYLogger.h in Headers */,
 				072DA4B61C8491070023FAEC /* UIViewController+Toast.h in Headers */,
 				07BD8AFD1C7653AD0058D7A8 /* NSArray+IF.h in Headers */,
 				07BD8AB91C7653930058D7A8 /* IFCompoundURI.h in Headers */,
@@ -746,18 +679,15 @@
 				07BD8AF21C7653AD0058D7A8 /* IFLogger.h in Headers */,
 				07933EF61C8A588B003D6227 /* IFUILabelProxy.h in Headers */,
 				07BD8A781C7653670058D7A8 /* IFAppContainer.h in Headers */,
-				07BD8B1E1C7653F00058D7A8 /* DDLog.h in Headers */,
 				07BD8B031C7653AD0058D7A8 /* UIColor+IF.h in Headers */,
 				077C195C1D9C0D4A00783E9D /* IFIOCSingleton.h in Headers */,
 				07933F021C8F7EE8003D6227 /* IFUITextFieldProxy.h in Headers */,
 				07BD8B4C1C7653FC0058D7A8 /* mztools.h in Headers */,
 				07BD8B501C7653FC0058D7A8 /* zip.h in Headers */,
-				07BD8B1C1C7653F00058D7A8 /* DDFileLogger.h in Headers */,
 				07BD8B4E1C7653FC0058D7A8 /* unzip.h in Headers */,
 				07BD8A9B1C76537E0058D7A8 /* IFSlideViewController.h in Headers */,
 				07D7610E1D9578CC0043F371 /* IFJSONData.h in Headers */,
 				07BD8B481C7653FC0058D7A8 /* crypt.h in Headers */,
-				07BD8B241C7653F00058D7A8 /* DispatchQueueLogFormatter.h in Headers */,
 				07BD8A991C76537E0058D7A8 /* IFNavigationViewController.h in Headers */,
 				07D760F91D9578CC0043F371 /* IFConfigurable.h in Headers */,
 				07BD8B4A1C7653FC0058D7A8 /* ioapi.h in Headers */,
@@ -768,7 +698,6 @@
 				07BD8AC11C7653930058D7A8 /* IFReprSchemeHandler.h in Headers */,
 				078BBBD91CBED3EB00E4DE02 /* IFURIValueFormatter.h in Headers */,
 				07BD8AC91C7653930058D7A8 /* IFURIHandling.h in Headers */,
-				07BD8B1A1C7653F00058D7A8 /* DDASLLogger.h in Headers */,
 				07BD8ABD1C7653930058D7A8 /* IFFileResource.h in Headers */,
 				07BD8AFF1C7653AD0058D7A8 /* NSDictionary+IF.h in Headers */,
 				072DA4AE1C848E4B0023FAEC /* UIViewController+ImageView.h in Headers */,
@@ -777,7 +706,6 @@
 				072DA4A21C848D680023FAEC /* JTSImageInfo.h in Headers */,
 				07BD8A9F1C76537E0058D7A8 /* IFTableViewCellFactory.h in Headers */,
 				07D761131D9578CC0043F371 /* IFMessageRouter.h in Headers */,
-				07BD8B181C7653F00058D7A8 /* DDAbstractDatabaseLogger.h in Headers */,
 				07D760FA1D9578CC0043F371 /* IFConfiguration.h in Headers */,
 				07D761121D9578CC0043F371 /* IFMessageReceiver.h in Headers */,
 				07D761161D9578CC0043F371 /* IFPendingNamed.h in Headers */,
@@ -878,7 +806,6 @@
 				07BD8B041C7653AD0058D7A8 /* UIColor+IF.m in Sources */,
 				07BD8AA01C76537E0058D7A8 /* IFTableViewCellFactory.m in Sources */,
 				07BD8AF81C7653AD0058D7A8 /* IFStringTemplate.m in Sources */,
-				07BD8B1F1C7653F00058D7A8 /* DDLog.m in Sources */,
 				07BD8AC21C7653930058D7A8 /* IFReprSchemeHandler.m in Sources */,
 				07BD8AC41C7653930058D7A8 /* IFResource.m in Sources */,
 				07D7610C1D9578CC0043F371 /* IFIOCProxyObject.m in Sources */,
@@ -897,9 +824,7 @@
 				07D761091D9578CC0043F371 /* IFIOCObjectFactoryBase.m in Sources */,
 				07BD8AC61C7653930058D7A8 /* IFStandardURIHandler.m in Sources */,
 				07BD8AC81C7653930058D7A8 /* IFStringSchemeHandler.m in Sources */,
-				07BD8B191C7653F00058D7A8 /* DDAbstractDatabaseLogger.m in Sources */,
 				072DA4AF1C848E4B0023FAEC /* UIViewController+ImageView.m in Sources */,
-				07BD8B211C7653F00058D7A8 /* DDTTYLogger.m in Sources */,
 				07BD8B4F1C7653FC0058D7A8 /* zip.c in Sources */,
 				072DA4B51C8491070023FAEC /* UIImage+CropScale.m in Sources */,
 				07BD8ABC1C7653930058D7A8 /* IFFileBasedSchemeHandler.m in Sources */,
@@ -917,15 +842,11 @@
 				07D7610F1D9578CC0043F371 /* IFJSONData.m in Sources */,
 				07BD8B001C7653AD0058D7A8 /* NSDictionary+IF.m in Sources */,
 				07BD8AC01C7653930058D7A8 /* IFLocalSchemeHandler.m in Sources */,
-				07BD8B251C7653F00058D7A8 /* DispatchQueueLogFormatter.m in Sources */,
-				07BD8B1D1C7653F00058D7A8 /* DDFileLogger.m in Sources */,
 				072DA4B71C8491070023FAEC /* UIViewController+Toast.m in Sources */,
 				074C3DC71C944FC3009BBEEF /* IFViewBehaviourObject.m in Sources */,
 				07BD8B451C7653FC0058D7A8 /* SWRevealViewController.m in Sources */,
 				07BD8ABE1C7653930058D7A8 /* IFFileResource.m in Sources */,
 				07190CB21C8054A400CE8F22 /* IFPostScheme.m in Sources */,
-				07BD8B231C7653F00058D7A8 /* ContextFilterLogFormatter.m in Sources */,
-				07BD8B1B1C7653F00058D7A8 /* DDASLLogger.m in Sources */,
 				07BD8AA61C76537E0058D7A8 /* IFWebViewController.m in Sources */,
 				07BD8B491C7653FC0058D7A8 /* ioapi.c in Sources */,
 				07933EFF1C8F7DF2003D6227 /* IFTextStyle.m in Sources */,
