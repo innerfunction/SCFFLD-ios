@@ -30,6 +30,11 @@
 		074C3DC31C944D32009BBEEF /* IFViewBehaviour.h in Headers */ = {isa = PBXBuildFile; fileRef = 074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */; };
 		074C3DC61C944FC3009BBEEF /* IFViewBehaviourObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */; };
 		074C3DC71C944FC3009BBEEF /* IFViewBehaviourObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */; };
+		076DA48D1DA660AE00E63F0D /* SCFFLD-app.h in Headers */ = {isa = PBXBuildFile; fileRef = 076DA4881DA660AE00E63F0D /* SCFFLD-app.h */; };
+		076DA48E1DA660AE00E63F0D /* SCFFLD-ioc.h in Headers */ = {isa = PBXBuildFile; fileRef = 076DA4891DA660AE00E63F0D /* SCFFLD-ioc.h */; };
+		076DA48F1DA660AE00E63F0D /* SCFFLD-ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 076DA48A1DA660AE00E63F0D /* SCFFLD-ui.h */; };
+		076DA4901DA660AE00E63F0D /* SCFFLD-uri.h in Headers */ = {isa = PBXBuildFile; fileRef = 076DA48B1DA660AE00E63F0D /* SCFFLD-uri.h */; };
+		076DA4911DA660AE00E63F0D /* SCFFLD-util.h in Headers */ = {isa = PBXBuildFile; fileRef = 076DA48C1DA660AE00E63F0D /* SCFFLD-util.h */; };
 		077C195C1D9C0D4A00783E9D /* IFIOCSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 077C195B1D9C0D4A00783E9D /* IFIOCSingleton.h */; };
 		078BBBD91CBED3EB00E4DE02 /* IFURIValueFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */; };
 		07933EF61C8A588B003D6227 /* IFUILabelProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 07933EF41C8A588B003D6227 /* IFUILabelProxy.h */; };
@@ -186,6 +191,12 @@
 		074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviour.h; path = ui/IFViewBehaviour.h; sourceTree = SOURCE_ROOT; };
 		074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviourObject.h; path = ui/IFViewBehaviourObject.h; sourceTree = SOURCE_ROOT; };
 		074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFViewBehaviourObject.m; path = ui/IFViewBehaviourObject.m; sourceTree = SOURCE_ROOT; };
+		076DA4871DA65E0F00E63F0D /* SCFFLD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCFFLD.h; sourceTree = SOURCE_ROOT; };
+		076DA4881DA660AE00E63F0D /* SCFFLD-app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-app.h"; sourceTree = SOURCE_ROOT; };
+		076DA4891DA660AE00E63F0D /* SCFFLD-ioc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-ioc.h"; sourceTree = SOURCE_ROOT; };
+		076DA48A1DA660AE00E63F0D /* SCFFLD-ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-ui.h"; sourceTree = SOURCE_ROOT; };
+		076DA48B1DA660AE00E63F0D /* SCFFLD-uri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-uri.h"; sourceTree = SOURCE_ROOT; };
+		076DA48C1DA660AE00E63F0D /* SCFFLD-util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-util.h"; sourceTree = SOURCE_ROOT; };
 		077C195B1D9C0D4A00783E9D /* IFIOCSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIOCSingleton.h; sourceTree = "<group>"; };
 		078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFURIValueFormatter.h; path = uri/IFURIValueFormatter.h; sourceTree = SOURCE_ROOT; };
 		07933EF41C8A588B003D6227 /* IFUILabelProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFUILabelProxy.h; path = ui/IFUILabelProxy.h; sourceTree = SOURCE_ROOT; };
@@ -377,6 +388,12 @@
 		07BD8A221C7651930058D7A8 /* SCFFLD */ = {
 			isa = PBXGroup;
 			children = (
+				076DA4871DA65E0F00E63F0D /* SCFFLD.h */,
+				076DA4881DA660AE00E63F0D /* SCFFLD-app.h */,
+				076DA4891DA660AE00E63F0D /* SCFFLD-ioc.h */,
+				076DA48A1DA660AE00E63F0D /* SCFFLD-ui.h */,
+				076DA48B1DA660AE00E63F0D /* SCFFLD-uri.h */,
+				076DA48C1DA660AE00E63F0D /* SCFFLD-util.h */,
 				07BD8B531C7654ED0058D7A8 /* Info.plist */,
 				07BD8B541C7654ED0058D7A8 /* SCFFLD-Info.plist */,
 				07BD8B551C7654ED0058D7A8 /* SCFFLD-Prefix.pch */,
@@ -410,18 +427,7 @@
 		07BD8AA71C7653840058D7A8 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				07933EFC1C8F7DF2003D6227 /* IFTextStyle.h */,
-				07933EFD1C8F7DF2003D6227 /* IFTextStyle.m */,
-				07933EF41C8A588B003D6227 /* IFUILabelProxy.h */,
-				07933EF51C8A588B003D6227 /* IFUILabelProxy.m */,
-				07933F001C8F7EE8003D6227 /* IFUITextFieldProxy.h */,
-				07933F011C8F7EE8003D6227 /* IFUITextFieldProxy.m */,
-				07933F041C8F801C003D6227 /* IFUIBarButtonItemProxy.h */,
-				07933F051C8F801C003D6227 /* IFUIBarButtonItemProxy.m */,
 				07933F0A1C8F8A8F003D6227 /* IFActionProxy.h */,
-				074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */,
-				074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */,
-				074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */,
 				07BD8A8B1C76537E0058D7A8 /* IFNavigationViewController.h */,
 				07BD8A8C1C76537E0058D7A8 /* IFNavigationViewController.m */,
 				07BD8A8D1C76537E0058D7A8 /* IFSlideViewController.h */,
@@ -432,6 +438,17 @@
 				07BD8A921C76537E0058D7A8 /* IFTableViewCellFactory.m */,
 				07BD8A931C76537E0058D7A8 /* IFTableViewController.h */,
 				07BD8A941C76537E0058D7A8 /* IFTableViewController.m */,
+				07933EFC1C8F7DF2003D6227 /* IFTextStyle.h */,
+				07933EFD1C8F7DF2003D6227 /* IFTextStyle.m */,
+				07933F041C8F801C003D6227 /* IFUIBarButtonItemProxy.h */,
+				07933F051C8F801C003D6227 /* IFUIBarButtonItemProxy.m */,
+				07933EF41C8A588B003D6227 /* IFUILabelProxy.h */,
+				07933EF51C8A588B003D6227 /* IFUILabelProxy.m */,
+				07933F001C8F7EE8003D6227 /* IFUITextFieldProxy.h */,
+				07933F011C8F7EE8003D6227 /* IFUITextFieldProxy.m */,
+				074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */,
+				074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */,
+				074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */,
 				07BD8A951C76537E0058D7A8 /* IFViewController.h */,
 				07BD8A961C76537E0058D7A8 /* IFViewController.m */,
 				07BD8A971C76537E0058D7A8 /* IFWebViewController.h */,
@@ -451,22 +468,22 @@
 			children = (
 				07BD8AA81C7653930058D7A8 /* IFCompoundURI.h */,
 				07BD8AA91C7653930058D7A8 /* IFCompoundURI.m */,
-				07BD8AB81C7653930058D7A8 /* IFURIHandling.h */,
-				078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */,
-				07BD8AB21C7653930058D7A8 /* IFResource.h */,
-				07BD8AB31C7653930058D7A8 /* IFResource.m */,
-				07BD8AAC1C7653930058D7A8 /* IFFileResource.h */,
-				07BD8AAD1C7653930058D7A8 /* IFFileResource.m */,
 				07BD8AAA1C7653930058D7A8 /* IFFileBasedSchemeHandler.h */,
 				07BD8AAB1C7653930058D7A8 /* IFFileBasedSchemeHandler.m */,
+				07BD8AAC1C7653930058D7A8 /* IFFileResource.h */,
+				07BD8AAD1C7653930058D7A8 /* IFFileResource.m */,
 				07BD8AAE1C7653930058D7A8 /* IFLocalSchemeHandler.h */,
 				07BD8AAF1C7653930058D7A8 /* IFLocalSchemeHandler.m */,
 				07BD8AB01C7653930058D7A8 /* IFReprSchemeHandler.h */,
 				07BD8AB11C7653930058D7A8 /* IFReprSchemeHandler.m */,
+				07BD8AB21C7653930058D7A8 /* IFResource.h */,
+				07BD8AB31C7653930058D7A8 /* IFResource.m */,
 				07BD8AB41C7653930058D7A8 /* IFStandardURIHandler.h */,
 				07BD8AB51C7653930058D7A8 /* IFStandardURIHandler.m */,
 				07BD8AB61C7653930058D7A8 /* IFStringSchemeHandler.h */,
 				07BD8AB71C7653930058D7A8 /* IFStringSchemeHandler.m */,
+				07BD8AB81C7653930058D7A8 /* IFURIHandling.h */,
+				078BBBD81CBED3EB00E4DE02 /* IFURIValueFormatter.h */,
 			);
 			name = uri;
 			sourceTree = "<group>";
@@ -656,13 +673,16 @@
 				07D760FC1D9578CC0043F371 /* IFConfiguredLocals.h in Headers */,
 				072DA4A61C848D680023FAEC /* JTSSimpleImageDownloader.h in Headers */,
 				07BD8A821C7653670058D7A8 /* IFNewScheme.h in Headers */,
+				076DA48D1DA660AE00E63F0D /* SCFFLD-app.h in Headers */,
 				074C3DC61C944FC3009BBEEF /* IFViewBehaviourObject.h in Headers */,
 				07BD8AA31C76537E0058D7A8 /* IFViewController.h in Headers */,
 				072DA4A81C848D680023FAEC /* UIApplication+JTSImageViewController.h in Headers */,
 				07BD8AC51C7653930058D7A8 /* IFStandardURIHandler.h in Headers */,
 				07BD8B011C7653AD0058D7A8 /* NSString+IF.h in Headers */,
+				076DA4911DA660AE00E63F0D /* SCFFLD-util.h in Headers */,
 				07D7610B1D9578CC0043F371 /* IFIOCProxyObject.h in Headers */,
 				07D761141D9578CC0043F371 /* IFObjectConfigurer.h in Headers */,
+				076DA48F1DA660AE00E63F0D /* SCFFLD-ui.h in Headers */,
 				072DA4A41C848D680023FAEC /* JTSImageViewController.h in Headers */,
 				072DA4B61C8491070023FAEC /* UIViewController+Toast.h in Headers */,
 				07BD8AFD1C7653AD0058D7A8 /* NSArray+IF.h in Headers */,
@@ -683,6 +703,7 @@
 				077C195C1D9C0D4A00783E9D /* IFIOCSingleton.h in Headers */,
 				07933F021C8F7EE8003D6227 /* IFUITextFieldProxy.h in Headers */,
 				07BD8B4C1C7653FC0058D7A8 /* mztools.h in Headers */,
+				076DA4901DA660AE00E63F0D /* SCFFLD-uri.h in Headers */,
 				07BD8B501C7653FC0058D7A8 /* zip.h in Headers */,
 				07BD8B4E1C7653FC0058D7A8 /* unzip.h in Headers */,
 				07BD8A9B1C76537E0058D7A8 /* IFSlideViewController.h in Headers */,
@@ -726,6 +747,7 @@
 				07BD8AF51C7653AD0058D7A8 /* IFRegExp.h in Headers */,
 				07D761051D9578CC0043F371 /* IFIOCContainerAware.h in Headers */,
 				07BD8A801C7653670058D7A8 /* IFNamedScheme.h in Headers */,
+				076DA48E1DA660AE00E63F0D /* SCFFLD-ioc.h in Headers */,
 				07D761191D9578CC0043F371 /* IFValues.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
