@@ -20,15 +20,15 @@
 #define SCFFLD_uri_h
 
 // uri
-#import "IFCompoundURI.h"
-#import "IFFileBasedSchemeHandler.h"
-#import "IFFileResource.h"
-#import "IFLocalSchemeHandler.h"
-#import "IFReprSchemeHandler.h"
-#import "IFResource.h"
-#import "IFStandardURIHandler.h"
-#import "IFStringSchemeHandler.h"
-#import "IFURIHandling.h"
-#import "IFURIValueFormatter.h"
+#import <IFCompoundURI.h>
+#import <IFFileBasedSchemeHandler.h>
+#import <IFFileResource.h>
+#import <IFLocalSchemeHandler.h>
+#import <IFReprSchemeHandler.h>
+#import <IFResource.h>
+#import <IFStandardURIHandler.h>
+#import <IFStringSchemeHandler.h>
+#import <IFURIHandling.h>
+#import <IFURIValueFormatter.h>
 
 #endif /* SCFFLD_uri_h */
