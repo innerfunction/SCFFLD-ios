@@ -191,7 +191,6 @@
 		074C3DC21C944D32009BBEEF /* IFViewBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviour.h; path = ui/IFViewBehaviour.h; sourceTree = SOURCE_ROOT; };
 		074C3DC41C944FC3009BBEEF /* IFViewBehaviourObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFViewBehaviourObject.h; path = ui/IFViewBehaviourObject.h; sourceTree = SOURCE_ROOT; };
 		074C3DC51C944FC3009BBEEF /* IFViewBehaviourObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFViewBehaviourObject.m; path = ui/IFViewBehaviourObject.m; sourceTree = SOURCE_ROOT; };
-		076DA4871DA65E0F00E63F0D /* SCFFLD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCFFLD.h; sourceTree = SOURCE_ROOT; };
 		076DA4881DA660AE00E63F0D /* SCFFLD-app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-app.h"; sourceTree = SOURCE_ROOT; };
 		076DA4891DA660AE00E63F0D /* SCFFLD-ioc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-ioc.h"; sourceTree = SOURCE_ROOT; };
 		076DA48A1DA660AE00E63F0D /* SCFFLD-ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-ui.h"; sourceTree = SOURCE_ROOT; };
@@ -388,7 +387,6 @@
 		07BD8A221C7651930058D7A8 /* SCFFLD */ = {
 			isa = PBXGroup;
 			children = (
-				076DA4871DA65E0F00E63F0D /* SCFFLD.h */,
 				076DA4881DA660AE00E63F0D /* SCFFLD-app.h */,
 				076DA4891DA660AE00E63F0D /* SCFFLD-ioc.h */,
 				076DA48A1DA660AE00E63F0D /* SCFFLD-ui.h */,
