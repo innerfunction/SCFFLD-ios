@@ -19,10 +19,10 @@
 #ifndef SCFFLD_h
 #define SCFFLD_h
 
-#import <SCFFLD-util.h>
-#import <SCFFLD-uri.h>
-#import <SCFFLD-ioc.h>
-#import <SCFFLD-app.h>
-#import <SCFFLD-ui.h>
+#import <SCFFLD/SCFFLD-util.h>
+#import <SCFFLD/SCFFLD-uri.h>
+#import <SCFFLD/SCFFLD-ioc.h>
+#import <SCFFLD/SCFFLD-app.h>
+#import <SCFFLD/SCFFLD-ui.h>
 
 #endif /* SCFFLD_h */
