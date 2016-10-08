@@ -35,20 +35,10 @@
 }
 
 - (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
-    // Break the named reference into the initial name and a trailing path.
-    // e.g. 'object.sub.property' -> name = 'object' path = 'sub.property'
-    NSString *name = nil, *path = nil;
-    NSRange range = [uri.name rangeOfString:@"."];
-    if (range.location == NSNotFound) {
-        name = uri.name;
-    }
-    else {
-        name = [uri.name substringToIndex:range.location];
-        NSInteger idx = range.location + 1;
-        if (idx < [uri.name length]) {
-            path = [uri.name substringFromIndex:idx];
-        }
-    }
+    // The URI fragment can be used to specify a dotted path to the required property
+    // of the named object.
+    NSString *name = uri.name;
+    NSString *path = uri.fragment;
     // Get the named object.
     id result = [_container getNamed:name];
     // If a path is specified then evaluate that on the named object.
