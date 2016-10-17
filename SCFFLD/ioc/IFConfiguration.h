@@ -149,19 +149,19 @@
 - (IFConfiguration *)extendWithParameters:(NSDictionary *)params;
 
 /**
- * Flatten a configuration by resolving all _*config_ or _*mixin_ properties.
- * The *config and *mixin properties are provided as a horizontal extension mechanism. The property values
+ * Flatten a configuration by resolving all _@config_ or _@mixin_ properties.
+ * The @config and @mixin properties are provided as a horizontal extension mechanism. The property values
  * are resolved a configuration instances, and are then merged with the current configuration (see the
  * [mixinConfiguration:] method).
- * @return Returns the current configuration with the *config and *mixin properties merged in.
+ * @return Returns the current configuration with the @config and @mixin properties merged in.
  */
 - (IFConfiguration *)flatten;
 
 /**
- * Normalize a configuration by first flattening, and then resolving any _*extends_ property.
- * This method resolves an extension hierarchy by resolving the _*extends_ property of the current
+ * Normalize a configuration by first flattening, and then resolving any _@extends_ property.
+ * This method resolves an extension hierarchy by resolving the _@extends_ property of the current
  * configuration, instantiating a configuration from that property value, and then resolving that
- * configuration's _*extends_ property, and so on until a root configuration is found. (Any closed
+ * configuration's _@extends_ property, and so on until a root configuration is found. (Any closed
  * loops in the hierarchy are detected and ignored). Each configuration in the hierarchy is flattened
  * as it is resolved (i.e. mixins are copied in over the result). The hierarchy is then merged into
  * a single configuration result, with properties in child configurations taking priority over

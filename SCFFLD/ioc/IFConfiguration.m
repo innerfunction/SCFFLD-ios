@@ -24,7 +24,7 @@
 #import "UIColor+IF.h"
 #import "IFJSONData.h"
 
-#define ValueOrDefault(v,dv)    (v == nil ? dv : v)
+#define ValueOrDefault(v,dv) (v == nil ? dv : v)
 
 // Normalize the reference to _root for a new configuration object derived from the current.
 // The _root reference is a weak reference and so needs special handling when normalizing or
@@ -423,15 +423,15 @@
 
 - (IFConfiguration *)flatten {
     IFConfiguration *result = self;
-    IFConfiguration *mixin = [self getValueAsConfiguration:@"*config"];
+    IFConfiguration *mixin = [self getValueAsConfiguration:@"@config"];
     if (mixin) {
         result = [self mixinConfiguration:mixin];
     }
-    mixin = [self getValueAsConfiguration:@"*mixin"];
+    mixin = [self getValueAsConfiguration:@"@mixin"];
     if (mixin) {
         result = [self mixinConfiguration:mixin];
     }
-    NSArray *mixins = [self getValueAsConfigurationList:@"*mixins"];
+    NSArray *mixins = [self getValueAsConfigurationList:@"@mixins"];
     if (mixins) {
         for (IFConfiguration *mixin in mixins) {
             result = [self mixinConfiguration:mixin];
@@ -445,7 +445,7 @@
     NSMutableArray *hierarchy = [NSMutableArray new];
     IFConfiguration *current = [self flatten];
     [hierarchy addObject:current];
-    while ((current = [current getValueAsConfiguration:@"*extends"]) != nil) {
+    while ((current = [current getValueAsConfiguration:@"@extends"]) != nil) {
         current = [current flatten];
         if ([hierarchy containsObject:current]) {
             // Extension loop detected, stop extending the config.

@@ -98,10 +98,10 @@
 // Build a new object from its configuration by instantiating a new instance and configuring it.
 - (id)buildObjectWithConfiguration:(IFConfiguration *)configuration identifier:(NSString *)identifier {
     id object = nil;
-    if ([configuration hasValue:@"*factory"]) {
+    if ([configuration hasValue:@"$factory"]) {
         // The configuration specifies an object factory, so resolve the factory object and attempt
         // using it to instantiate the object.
-        id factory = [configuration getValue:@"*factory"];
+        id factory = [configuration getValue:@"$factory"];
         if ([factory conformsToProtocol:@protocol(IFIOCObjectFactory)]) {
             object = [(id<IFIOCObjectFactory>)factory buildObjectWithConfiguration:configuration inContainer:self identifier:identifier];
             [self doPostInstantiation:object];
@@ -125,9 +125,12 @@
 // Use class or type info in a cofiguration to instantiate a new object.
 - (id)instantiateObjectWithConfiguration:(IFConfiguration *)configuration identifier:(NSString *)identifier {
     id object = nil;
-    NSString *className = [configuration getValueAsString:@"*ios-class"];
+    NSString *className = [configuration getValueAsString:@"@ios-@class"];
     if (!className) {
-        NSString *type = [configuration getValueAsString:@"*type"];
+        className = [configuration getValueAsString:@"@class"];
+    }
+    if (!className) {
+        NSString *type = [configuration getValueAsString:@"@type"];
         if (type) {
             className = [_types getValueAsString:type];
             if (!className) {
@@ -135,7 +138,7 @@
             }
         }
         else {
-            [_logger error:@"Instantiating %@, Component configuration missing *type or *ios-class property", identifier];
+            [_logger error:@"Instantiating %@, Component configuration missing @type or @ios@class property", identifier];
         }
     }
     if (className) {

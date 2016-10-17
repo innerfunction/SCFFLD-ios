@@ -28,7 +28,7 @@
 @interface IFIOCObjectFactoryBase : NSObject <IFIOCObjectFactory> {
     /**
      * A default base configuration for instances produced by this class.
-     * Typically minimal implementation should contain a *type or *ios-class property.
+     * Typically minimal implementation should contain a @type or @ios@class property.
      */
     IFConfiguration *_baseConfiguration;
 }

@@ -23,7 +23,7 @@
 /**
  * A protocol implemented by objects which act as object factories for the IOC container.
  * Component configurations can nominate an object factory to build the object instead of the container,
- * using the _*factory_ instantiation hint.
+ * using the _$factory_ instantiation hint.
  * Note that object factories take full responsibility for creating and building the required component
  * from its configuration, i.e. the container won't perform any dependency injection on the component
  * after its construction has been delegated to the function.
