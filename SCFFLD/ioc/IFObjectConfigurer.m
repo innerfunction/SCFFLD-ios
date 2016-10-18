@@ -212,8 +212,8 @@
     // otherwise.
     // When an object definition is returned, the property value is resolved according to the
     // following order of precedence:
-    // 1. A configuration which supplies an instantiation hint - e.g. @type, @ios@class or
-    //    $factory - and which successfully yields an object instance always takes precedence
+    // 1. A configuration which supplies an instantiation hint - e.g. @type, @ios-@class or
+    //    @factory - and which successfully yields an object instance always takes precedence
     //    over other possible values;
     // 2. Next, any in-place value found by reading from the object property being configured;
     // 3. Finally, a value created by attempting to instantiate the declared type of the
@@ -227,7 +227,7 @@
         if (valueConfig) {
             // Try asking the container to build a new object using the configuration. This
             // will only work if the configuration contains an instantiation hint (e.g. @type,
-            // $factory etc.) and will return a non-null, fully-configured object if successful.
+            // @factory etc.) and will return a non-null, fully-configured object if successful.
             value = [_container buildObjectWithConfiguration:valueConfig identifier:kpRef];
             if (value == nil) {
                 // Couldn't build a value, so see if the object already has a value in-place.
