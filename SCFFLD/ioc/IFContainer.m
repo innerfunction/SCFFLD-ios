@@ -125,7 +125,7 @@
 // Use class or type info in a cofiguration to instantiate a new object.
 - (id)instantiateObjectWithConfiguration:(IFConfiguration *)configuration identifier:(NSString *)identifier {
     id object = nil;
-    NSString *className = [configuration getValueAsString:@"@ios-@class"];
+    NSString *className = [configuration getValueAsString:@"@ios:@class"];
     if (!className) {
         className = [configuration getValueAsString:@"@class"];
     }
@@ -138,7 +138,7 @@
             }
         }
         else {
-            [_logger error:@"Instantiating %@, Component configuration missing @type or @ios-@class property", identifier];
+            [_logger error:@"Instantiating %@, Component configuration missing @type or @ios:@class property", identifier];
         }
     }
     if (className) {

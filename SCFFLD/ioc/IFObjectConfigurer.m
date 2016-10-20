@@ -212,7 +212,7 @@
     // otherwise.
     // When an object definition is returned, the property value is resolved according to the
     // following order of precedence:
-    // 1. A configuration which supplies an instantiation hint - e.g. @type, @ios-@class or
+    // 1. A configuration which supplies an instantiation hint - e.g. @type, @ios:@class or
     //    @factory - and which successfully yields an object instance always takes precedence
     //    over other possible values;
     // 2. Next, any in-place value found by reading from the object property being configured;
@@ -360,7 +360,7 @@
 
 - (NSString *)normalizePropertyName:(NSString *)name {
     if ([name hasPrefix:@"@"]) {
-        if ([name hasPrefix:@"@ios-"]) {
+        if ([name hasPrefix:@"@ios:"]) {
             // Strip @ios prefix from names.
             name = [name substringFromIndex:5];
             // Don't process class names.
