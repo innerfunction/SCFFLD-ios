@@ -25,7 +25,7 @@
  * consistent across platforms; or for providing simplified configuration interfaces for
  * otherwise difficult to configure objects.
  * Configuration proxy classes should be registered using the IFContainer
- * _[registerConfigurationProxyClassName: forClassName:]_ method.
+ * _[registerConfigurationProxyClass: forClassName:]_ method.
  */
 @protocol IFIOCProxy <NSObject>
 

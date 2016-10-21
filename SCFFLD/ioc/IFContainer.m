@@ -444,7 +444,7 @@ static NSMutableDictionary *IFContainer_proxies;
     }
 }
 
-+ (void)registerConfigurationProxyClassName:(__unsafe_unretained Class)proxyClass forClassName:(NSString *)className {
++ (void)registerConfigurationProxyClass:(__unsafe_unretained Class)proxyClass forClassName:(NSString *)className {
     if (!proxyClass) {
         IFContainer_proxies[className] = [NSNull null];
     }
