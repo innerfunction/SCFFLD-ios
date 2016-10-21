@@ -159,17 +159,19 @@
 
 // Instantiate a new object from classname info.
 - (id)newInstanceForClassName:(NSString *)className withConfiguration:(IFConfiguration *)configuration {
+    // Attempt to resolve the class from its name - this is done first in case the class declares its
+    // own configuration proxy (e.g. in a static initializer).
+    Class class = NSClassFromString(className);
+    if (class == nil) {
+        [_logger error:@"Class not found %@", className];
+        return nil;
+    }
     // If config proxy available for classname then instantiate proxy instead of new instance.
     IFIOCProxyLookupEntry *proxyEntry = [IFContainer lookupConfigurationProxyForClassName:className];
     if (proxyEntry) {
         return [proxyEntry instantiateProxy];
     }
     // Otherwise continue with class instantiation.
-    Class class = NSClassFromString(className);
-    if (class == nil) {
-        [_logger error:@"Class not found %@", className];
-        return nil;
-    }
     id instance;
     // Check for singleton classes.
     if ([class conformsToProtocol:@protocol(IFIOCSingleton)]) {
