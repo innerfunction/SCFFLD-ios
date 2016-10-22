@@ -264,11 +264,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [_tableData sectionCount] > 1 ? SectionHeaderHeight : 0;
+    return [_tableData isGrouped] ? SectionHeaderHeight : 0;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if ([_tableData sectionCount] == 1) {
+    if (![_tableData isGrouped]) {
         return nil;
     }
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, SectionHeaderViewHeight)];

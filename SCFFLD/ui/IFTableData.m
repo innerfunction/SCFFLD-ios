@@ -131,6 +131,10 @@
     return [_data count] == 0;
 }
 
+- (BOOL)isGrouped {
+    return isGrouped;
+}
+
 // Return the number of sections in the table data.
 - (NSInteger)sectionCount {
     if ([visibleData count] > 0) {

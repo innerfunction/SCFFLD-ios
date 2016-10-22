@@ -82,6 +82,8 @@ typedef BOOL (^IFTableDataFilterBlock) (NSDictionary *row);
 - (NSDictionary *)rowDataForIndexPath:(NSIndexPath *)path;
 /// Test whether the data is empty - i.e. contains no rows.
 - (BOOL)isEmpty;
+/// Test whether the data is grouped.
+- (BOOL)isGrouped;
 /// Return the number of sections in the table data.
 - (NSInteger)sectionCount;
 /// Return the number of rows in the specified section.
