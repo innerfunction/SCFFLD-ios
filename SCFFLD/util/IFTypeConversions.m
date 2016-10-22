@@ -38,7 +38,7 @@
     else if (IsNumber(value)) {
         result = [(NSNumber *)value stringValue];
     }
-    else if ([value isMemberOfClass:[NSData class]]) {
+    else if ([value isKindOfClass:[NSData class]]) {
         result = [[NSString alloc] initWithData:(NSData *)value
                                        encoding:NSUTF8StringEncoding];
     }
@@ -127,6 +127,9 @@ static void *IFTypeConversions_threadDateFormatter;
 
 + (id)asJSONData:(id)value {
     id jsonData;
+    if ([value isKindOfClass:[NSData class]]) {
+        value = [[NSString alloc] initWithData:(NSData *)value encoding:NSUTF8StringEncoding];
+    }
     if ([value isKindOfClass:[NSString class]]) {
         if ([IFRegExp pattern:@"^\\s*([{\\[\"\\d]|true|false)" matches:value]) {
             NSError *error = nil;
