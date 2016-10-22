@@ -166,26 +166,28 @@
         [_logger error:@"Class not found %@", className];
         return nil;
     }
+    id instance;
     // If config proxy available for classname then instantiate proxy instead of new instance.
     IFIOCProxyLookupEntry *proxyEntry = [IFContainer lookupConfigurationProxyForClassName:className];
     if (proxyEntry) {
-        return [proxyEntry instantiateProxy];
-    }
-    // Otherwise continue with class instantiation.
-    id instance;
-    // Check for singleton classes.
-    if ([class conformsToProtocol:@protocol(IFIOCSingleton)]) {
-        // Return the class' singleton instance.
-        instance = [(id<IFIOCSingleton>)class iocSingleton];
+        instance = [proxyEntry instantiateProxy];
     }
     else {
-        // Allocate and instantiate a new class instance.
-        instance = [class alloc];
-        if ([instance conformsToProtocol:@protocol(IFIOCConfigurationInitable)]) {
-            instance = [(id<IFIOCConfigurationInitable>)instance initWithConfiguration:configuration];
+        // Otherwise continue with class instantiation.
+        // Check for singleton classes.
+        if ([class conformsToProtocol:@protocol(IFIOCSingleton)]) {
+            // Return the class' singleton instance.
+            instance = [(id<IFIOCSingleton>)class iocSingleton];
         }
         else {
-            instance = [instance init];
+            // Allocate and instantiate a new class instance.
+            instance = [class alloc];
+            if ([instance conformsToProtocol:@protocol(IFIOCConfigurationInitable)]) {
+                instance = [(id<IFIOCConfigurationInitable>)instance initWithConfiguration:configuration];
+            }
+            else {
+                instance = [instance init];
+            }
         }
     }
     [self doPostInstantiation:instance];
@@ -434,13 +436,15 @@
 static NSMutableDictionary *IFContainer_proxies;
 
 + (void)initialize {
-    IFContainer_proxies = [NSMutableDictionary new];
-    NSDictionary *registeredProxyClasses = [IFIOCProxyObject registeredProxyClasses];
-    for (NSString *className in registeredProxyClasses) {
-        NSValue *value = (NSValue *)registeredProxyClasses[className];
-        __unsafe_unretained Class proxyClass = (Class)[value nonretainedObjectValue];
-        IFIOCProxyLookupEntry *proxyEntry = [[IFIOCProxyLookupEntry alloc] initWithClass:proxyClass];
-        IFContainer_proxies[className] = proxyEntry;
+    if (!IFContainer_proxies) {
+        IFContainer_proxies = [NSMutableDictionary new];
+        NSDictionary *registeredProxyClasses = [IFIOCProxyObject registeredProxyClasses];
+        for (NSString *className in registeredProxyClasses) {
+            NSValue *value = (NSValue *)registeredProxyClasses[className];
+            __unsafe_unretained Class proxyClass = (Class)[value nonretainedObjectValue];
+            IFIOCProxyLookupEntry *proxyEntry = [[IFIOCProxyLookupEntry alloc] initWithClass:proxyClass];
+            IFContainer_proxies[className] = proxyEntry;
+        }
     }
 }
 

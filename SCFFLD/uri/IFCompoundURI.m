@@ -318,9 +318,9 @@ BOOL parseParameters(NSString *input, NSMutableDictionary *ast) {
     return NO;
 }
 
-// Match an optional * prefix followed by any word characters or . _ -
+// Match an optional * prefix followed by any word characters or . _ ~ -
 BOOL parseParamName(NSString *input, NSMutableDictionary *ast) {
-    IFRegExp *paramNameRegex = [[IFRegExp alloc] initWithPattern:@"^(\\*?[\\w\\._-]+)(.*)$"];
+    IFRegExp *paramNameRegex = [[IFRegExp alloc] initWithPattern:@"^(\\*?[\\w\\._~-]+)(.*)$"];
     NSArray *groups = [paramNameRegex match:input];
     if (groups) {
         ast[@"param_name"] = groups[1];
