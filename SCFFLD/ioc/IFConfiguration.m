@@ -345,6 +345,9 @@
 
 - (id)getValueAsJSONData:(NSString *)keyPath {
     id value = [self getValue:keyPath asRepresentation:@"raw"];
+    if ([value isKindOfClass:[IFResource class]]) {
+        value = [(IFResource *)value asJSONData];
+    }
     if ([value isKindOfClass:[NSDictionary class]]) {
         value = [[IFJSONObject alloc] initWithDictionary:(NSDictionary *)value];
     }

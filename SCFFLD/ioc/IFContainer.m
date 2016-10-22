@@ -325,16 +325,19 @@
     if ([object isKindOfClass:[IFContainer class]]) {
         ((IFContainer *)object).parentContainer = self;
     }
-    // If instance is a service then add to list of services.
-    if ([object conformsToProtocol:@protocol(IFService)]) {
-        [_services addObject:(id<IFService>)object];
-    }
 }
 
 - (void)doPostConfiguration:(id)object {
-    // If running and the object is a service instance then start the service now that it is fully configured.
-    if (_running && [object conformsToProtocol:@protocol(IFService)]) {
-        [(id<IFService>)object startService];
+    // Check for new services.
+    if ([object conformsToProtocol:@protocol(IFService)]) {
+        if (_running) {
+            // If running then start the service now that it is fully configured.
+            [(id<IFService>)object startService];
+        }
+        else {
+            // Otherwise add to the list of services and start later.
+            [_services addObject:(id<IFService>)object];
+        }
     }
 }
 
