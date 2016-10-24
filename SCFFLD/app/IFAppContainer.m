@@ -25,6 +25,7 @@
 #import "IFCoreTypes.h"
 #import "IFI18nMap.h"
 #import "NSString+IF.h"
+#import "IFWebViewController.h"
 
 @interface IFAppContainer ()
 
@@ -77,7 +78,7 @@
         id configData = nil;
         if (uri) {
             // If a configuration source URI has been resolved then attempt loading the configuration from the URI.
-            [_logger info:@"Attempting to load app container configuration from %@", uri ];
+            [_logger info:@"Loading app container configuration from %@", uri ];
             configData = [self.uriHandler dereference:uri];
         }
         else {
@@ -121,6 +122,17 @@
     return _appURIHandler.aliases;
 }
 
+- (void)setSchemes:(NSDictionary *)schemes {
+    // Map any additional schemes to the URI handler.
+    for (id schemeName in schemes) {
+        id scheme = schemes[schemeName];
+        if ([scheme conformsToProtocol:@protocol(IFSchemeHandler)]) {
+            [_appURIHandler addHandler:scheme forScheme:schemeName];
+        }
+    }
+    // Note that schemes aren't stored on the container to avoid retain cycles.
+}
+
 - (void)configureWith:(IFConfiguration *)configuration {
     
     // Setup template context.
@@ -151,15 +163,6 @@
 
     // Perform default container configuration.
     [super configureWith:configuration];
-    
-    // Map any additional schemes to the URI handler.
-    for (id schemeName in _schemes) {
-        id scheme = _schemes[schemeName];
-        if ([scheme conformsToProtocol:@protocol(IFSchemeHandler)]) {
-            [_appURIHandler addHandler:scheme forScheme:schemeName];
-        }
-    }
-    _schemes = nil; // Remove the property to avoid a retain cycle.
 }
 
 - (NSMutableDictionary *)makeDefaultGlobalModelValues:(IFConfiguration *)configuration {
@@ -238,9 +241,9 @@
 }
 
 - (UIViewController *)getRootView {
-    id rootView = [_named objectForKey:@"rootView"];
+    id rootView = [self.uriHandler dereference:@"make:RootView"];
     if (!rootView) {
-        [_logger error:@"No component named 'rootView' found"];
+        [_logger error:@"Root view not found, check that a RootView make configuration exists"];
     }
     else if ([rootView isKindOfClass:[UIView class]]) {
         // Promote UIView to a view controller.
@@ -250,6 +253,12 @@
     else if (![rootView isKindOfClass:[UIViewController class]]) {
         [_logger error:@"The component named 'rootView' is not an instance of UIView or UIViewController"];
         rootView = nil;
+    }
+    // If unable to resolve a root view then use a blank view displaying an error message.
+    if (!rootView) {
+        IFWebViewController *webView = [[IFWebViewController alloc] init];
+        webView.content = @"<p>Root view not found, check that a RootView make configuration exists and defines a view instance</p>";
+        rootView = webView;
     }
     return rootView;
 }

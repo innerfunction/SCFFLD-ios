@@ -138,7 +138,8 @@
             }
         }
         else {
-            [_logger error:@"Instantiating %@, Component configuration missing @type or @ios:@class property", identifier];
+            // This can be OK in some circumstances.
+            //[_logger error:@"Instantiating %@, Component configuration missing @type or @ios:@class property", identifier];
         }
     }
     if (className) {
