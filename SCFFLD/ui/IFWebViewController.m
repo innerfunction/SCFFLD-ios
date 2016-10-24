@@ -17,7 +17,6 @@
 //
 
 #import "IFWebViewController.h"
-#import "IFFileResource.h"
 #import "UIViewController+ImageView.h"
 #import "IFAppContainer.h"
 
@@ -174,15 +173,13 @@
     // can still be used to specify the content base URL in those cases where it can't
     // otherwise be determined.
     if (_content) {
-        if ([_content isKindOfClass:[IFFileResource class]]) {
-            IFFileResource *fileResource = (IFFileResource *)_content;
-            NSString *html = [fileResource asString];
-            // Note that a file resource can specify the base URL.
-            [webView loadHTMLString:html baseURL:fileResource.externalURL];
-        }
-        else if ([_content isKindOfClass:[IFResource class]]) {
+        if ([_content isKindOfClass:[IFResource class]]) {
             IFResource *resource = (IFResource *)_content;
             NSString *html = [resource asString];
+            // Allow a resource to specify the base URL if one isn't explicitly set.
+            if (!contentURL && resource.externalURL) {
+                contentURL = resource.externalURL;
+            }
             [webView loadHTMLString:html baseURL:contentURL];
         }
         else {
