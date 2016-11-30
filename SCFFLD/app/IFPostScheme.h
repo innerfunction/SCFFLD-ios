@@ -22,8 +22,8 @@
 /**
  * An internal URI scheme handler for the _post:_ scheme.
  * The _post:_ scheme allows messages to be posted using a URI string description. For example,
- * the URI _post:open+view@make:WebView_, the message to be posted is named _open_ and has a
- * single parameter named _view_.
+ * the URI _post:app#open+view@make:WebView_, specifies a message named _open_ is posted to the
+ * target named _app_, and has a message parameter named _view_.
  */
 @interface IFPostScheme : NSObject <IFSchemeHandler>
 

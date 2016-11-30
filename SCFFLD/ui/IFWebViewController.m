@@ -111,7 +111,7 @@
 
 // TODO: Note that the web view will URI encode any square brackets in the URL - this can interfere with compound URI parsing.
 // TODO: Would be useful to have some way to automatically promote HTML file references - e.g. app:file.html - to something like
-//       post:show+view@[new:WebView+content@app:file.html]
+//       post:#show+view@[new:WebView+content@app:file.html]
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     NSURL *url = [request URL];
     // Allow pre-configured URLs to load.
@@ -157,7 +157,7 @@
             message = [url description];
         }
         else {
-            message = [NSString stringWithFormat:@"post:open-url+url=%@", url];
+            message = [NSString stringWithFormat:@"post:#open-url+url=%@", url];
         }
         [self postMessage:message];
         return NO;

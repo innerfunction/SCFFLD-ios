@@ -26,8 +26,8 @@
 }
 
 - (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
-    IFMessage *message = [[IFMessage alloc] initWithTarget:uri.fragment
-                                                      name:uri.name
+    IFMessage *message = [[IFMessage alloc] initWithTarget:uri.name
+                                                      name:uri.fragment
                                                 parameters:params];
     return message;
 }
