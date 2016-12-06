@@ -53,7 +53,21 @@
     if (IsNumber(value)) {
         result = value;
     }
-    // TODO: Try parsing string value as number?
+    else if([value isKindOfClass:[NSString class]]) {
+        // Convert boolean true/false strings to 0/1.
+        if ([@"true" isEqualToString:value]) {
+            result = [NSNumber numberWithBool:YES];
+        }
+        else if ([@"false" isEqualToString:value]) {
+            result = [NSNumber numberWithBool:NO];
+        }
+        else {
+            // Try parsing the string as a number.
+            NSNumberFormatter *parser = [NSNumberFormatter new];
+            parser.numberStyle = NSNumberFormatterDecimalStyle;
+            result = [parser numberFromString:value];
+        }
+    }
     return result;
 }
 
@@ -63,7 +77,6 @@
     if( nvalue ) {
         result = [nvalue boolValue];
     }
-    // TODO: Should yes/no true/false string values be supported?
     return result;
 }
 
