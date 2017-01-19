@@ -21,6 +21,7 @@
 #import "IFFileBasedSchemeHandler.h"
 #import "IFLocalSchemeHandler.h"
 #import "IFReprSchemeHandler.h"
+#import "IFDirmapSchemeHandler.h"
 #import "IFResource.h"
 #import "IFURIValueFormatter.h"
 #import "NSDictionary+IF.h"
@@ -68,6 +69,8 @@
         _schemeHandlers[@"cache"] = [[IFFileBasedSchemeHandler alloc] initWithDirectory:NSCachesDirectory];
         _schemeHandlers[@"local"] = [IFLocalSchemeHandler new];
         _schemeHandlers[@"repr"] = [IFReprSchemeHandler new];
+        // Load dirmap files from the same location as app:
+        _schemeHandlers[@"dirmap"] = [[IFDirmapSchemeHandler alloc] initWithPath:mainBundlePath];
     }
     return self;
 }

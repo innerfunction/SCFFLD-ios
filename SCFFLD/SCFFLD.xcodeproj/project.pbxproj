@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071463821E312082005263CF /* IFDirmapSchemeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 071463801E312082005263CF /* IFDirmapSchemeHandler.h */; };
+		071463831E312082005263CF /* IFDirmapSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 071463811E312082005263CF /* IFDirmapSchemeHandler.m */; };
 		07190CB11C8054A400CE8F22 /* IFPostScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 07190CAE1C8054A400CE8F22 /* IFPostScheme.h */; };
 		07190CB21C8054A400CE8F22 /* IFPostScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 07190CAF1C8054A400CE8F22 /* IFPostScheme.m */; };
 		072DA4A01C848D680023FAEC /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */; };
@@ -168,6 +170,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		071463801E312082005263CF /* IFDirmapSchemeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFDirmapSchemeHandler.h; path = uri/IFDirmapSchemeHandler.h; sourceTree = SOURCE_ROOT; };
+		071463811E312082005263CF /* IFDirmapSchemeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFDirmapSchemeHandler.m; path = uri/IFDirmapSchemeHandler.m; sourceTree = SOURCE_ROOT; };
 		07190CAE1C8054A400CE8F22 /* IFPostScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFPostScheme.h; path = app/IFPostScheme.h; sourceTree = SOURCE_ROOT; };
 		07190CAF1C8054A400CE8F22 /* IFPostScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IFPostScheme.m; path = app/IFPostScheme.m; sourceTree = SOURCE_ROOT; };
 		072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 			children = (
 				07BD8AA81C7653930058D7A8 /* IFCompoundURI.h */,
 				07BD8AA91C7653930058D7A8 /* IFCompoundURI.m */,
+				071463801E312082005263CF /* IFDirmapSchemeHandler.h */,
+				071463811E312082005263CF /* IFDirmapSchemeHandler.m */,
 				07BD8AAA1C7653930058D7A8 /* IFFileBasedSchemeHandler.h */,
 				07BD8AAB1C7653930058D7A8 /* IFFileBasedSchemeHandler.m */,
 				07BD8AAC1C7653930058D7A8 /* IFFileResource.h */,
@@ -708,6 +714,7 @@
 				07D7610E1D9578CC0043F371 /* IFJSONData.h in Headers */,
 				07BD8B481C7653FC0058D7A8 /* crypt.h in Headers */,
 				07BD8A991C76537E0058D7A8 /* IFNavigationViewController.h in Headers */,
+				071463821E312082005263CF /* IFDirmapSchemeHandler.h in Headers */,
 				07D760F91D9578CC0043F371 /* IFConfigurable.h in Headers */,
 				07BD8B4A1C7653FC0058D7A8 /* ioapi.h in Headers */,
 				07BD8B511C7653FC0058D7A8 /* ZipArchive.h in Headers */,
@@ -855,6 +862,7 @@
 				07BD8A9A1C76537E0058D7A8 /* IFNavigationViewController.m in Sources */,
 				07BD8B021C7653AD0058D7A8 /* NSString+IF.m in Sources */,
 				07D760FD1D9578CC0043F371 /* IFConfiguredLocals.m in Sources */,
+				071463831E312082005263CF /* IFDirmapSchemeHandler.m in Sources */,
 				07BD8AA41C76537E0058D7A8 /* IFViewController.m in Sources */,
 				072DA4A11C848D680023FAEC /* JTSAnimatedGIFUtility.m in Sources */,
 				07BD8A9C1C76537E0058D7A8 /* IFSlideViewController.m in Sources */,

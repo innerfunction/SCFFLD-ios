@@ -108,7 +108,28 @@
     if (![path hasSuffix:@"/"]) {
         path = [path stringByAppendingString:@"/"];
     }
-    return [super initWithData:path uri:uri];
+    self = [super initWithData:path uri:uri];
+    self.path = path;
+    return self;
+}
+
+- (IFFileResource *)resourceForPath:(NSString *)path {
+    NSString *filePath = [self.path stringByAppendingPathComponent:path];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isDir;
+    BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    if (exists && !isDir) {
+        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+        NSFileHandle* handle = [NSFileHandle fileHandleForReadingFromURL:fileURL error:nil];
+        if (handle) {
+            // Create a URI for the file resource by appending the file path to this resource's URI.
+            IFCompoundURI *fileURI = [self.uri copyOf];
+            fileURI.name = [fileURI.name stringByAppendingPathComponent:path];
+            return [[IFFileResource alloc] initWithHandle:handle url:fileURL path:filePath uri:fileURI];
+        }
+    }
+    // File not found.
+    return nil;
 }
 
 @end

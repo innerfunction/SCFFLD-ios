@@ -65,11 +65,20 @@
  */
 @interface IFDirectoryResource : IFResource
 
+/// The directory's absolute path.
+@property (nonatomic, strong) NSString *path;
+
 /**
  * Initialize a new resource.
  * @param path The path to the directory.
  * @param uri The internal URI used to reference the directory.
  */
 - (id)initWithPath:(NSString *)path uri:(IFCompoundURI *)uri;
+
+/**
+ * Return a file resource for a file within the current directory.
+ * @param path  The path to the desired file, relative to the current directory.
+ */
+- (IFFileResource *)resourceForPath:(NSString *)path;
 
 @end
