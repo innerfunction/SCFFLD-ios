@@ -20,6 +20,8 @@
 #import "IFCompoundURI.h"
 #import "IFURIHandling.h"
 
+#define MainBundlePath  ([[NSBundle mainBundle] resourcePath])
+
 /**
  * A default implementation of the @see <IFURIHandler> protocol.
  * This implementation provides a number of default scheme handlers as-is, but additional handlers can be

@@ -28,15 +28,55 @@
     return self;
 }
 
-- (id)valueForKey:(NSString *)key {
+- (id)objectForKey:(NSString *)key {
     // Given any key, attempt to load the contents of a file named <key>.json
     // and return its parsed contents as the result.
     NSString *path = [key stringByAppendingPathExtension:@"json"];
     IFFileResource *fileRsc = [_dirResource resourceForPath:path];
     if (fileRsc) {
+        // TODO - Return an IFConfiguration instead? to preserve the URI the data has been loaded from.
+        // TODO - IFConfiguration really needs an initWithResource: constructor.
         return [fileRsc asJSONData];
     }
     return nil;
+}
+
+- (NSUInteger)count {
+    return [[self allKeys] count];
+}
+
+- (NSEnumerator *)keyEnumerator {
+    return [[self allKeys] objectEnumerator];
+}
+
+- (NSEnumerator *)objectEnumerator {
+    return [[self allValues] objectEnumerator];
+}
+
+- (NSArray *)allValues {
+    NSArray *keys = [self allKeys];
+    NSMutableArray *values = [NSMutableArray new];
+    for (NSString *key in keys) {
+        id value = [self objectForKey:key];
+        [values addObject:value];
+    }
+    return values;
+}
+
+- (NSArray *)allKeys {
+    if (_keys == nil) {
+        NSArray *files = [_dirResource list];
+        // Filter JSON files and extract keys as filename less the .json extension.
+        NSMutableArray *keys = [NSMutableArray new];
+        for (NSString *filename in files) {
+            if ([filename hasSuffix:@".json"]) {
+                NSString *key = [filename substringToIndex:[filename length] - 5];
+                [keys addObject:key];
+            }
+        }
+        _keys = keys;
+    }
+    return _keys;
 }
 
 @end
@@ -60,15 +100,18 @@
     }
     else if (dirmap == nil) {
         // Result not found, try reading the resource for the named directory.
-        id dirResource = [super dereference:uri parameters:params];
-        if (dirResource) {
-            dirmap = [[IFDirmap alloc] initWithDirectoryResource:dirResource];
+        // First create a copy of the current URI, in the app: scheme; this is to ensure that
+        // relative URIs in any loaded configurations work as expected.
+        IFCompoundURI *dirURI = [[IFCompoundURI alloc] initWithScheme:@"app" uri:uri];
+        id dirRsc = [super dereference:dirURI parameters:params];
+        if (dirRsc) {
+            dirmap = [[IFDirmap alloc] initWithDirectoryResource:dirRsc];
+            [_dirmapCache setObject:dirmap forKey:uri.name];
         }
         else {
             // Named directory not found; store NSNull to indicate miss.
-            dirmap = [NSNull null];
+            [_dirmapCache setObject:[NSNull null] forKey:uri.name];
         }
-        [_dirmapCache setObject:dirmap forKey:uri.name];
     }
     return dirmap;
 }

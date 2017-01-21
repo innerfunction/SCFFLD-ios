@@ -132,5 +132,9 @@
     return nil;
 }
 
+- (NSArray *)list {
+    return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
+}
+
 @end
 

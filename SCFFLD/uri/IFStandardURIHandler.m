@@ -26,8 +26,6 @@
 #import "IFURIValueFormatter.h"
 #import "NSDictionary+IF.h"
 
-#define MainBundlePath  ([[NSBundle mainBundle] resourcePath])
-
 @interface IFStandardURIHandler()
 
 - (id)initWithMainBundlePath:(NSString *)mainBundlePath schemeHandlers:(NSMutableDictionary *)schemeHandlers schemeContexts:(NSDictionary *)schemeContexts;

@@ -20,8 +20,9 @@
 #import "IFFileBasedSchemeHandler.h"
 #import "IFFileResource.h"
 
-@interface IFDirmap : NSObject {
+@interface IFDirmap : NSDictionary {
     IFDirectoryResource *_dirResource;
+    NSArray *_keys;
 }
 
 - (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource;

@@ -40,6 +40,16 @@
 - (id)initWithDirectory:(NSSearchPathDirectory)directory;
 /** Initialize the handler with the specified base path. */
 - (id)initWithPath:(NSString *)path;
+/** Initialize the handler with the specified base path and file extension filter. */
+- (id)initWithPath:(NSString *)path extension:(NSString *)ext;
+
+/**
+ * An optional file extension filter.
+ * If specified then URI names with have the specified extension automatically appended,
+ * assuming the don't already have the extension; e.g. scheme:name becomes scheme:name.ext
+ */
+@property (nonatomic, strong) NSString *extFilter;
+
 /**
  * Try dererencing a URI against a specified base path.
  * @param uri A URI belonging to the current handler's URI scheme.

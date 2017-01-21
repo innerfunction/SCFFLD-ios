@@ -81,4 +81,9 @@
  */
 - (IFFileResource *)resourceForPath:(NSString *)path;
 
+/**
+ * Return a list of file names contained by the current directory.
+ */
+- (NSArray *)list;
+
 @end

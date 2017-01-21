@@ -22,6 +22,7 @@
 #import "IFNewScheme.h"
 #import "IFMakeScheme.h"
 #import "IFPostScheme.h"
+#import "IFFileBasedSchemeHandler.h"
 #import "IFCoreTypes.h"
 #import "IFI18nMap.h"
 #import "NSString+IF.h"
@@ -147,6 +148,10 @@
     [_appURIHandler addHandler:[[IFMakeScheme alloc] initWithAppContainer:self] forScheme:@"make"];
     [_appURIHandler addHandler:[[IFNamedSchemeHandler alloc] initWithContainer:self] forScheme:@"named"];
     [_appURIHandler addHandler:[[IFPostScheme alloc] init] forScheme:@"post"];
+    
+    NSString *patternsPath = [MainBundlePath stringByAppendingString:@"SCFFLD/patterns"];
+    IFFileBasedSchemeHandler *patternScheme = [[IFFileBasedSchemeHandler alloc] initWithPath:patternsPath extension:@"json"];
+    [_appURIHandler addHandler:patternScheme forScheme:@"pattern"];
     
     // Default local settings.
     _locals = [[IFLocals alloc] initWithPrefix:@"semo"];

@@ -38,6 +38,14 @@
     return self;
 }
 
+- (id)initWithPath:(NSString *)path extension:(NSString *)ext {
+    self = [self initWithPath:path];
+    if (path) {
+        _extFilter = ext;
+    }
+    return self;
+}
+
 #define IsRelative(uri) (![uri.name hasPrefix:@"/"])
 
 - (IFCompoundURI *)resolve:(IFCompoundURI *)uri against:(IFCompoundURI *)reference {
@@ -61,6 +69,10 @@
 
 - (IFResource *)dereference:(IFCompoundURI *)uri againstPath:(NSString *)path {
     NSString *filePath = [path stringByAppendingPathComponent:uri.name];
+    // Append extension filter if extension specified and the path doesn't already have the extension.
+    if (_extFilter != nil && ![filePath hasSuffix:[@"." stringByAppendingString:_extFilter]]) {
+        filePath = [filePath stringByAppendingPathExtension:_extFilter];
+    }
     BOOL isDir;
     BOOL exists = [_fileManager fileExistsAtPath:filePath isDirectory:&isDir];
     if (exists) {

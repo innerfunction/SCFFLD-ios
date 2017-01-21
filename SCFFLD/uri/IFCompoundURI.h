@@ -63,6 +63,7 @@
  * @param name The name part of the URI.
  */
 - (id)initWithScheme:(NSString *)scheme name:(NSString *)name;
+
 /**
  * Create a copy of a URI but in a new scheme.
  * @param scheme The name of the new URI's scheme.
@@ -70,10 +71,12 @@
  * @return A copy of _uri_ but with its scheme name changed to _scheme_.
  */
 - (id)initWithScheme:(NSString *)scheme uri:(IFCompoundURI *)uri;
+
 /**
  * Add additional parameters to the URI.
  */
 - (void)addURIParameters:(NSDictionary *)params;
+
 /**
  * Generate a canonical representation of the URI.
  * @return The string representation of the URI. URI parameters are:
@@ -82,15 +85,19 @@
  * - All nested URIs are demarcated with square brackets.
  */
 - (NSString *)canonicalForm;
+
 /** Create a copy of the current URI. */
 - (IFCompoundURI *)copyOf;
+
 /**
  * Create a copy of the current URI but with the specified fragment.
  * @param fragment A fragment identifier to add use in place of the URIs current fragment.
  */
 - (IFCompoundURI *)copyOfWithFragment:(NSString *)fragment;
+
 /** Static utility method for parsing a URI string. */
 + (IFCompoundURI *)parse:(NSString *)uri error:(NSError **)error;
+
 /**
  * Static utility method for parsing a URI string.
  * Swallows any error and instead returns _nil_ for invalid URIs.
