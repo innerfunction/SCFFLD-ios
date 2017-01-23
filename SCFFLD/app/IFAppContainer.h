@@ -64,6 +64,8 @@
 @property (nonatomic) NSDictionary *formats;
 /// URI aliases.
 @property (nonatomic) IFJSONObject *aliases;
+/// The container's standard configuration.
+@property (nonatomic, strong) id standardConfiguration;
 
 /** Load the app's standard configuration. */
 - (void)loadStandardConfiguration;

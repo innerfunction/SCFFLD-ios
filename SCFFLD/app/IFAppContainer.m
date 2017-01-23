@@ -46,6 +46,11 @@
         
         _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
 
+        _standardConfiguration = @{
+            @"types":       @"@app:/SCFFLD/types.json",
+            @"schemes":     @{},
+            @"patterns":    @"@dirmap:/SCFFLD/patterns"
+        };
     }
     return self;
 }
@@ -57,11 +62,7 @@
 }
 
 - (void)loadStandardConfiguration {
-    [self loadConfiguration:@{
-        @"types":       @"@app:/SCFFLD/types.json",
-        @"schemes":     @{},
-        @"patterns":    @"@dirmap:/SCFFLD/patterns"
-    }];
+    [self loadConfiguration:_standardConfiguration];
 }
 
 - (void)loadConfiguration:(id)configSource {
