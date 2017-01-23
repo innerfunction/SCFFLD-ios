@@ -199,4 +199,16 @@
     return result;
 }
 
+#pragma mark - Static methods
+
+static id<IFURIHandler> IFStandardURIHandler_uriHandler;
+
++ (void)initialize {
+    IFStandardURIHandler_uriHandler = [IFStandardURIHandler new];
+}
+
++ (id<IFURIHandler>)uriHandler {
+    return IFStandardURIHandler_uriHandler;
+}
+
 @end

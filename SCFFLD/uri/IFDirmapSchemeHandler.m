@@ -17,6 +17,7 @@
 //
 
 #import "IFDirmapSchemeHandler.h"
+#import "IFConfiguration.h"
 
 @implementation IFDirmap
 
@@ -34,9 +35,7 @@
     NSString *path = [key stringByAppendingPathExtension:@"json"];
     IFFileResource *fileRsc = [_dirResource resourceForPath:path];
     if (fileRsc) {
-        // TODO - Return an IFConfiguration instead? to preserve the URI the data has been loaded from.
-        // TODO - IFConfiguration really needs an initWithResource: constructor.
-        return [fileRsc asJSONData];
+        return [[IFConfiguration alloc] initWithResource:fileRsc];
     }
     return nil;
 }

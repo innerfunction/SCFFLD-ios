@@ -34,11 +34,9 @@
 
 - (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
     id result = nil;
-    IFConfiguration *makes = _container.makes;
-    IFConfiguration *config = [makes getValueAsConfiguration:uri.name];
+    IFConfiguration *config = [_container.patterns getValueAsConfiguration:uri.name];
     if (config) {
-        config = [config extendWithParameters:params];
-        result = [_container buildObjectWithConfiguration:config identifier:[uri description]];
+        result = [_container buildObjectWithData:config parameters:params identifier:[uri description]];
     }
     return result;
 }

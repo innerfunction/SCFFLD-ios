@@ -42,7 +42,7 @@
 @interface IFConfiguration : NSObject <IFValues, IFConfigurationData>
 
 /// The configuration data.
-@property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) NSDictionary *configData;
 /// The original data which the configuration data was derived from.
 @property (nonatomic, strong) id sourceData;
 /**
@@ -51,7 +51,7 @@
  * configuration objects, but a reference to the top-level configuration must be
  * retained in order to properly resolve hash # property value references.
  */
-@property (nonatomic, weak) id<IFConfigurationData> root;
+@property (nonatomic, weak) id<IFConfigurationData> topLevelConfig;
 /**
  * The configuration's data context.
  * Used as the data context for templated values. A configuration supports two types of templated
@@ -59,21 +59,17 @@
  * - String template values, indicated by property values prefixed with _?_;
  * - Configuration template values, indicated by property values prefixed with _$_.
  */
-@property (nonatomic, strong) NSDictionary *context;
+@property (nonatomic, strong) NSDictionary *dataContext;
 
 /// A URI handler used to derefence URIs within the configuration.
 @property (nonatomic, strong) id<IFURIHandler> uriHandler;
 
-/// Initialize the configuration with the specified data.
+/// Initialize a configuration with the specified data.
 - (id)initWithData:(id)data;
-/**
- * Initialize the configuration with the specified data and parent configuration.
- * A parent configuration is used to provide values for this configuration's _root_, _context_ and
- * _uriHandler_ variables.
- */
+/// Initialize a configuration with data read from the specified resource.
+- (id)initWithResource:(IFResource *)resource;
+/// Initialize a configuration with the specified data and parent configuration.
 - (id)initWithData:(id)data parent:(IFConfiguration *)parent;
-/// Initialize the configuration with the specified data and URI handler.
-- (id)initWithData:(id)data uriHandler:(id<IFURIHandler>)uriHandler;
 
 /**
  * Try to convert a value to a configuration object.
@@ -149,19 +145,19 @@
 - (IFConfiguration *)extendWithParameters:(NSDictionary *)params;
 
 /**
- * Flatten a configuration by resolving all _@config_ or _@mixin_ properties.
- * The @config and @mixin properties are provided as a horizontal extension mechanism. The property values
+ * Flatten a configuration by resolving all _-config_ or _-mixin_ properties.
+ * The -config and -mixin properties are provided as a horizontal extension mechanism. The property values
  * are resolved a configuration instances, and are then merged with the current configuration (see the
  * [mixinConfiguration:] method).
- * @return Returns the current configuration with the @config and @mixin properties merged in.
+ * @return Returns the current configuration with the -config and -mixin properties merged in.
  */
 - (IFConfiguration *)flatten;
 
 /**
- * Normalize a configuration by first flattening, and then resolving any _@extends_ property.
- * This method resolves an extension hierarchy by resolving the _@extends_ property of the current
+ * Normalize a configuration by first flattening, and then resolving any _-extends_ property.
+ * This method resolves an extension hierarchy by resolving the _-extends_ property of the current
  * configuration, instantiating a configuration from that property value, and then resolving that
- * configuration's _@extends_ property, and so on until a root configuration is found. (Any closed
+ * configuration's _-extends_ property, and so on until a root configuration is found. (Any closed
  * loops in the hierarchy are detected and ignored). Each configuration in the hierarchy is flattened
  * as it is resolved (i.e. mixins are copied in over the result). The hierarchy is then merged into
  * a single configuration result, with properties in child configurations taking priority over

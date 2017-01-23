@@ -48,4 +48,7 @@
 - (id)initWithSchemeContexts:(NSDictionary *)schemeContexts;
 - (id)initWithMainBundlePath:(NSString *)mainBundlePath schemeContexts:(NSDictionary *)schemeContexts;
 
+/// The root, global URI handler.
++ (id<IFURIHandler>)uriHandler;
+
 @end

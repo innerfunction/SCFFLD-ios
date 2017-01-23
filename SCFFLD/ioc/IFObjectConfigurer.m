@@ -28,7 +28,7 @@
 
 @interface IFObjectConfigurer ()
 
-/// Normalize a property name by removing any @ios prefix. Returns nil for reserved names (e.g. @type etc.)
+/// Normalize a property name by removing any -ios prefix. Returns nil for reserved names (e.g. -type etc.)
 - (NSString *)normalizePropertyName:(NSString *)name;
 
 @end
@@ -212,7 +212,7 @@
     // otherwise.
     // When an object definition is returned, the property value is resolved according to the
     // following order of precedence:
-    // 1. A configuration which supplies an instantiation hint - e.g. @type, @ios:@class or
+    // 1. A configuration which supplies an instantiation hint - e.g. -type, -ios-class or
     //    @factory - and which successfully yields an object instance always takes precedence
     //    over other possible values;
     // 2. Next, any in-place value found by reading from the object property being configured;
@@ -226,7 +226,7 @@
         // If this works the try using it to resolve an actual property value.
         if (valueConfig) {
             // Try asking the container to build a new object using the configuration. This
-            // will only work if the configuration contains an instantiation hint (e.g. @type,
+            // will only work if the configuration contains an instantiation hint (e.g. -type,
             // @factory etc.) and will return a non-null, fully-configured object if successful.
             value = [_container buildObjectWithConfiguration:valueConfig identifier:kpRef];
             if (value == nil) {
@@ -359,12 +359,12 @@
 #pragma mark - Private methods
 
 - (NSString *)normalizePropertyName:(NSString *)name {
-    if ([name hasPrefix:@"@"]) {
-        if ([name hasPrefix:@"@ios:"]) {
-            // Strip @ios prefix from names.
+    if ([name hasPrefix:@"-"]) {
+        if ([name hasPrefix:@"-ios:"]) {
+            // Strip -ios prefix from names.
             name = [name substringFromIndex:5];
             // Don't process class names.
-            if ([@"@class" isEqualToString:name]) {
+            if ([@"-class" isEqualToString:name]) {
                 name = nil;
             }
         }

@@ -48,8 +48,8 @@
     NSMutableDictionary *_globals;
     /// Access to the app's local storage.
     IFLocals *_locals;
-    /// The URI handler instantiated by this container.
-    IFStandardURIHandler *_appURIHandler;
+    // The standard URI handler used by this container.
+    __weak IFStandardURIHandler *_appURIHandler;
 }
 
 /// The app's default background colour.
@@ -58,13 +58,15 @@
 @property (nonatomic, weak) UIWindow *window;
 /// Map of additional scheme configurations.
 @property (nonatomic, strong) NSDictionary *schemes;
-/// Make configurations.
-@property (nonatomic, strong) IFConfiguration *makes;
+/// Make configuration patterns.
+@property (nonatomic, strong) IFConfiguration *patterns;
 /// URI formatters.
 @property (nonatomic) NSDictionary *formats;
 /// URI aliases.
 @property (nonatomic) IFJSONObject *aliases;
 
+/** Load the app's standard configuration. */
+- (void)loadStandardConfiguration;
 /** Load the app configuration. */
 - (void)loadConfiguration:(id)configSource;
 /** Return the app's root view. */
@@ -78,12 +80,11 @@
 + (IFAppContainer *)getAppContainer;
 
 /**
- * Utility method to load configuration from a standard location and bind to an app window.
- * Assumes app configuration is in a file named config.json.
- * Binds the container's root view to the windows rootViewController.
- * Returns the app container configured with the files contents.
+ * Get the app window.
+ * Loads the standard app configuration and bind's the app container's root view to the window's
+ * rootViewController property.
  */
-+ (IFAppContainer *)bindToWindow:(UIWindow *)window;
++ (UIWindow *)window;
 
 /** Post a message URI. */
 + (void)postMessage:(NSString *)messageURI sender:(id)sender;

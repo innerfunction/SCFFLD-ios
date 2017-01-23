@@ -96,6 +96,13 @@
 - (void)setTypes:(IFConfiguration *)types;
 /** Add additional type name mappings to the type map. */
 - (void)addTypes:(id)types;
+
+/// Build an object from the provided configuration data.
+- (id)buildObjectWithData:(id)data;
+/// Build an object from the provided configuration data and parameters.
+- (id)buildObjectWithData:(id)data parameters:(NSDictionary *)params;
+/// Build an object from the provided configuration data and parameters, and with the specified object identifier.
+- (id)buildObjectWithData:(id)data parameters:(NSDictionary *)params identifier:(NSString *)identifier;
 /**
  * Instantiate and configure an object using the specified configuration.
  * @param configuration A configuration describing the object to build.

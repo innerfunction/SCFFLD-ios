@@ -39,10 +39,10 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _appURIHandler = [[IFStandardURIHandler alloc] init];
+        _appURIHandler = [IFStandardURIHandler uriHandler];
         self.uriHandler = _appURIHandler;
         // Core names which should be built before processing the rest of the container's configuration.
-        self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"makes" ];
+        self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"patterns" ];
         
         _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
 
@@ -54,6 +54,14 @@
     _window = window;
     _window.rootViewController = [self getRootView];
     _window.backgroundColor = _appBackgroundColor;
+}
+
+- (void)loadStandardConfiguration {
+    [self loadConfiguration:@{
+        @"types":       @"@app:/SCFFLD/types.json",
+        @"schemes":     @{},
+        @"patterns":    @"@dirmap:/SCFFLD/patterns"
+    }];
 }
 
 - (void)loadConfiguration:(id)configSource {
@@ -88,8 +96,7 @@
         // Create configuration from data.
         if ([configData isKindOfClass:[IFResource class]]) {
             IFResource *configRsc =(IFResource *)configData;
-            id data = [configRsc asJSONData];
-            configuration = [[IFConfiguration alloc] initWithData:data uriHandler:configRsc.uriHandler];
+            configuration = [[IFConfiguration alloc] initWithResource:configRsc];
             // Use the configuration's URI handler instead from this point on, to ensure relative URI's
             // resolve properly and also so that additional URI schemes added to this container are
             // available within the configuration.
@@ -138,7 +145,7 @@
     
     // Setup template context.
     _globals = [self makeDefaultGlobalModelValues:configuration];
-    configuration.context = _globals;
+    configuration.dataContext = _globals;
     
     // Set object type mappings.
     [self addTypes:[configuration getValueAsConfiguration:@"types"]];
@@ -304,17 +311,7 @@
 }
 
 #pragma mark - IFIOCTypeInspectable
-/*
-- (BOOL)isDataCollection:(NSString *)propertyName {
-    if ([@"makes" isEqualToString:propertyName]) {
-        return YES;
-    }
-    if ([@"aliases" isEqualToString:propertyName]) {
-        return YES;
-    }
-    return NO;
-}
-*/
+
 - (__unsafe_unretained Class)memberClassForCollection:(NSString *)propertyName {
     return nil;
 }
@@ -402,7 +399,7 @@
 static IFAppContainer *IFAppContainer_instance;
 
 + (void)initialize {
-    IFAppContainer_instance = [[IFAppContainer alloc] init];
+    IFAppContainer_instance = [IFAppContainer new];
     [IFAppContainer_instance addTypes:[IFCoreTypes types]];
 }
 
@@ -410,12 +407,13 @@ static IFAppContainer *IFAppContainer_instance;
     return IFAppContainer_instance;
 }
 
-+ (IFAppContainer *)bindToWindow:(UIWindow *)window {
++ (UIWindow *)window {
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     IFAppContainer *container = [IFAppContainer getAppContainer];
-    [container loadConfiguration:@"app:config.json"];
+    [container loadStandardConfiguration];
     [container startService];
     container.window = window;
-    return container;
+    return window;
 }
 
 + (void)postMessage:(NSString *)messageURI sender:(id)sender {

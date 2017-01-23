@@ -95,13 +95,36 @@
     }
 }
 
+- (id)buildObjectWithData:(id)data {
+    return [self buildObjectWithData:data parameters:nil];
+}
+
+- (id)buildObjectWithData:(id)data parameters:(NSDictionary *)params {
+    return [self buildObjectWithData:data parameters:params identifier:[data description]];
+}
+
+- (id)buildObjectWithData:(id)data parameters:(NSDictionary *)params identifier:(NSString *)identifier {
+    IFConfiguration *config;
+    if ([data isKindOfClass:[IFConfiguration class]]) {
+        config = (IFConfiguration *)data;
+    }
+    else {
+        config = [[IFConfiguration alloc] initWithData:data parent:_containerConfig];
+    }
+    config = [config normalize];
+    if (params) {
+        config = [config extendWithParameters:params];
+    }
+    return [self buildObjectWithConfiguration:config identifier:identifier];
+}
+
 // Build a new object from its configuration by instantiating a new instance and configuring it.
 - (id)buildObjectWithConfiguration:(IFConfiguration *)configuration identifier:(NSString *)identifier {
     id object = nil;
-    if ([configuration hasValue:@"@factory"]) {
+    if ([configuration hasValue:@"-factory"]) {
         // The configuration specifies an object factory, so resolve the factory object and attempt
         // using it to instantiate the object.
-        id factory = [configuration getValue:@"@factory"];
+        id factory = [configuration getValue:@"-factory"];
         if ([factory conformsToProtocol:@protocol(IFIOCObjectFactory)]) {
             object = [(id<IFIOCObjectFactory>)factory buildObjectWithConfiguration:configuration inContainer:self identifier:identifier];
             [self doPostInstantiation:object];
@@ -125,12 +148,12 @@
 // Use class or type info in a cofiguration to instantiate a new object.
 - (id)instantiateObjectWithConfiguration:(IFConfiguration *)configuration identifier:(NSString *)identifier {
     id object = nil;
-    NSString *className = [configuration getValueAsString:@"@ios:@class"];
+    NSString *className = [configuration getValueAsString:@"-ios-class"];
     if (!className) {
-        className = [configuration getValueAsString:@"@class"];
+        className = [configuration getValueAsString:@"-class"];
     }
     if (!className) {
-        NSString *type = [configuration getValueAsString:@"@type"];
+        NSString *type = [configuration getValueAsString:@"-type"];
         if (type) {
             className = [_types getValueAsString:type];
             if (!className) {
@@ -139,7 +162,7 @@
         }
         else {
             // This can be OK in some circumstances.
-            //[_logger error:@"Instantiating %@, Component configuration missing @type or @ios:@class property", identifier];
+            //[_logger error:@"Instantiating %@, Component configuration missing -type or -ios-class property", identifier];
         }
     }
     if (className) {
@@ -279,8 +302,8 @@
 
 // Get a named object. Will attempt building the object if necessary.
 - (id)getNamed:(NSString *)name {
-    // Allow the container to be referenced as named:*container
-    if ([@"*container" isEqualToString:name]) {
+    // Allow the container to be referenced as named:-container
+    if ([@"-container" isEqualToString:name]) {
         return self;
     }
     id object = _named[name];
@@ -290,6 +313,7 @@
         // being configured.
         NSArray *pending = _pendingNames[name];
         if (pending != nil) {
+            // TODO: Add option to throw exception here, instead of logging the problem.
             [_logger info:@"IDO: Named dependency cycle detected, creating pending entry for %@...", name];
             // Create a placeholder object and record in the list of placeholders waiting for the named configuration to complete.
             // Note that the placeholder is returned in place of the named - code above detects the placeholder and ensures that
