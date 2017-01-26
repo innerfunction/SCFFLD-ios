@@ -34,7 +34,21 @@
 
 - (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
     id result = nil;
-    IFConfiguration *config = [_container.patterns getValueAsConfiguration:uri.name];
+    IFConfiguration *config = nil;
+    if (uri.name) {
+        // Build a pattern.
+        [_container.patterns getValueAsConfiguration:uri.name];
+    }
+    else {
+        // Build a configuration.
+        id _config = params[@"config"];
+        if ([_config isKindOfClass:[IFConfiguration class]]) {
+            config = (IFConfiguration *)_config;
+        }
+        else if ([_config isKindOfClass:[IFResource class]]) {
+            config = [[IFConfiguration alloc] initWithResource:(IFResource *)_config];
+        }
+    }
     if (config) {
         result = [_container buildObjectWithData:config parameters:params identifier:[uri description]];
     }

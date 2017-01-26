@@ -39,18 +39,20 @@
 - (id)init {
     self = [super init];
     if (self) {
+        // The container's logger.
+        _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
+        // The container's standard configuration.
+        _standardConfiguration = @{
+            @"types":       @"@app:/SCFFLD/types.json",
+            @"schemes":     @"@dirmap:/SCFFLD/schemes",
+            @"patterns":    @"@dirmap:/SCFFLD/patterns",
+            @"nameds":      @"@dirmap:/SCFFLD/nameds"
+        };
+        // Use the standard URI handler singleton instance
         _appURIHandler = [IFStandardURIHandler uriHandler];
         self.uriHandler = _appURIHandler;
         // Core names which should be built before processing the rest of the container's configuration.
         self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"patterns" ];
-        
-        _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
-
-        _standardConfiguration = @{
-            @"types":       @"@app:/SCFFLD/types.json",
-            @"schemes":     @{},
-            @"patterns":    @"@dirmap:/SCFFLD/patterns"
-        };
     }
     return self;
 }
@@ -173,7 +175,13 @@
     [_named setObject:_locals forKey:@"locals"];
     [_named setObject:self forKey:@"app"];
 
-
+    // Copy and configurations defined in the /nameds directory over the container configuration.
+    IFConfiguration *namedsConfig = [configuration getValueAsConfiguration:@"nameds"];
+    if (namedsConfig) {
+        configuration = [configuration configurationWithKeysExcluded:@[ @"nameds" ] ];
+        configuration = [configuration mixinConfiguration:namedsConfig];
+    }
+    
     // Perform default container configuration.
     [super configureWith:configuration];
 }

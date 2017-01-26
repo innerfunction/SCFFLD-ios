@@ -46,7 +46,7 @@
 /// Perform the object configuration.
 - (void)configureWith:(IFConfiguration *)configuration;
 /**
- * Configure a named object of the container.
+ * Configure a named property of the container.
  * @param name              A property name.
  * @param configuration     The container configuration.
  * @return The fully configured object.
