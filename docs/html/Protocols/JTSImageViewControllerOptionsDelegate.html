@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>JTSImageViewControllerOptionsDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">SCFFLD </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">innerfunction</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/accentColorForAltTextInImageViewer:">- accentColorForAltTextInImageViewer:</option>
+		
+		<option value="//api/name/alphaForBackgroundDimmingOverlayInImageViewer:">- alphaForBackgroundDimmingOverlayInImageViewer:</option>
+		
+		<option value="//api/name/backgroundBlurRadiusForImageViewer:">- backgroundBlurRadiusForImageViewer:</option>
+		
+		<option value="//api/name/backgroundColorImageViewInImageViewer:">- backgroundColorImageViewInImageViewer:</option>
+		
+		<option value="//api/name/fontForAltTextInImageViewer:">- fontForAltTextInImageViewer:</option>
+		
+		<option value="//api/name/imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:">- imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">JTSImageViewControllerOptionsDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>JTSImageViewController.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Options Delegate</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:" title="imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:">&ndash;&nbsp;imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Return YES if you want the image thumbnail to fade to/from zero during presentation
+and dismissal animations.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:(JTSImageViewController *)<em>imageViewer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Return YES if you want the image thumbnail to fade to/from zero during presentation
+and dismissal animations.</p>
+
+<p>This may be helpful if the reference image in your presenting view controller has been
+dimmed, such as for a dark mode. <a href="../Classes/JTSImageViewController.html">JTSImageViewController</a> otherwise presents the animated
+image view at full opacity, which can look jarring.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fontForAltTextInImageViewer:" title="fontForAltTextInImageViewer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fontForAltTextInImageViewer:">&ndash;&nbsp;fontForAltTextInImageViewer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The font used in the alt text mode&rsquo;s text view.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIFont *)fontForAltTextInImageViewer:(JTSImageViewController *)<em>imageViewer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The font used in the alt text mode&rsquo;s text view.</p>
+
+<p>This method is only used with <code>JTSImageViewControllerMode_AltText</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/accentColorForAltTextInImageViewer:" title="accentColorForAltTextInImageViewer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/accentColorForAltTextInImageViewer:">&ndash;&nbsp;accentColorForAltTextInImageViewer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The tint color applied to tappable text and selection controls.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIColor *)accentColorForAltTextInImageViewer:(JTSImageViewController *)<em>imageView</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The tint color applied to tappable text and selection controls.</p>
+
+<p>This method is only used with <code>JTSImageViewControllerMode_AltText</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/backgroundColorImageViewInImageViewer:" title="backgroundColorImageViewInImageViewer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/backgroundColorImageViewInImageViewer:">&ndash;&nbsp;backgroundColorImageViewInImageViewer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The background color of the image view itself, not to be confused with the background
+color for the view controller&rsquo;s view.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIColor *)backgroundColorImageViewInImageViewer:(JTSImageViewController *)<em>imageViewer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The background color of the image view itself, not to be confused with the background
+color for the view controller&rsquo;s view.</p>
+
+<p>You may wish to override this method if displaying an image with dark content on an
+otherwise clear background color (such as images from the XKCD What If? site).</p>
+
+<p>The default color is <code>[UIColor clearColor]</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/alphaForBackgroundDimmingOverlayInImageViewer:" title="alphaForBackgroundDimmingOverlayInImageViewer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/alphaForBackgroundDimmingOverlayInImageViewer:">&ndash;&nbsp;alphaForBackgroundDimmingOverlayInImageViewer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defaults to <code>JTSImageViewController_DefaultAlphaForBackgroundDimmingOverlay</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CGFloat)alphaForBackgroundDimmingOverlayInImageViewer:(JTSImageViewController *)<em>imageViewer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defaults to <code>JTSImageViewController_DefaultAlphaForBackgroundDimmingOverlay</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/backgroundBlurRadiusForImageViewer:" title="backgroundBlurRadiusForImageViewer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/backgroundBlurRadiusForImageViewer:">&ndash;&nbsp;backgroundBlurRadiusForImageViewer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Used with a JTSImageViewControllerBackgroundStyle_ScaledDimmedBlurred background style.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CGFloat)backgroundBlurRadiusForImageViewer:(JTSImageViewController *)<em>imageViewer</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Used with a JTSImageViewControllerBackgroundStyle_ScaledDimmedBlurred background style.</p>
+
+<p>Defaults to <code>JTSImageViewController_DefaultBackgroundBlurRadius</code>. The larger the radius,
+the more profound the blur effect. Larger radii may lead to decreased performance on
+older devices. To offset this, <a href="../Classes/JTSImageViewController.html">JTSImageViewController</a> applies the blur effect to a
+scaled-down snapshot of the background view.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">JTSImageViewController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2017 innerfunction. All rights reserved. Updated: 2017-02-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

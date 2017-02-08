@@ -32,7 +32,7 @@
  * to be instantiated.
  */
 @interface IFMakeScheme : NSObject <IFSchemeHandler> {
-    IFAppContainer *_container;
+    __weak IFAppContainer *_container;
 }
 
 - (id)initWithAppContainer:(IFAppContainer *)container;

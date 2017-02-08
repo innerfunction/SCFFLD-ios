@@ -27,7 +27,7 @@
  * is then performed using the URI's parameters as configuration values.
  */
 @interface IFNewScheme : NSObject <IFSchemeHandler> {
-    IFContainer *container;
+    __weak IFContainer *container;
 }
 
 - (id)initWithContainer:(IFContainer *)_container;

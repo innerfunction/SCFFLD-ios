@@ -1,8 +1,11 @@
 # SCFFLD ios
-SCFFLD core functionality for iOS.
+JSON based dependency injection for iOS.
 
-* Dependency injection (DI) containers;
+The core SCFFLD package provides the following:
+
+* JSON configuration loading;
+* Dependency injection (DI) / inversion of control (IoC) containers;
 * Internal URI system;
 * App container and basic UI components;
-* Utilities.
+
 

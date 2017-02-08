@@ -27,7 +27,7 @@
  * The scheme handler forwards requests to the [getNamed:] method of the app container.
  */
 @interface IFNamedSchemeHandler : NSObject <IFSchemeHandler> {
-    IFContainer *_container;
+    __weak IFContainer *_container;
 }
 
 - (id)initWithContainer:(IFContainer *)container;
