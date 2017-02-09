@@ -8,4 +8,12 @@ The core SCFFLD package provides the following:
 * Internal URI system;
 * App container and basic UI components;
 
+See the wiki for more information.
+
+## Installation
+
+Install using CocoaPods:
+```ruby
+pod 'SCFFLD'
+```
 
