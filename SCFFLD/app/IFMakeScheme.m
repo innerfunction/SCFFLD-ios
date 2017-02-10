@@ -37,7 +37,7 @@
     IFConfiguration *config = nil;
     if (uri.name) {
         // Build a pattern.
-        [_container.patterns getValueAsConfiguration:uri.name];
+        config = [_container.patterns getValueAsConfiguration:uri.name];
     }
     else {
         // Build a configuration.
