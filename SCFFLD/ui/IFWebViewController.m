@@ -19,6 +19,7 @@
 #import "IFWebViewController.h"
 #import "UIViewController+ImageView.h"
 #import "IFAppContainer.h"
+#import "IFRegExp.h"
 
 @interface IFWebViewController ()
 
@@ -154,7 +155,14 @@
     else if (webViewLoaded && (navigationType != UIWebViewNavigationTypeOther)) {
         NSString *message;
         if ([[IFAppContainer getAppContainer] isInternalURISchemeName:url.scheme]) {
-            message = [url description];
+            message = [url absoluteString];
+            // NSURL will represent URIs such as post:#fragment to post:%23fragment (i.e. it
+            // will escape the leading #; it won't do this for URIs such as post:name#fragment).
+            IFRegExp *re = [[IFRegExp alloc] initWithPattern:@"(\\w+):%23(\\w+)"];
+            NSArray *groups = [re match:message];
+            if (groups) {
+                message = [NSString stringWithFormat:@"%@:#%@", groups[1], groups[2]];
+            }
         }
         else {
             message = [NSString stringWithFormat:@"post:#open-url+url=%@", url];

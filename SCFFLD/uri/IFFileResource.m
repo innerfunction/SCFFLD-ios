@@ -114,10 +114,11 @@
 }
 
 - (IFFileResource *)resourceForPath:(NSString *)path {
+    IFFileResource *result = nil;
     NSString *filePath = [self.path stringByAppendingPathComponent:path];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDir;
-    BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    BOOL exists = [fileManager fileExistsAtPath:filePath isDirectory:&isDir];
     if (exists && !isDir) {
         NSURL *fileURL = [NSURL fileURLWithPath:filePath];
         NSFileHandle* handle = [NSFileHandle fileHandleForReadingFromURL:fileURL error:nil];
@@ -125,11 +126,11 @@
             // Create a URI for the file resource by appending the file path to this resource's URI.
             IFCompoundURI *fileURI = [self.uri copyOf];
             fileURI.name = [fileURI.name stringByAppendingPathComponent:path];
-            return [[IFFileResource alloc] initWithHandle:handle url:fileURL path:filePath uri:fileURI];
+            result = [[IFFileResource alloc] initWithHandle:handle url:fileURL path:filePath uri:fileURI];
+            result.uriHandler = self.uriHandler;
         }
     }
-    // File not found.
-    return nil;
+    return result;
 }
 
 - (NSArray *)list {

@@ -25,6 +25,7 @@
 #import "IFIOCConfigurationAware.h"
 #import "IFMessageReceiver.h"
 #import "IFActionProxy.h"
+#import "IFJSONData.h"
 
 /**
  * A configurable table view component.
@@ -102,6 +103,8 @@
 @property (nonatomic, strong) NSString *clearFilterMessage;
 /// The table's content.
 @property (nonatomic, strong) id content;
+/// The table's row data.
+@property (nonatomic, strong) IFJSONArray *rows;
 /// A named filter to apply to the content before displaying.
 @property (nonatomic, strong) NSString *filterName;
 

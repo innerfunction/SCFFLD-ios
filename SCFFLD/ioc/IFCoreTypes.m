@@ -22,11 +22,11 @@
 
 + (NSDictionary *)types {
     return @{
-        @"EmptyView":      @"IFViewController",
+        @"View":           @"IFViewController",
         @"NavigationView": @"IFNavigationViewController",
         @"SlideView":      @"IFSlideViewController",
         @"WebView":        @"IFWebViewController",
-        @"ListView":       @"IFListViewController"
+        @"ListView":       @"IFTableViewController"
     };
 }
 

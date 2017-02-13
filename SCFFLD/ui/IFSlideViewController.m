@@ -75,7 +75,7 @@
 
 - (BOOL)routeMessage:(IFMessage *)message sender:(id)sender {
     BOOL routed = NO;
-    if ([message hasTarget:@"slide"]) {
+    if ([message hasTarget:@"slideView"]) {
         message = [message popTargetHead];
         if ([message hasEmptyTarget] && [self.slideView conformsToProtocol:@protocol(IFMessageReceiver)]) {
             routed = [(id<IFMessageReceiver>)self.slideView receiveMessage:message sender:sender];
@@ -84,7 +84,7 @@
             routed = [(id<IFMessageRouter>)self.slideView routeMessage:message sender:sender];
         }
     }
-    else if ([message hasTarget:@"main"]) {
+    else if ([message hasTarget:@"mainView"]) {
         message = [message popTargetHead];
         if ([message hasEmptyTarget] && [self.mainView conformsToProtocol:@protocol(IFMessageReceiver)]) {
             routed = [(id<IFMessageReceiver>)self.mainView receiveMessage:message sender:sender];

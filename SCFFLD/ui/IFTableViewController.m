@@ -114,9 +114,9 @@
 
 - (void)setContent:(id)content {
     _content = content;
-    NSArray *data = nil;
+    NSArray *rows = nil;
     if ([content isKindOfClass:[NSArray class]]) {
-        data = (NSArray *)content;
+        rows = (NSArray *)content;
     }
     else if ([content isKindOfClass:[IFResource class]]) {
         // TODO Data which potentially contains relative URI refs (e.g. row image refs in table data)
@@ -126,15 +126,19 @@
         IFResource *resource = (IFResource *)content;
         id jsonData = [resource asJSONData];
         if ([jsonData isKindOfClass:[NSArray class]]) {
-            data = (NSArray *)jsonData;
+            rows = (NSArray *)jsonData;
         }
         _tableData.uriHandler = resource.uriHandler;
     }
     else {
         [IFLogger withTag:@"IFTableViewController" error:@"Unable to set content of type %@", [[content class] description]];
     }
-    if (data) {
-        _tableData.data = [self formatData:data];
+    self.rows = rows;
+}
+
+- (void)setRows:(IFJSONArray *)rows {
+    if (rows) {
+        _tableData.data = [self formatData:rows];
         // Reset the filter name to apply any active filter & reload the table view.
         self.filterName = _filterName;
     }

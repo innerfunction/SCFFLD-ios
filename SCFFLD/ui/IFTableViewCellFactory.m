@@ -46,6 +46,9 @@
     NSString *style = [rowData getValueAsString:@"style" defaultValue:_style];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:style];
     
+    NSString *title       = [rowData getValueAsString:@"title" defaultValue:@""];
+    NSString *description = [rowData getValueAsString:@"description" defaultValue:@""];
+
     if (!cell) {
         UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
         if ([style isEqualToString:@"Style1"]) {
@@ -57,11 +60,13 @@
         else if ([style isEqualToString:@"Subtitle"]) {
             cellStyle = UITableViewCellStyleSubtitle;
         }
+        else if (description) {
+            // No style explicitly defined, but a description is provided so display it.
+            cellStyle = UITableViewCellStyleSubtitle;
+        }
         cell = [[UITableViewCell alloc] initWithStyle:cellStyle reuseIdentifier:style];
     }
     
-    NSString *title       = [rowData getValueAsString:@"title" defaultValue:@""];
-    NSString *description = [rowData getValueAsString:@"description" defaultValue:@""];
     
     cell.textLabel.text = title;
     if (description) {

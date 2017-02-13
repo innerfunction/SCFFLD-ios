@@ -18,6 +18,7 @@
 
 #import "IFDirmapSchemeHandler.h"
 #import "IFConfiguration.h"
+#import "IFStandardURIHandler.h"
 
 @implementation IFDirmap
 
@@ -25,6 +26,7 @@
     self = [super init];
     if (self) {
         _dirResource = dirResource;
+        _dirResource.uriHandler = [IFStandardURIHandler uriHandler];
     }
     return self;
 }
@@ -92,7 +94,7 @@
 
 - (id)dereference:(IFCompoundURI *)uri parameters:(NSDictionary *)params {
     // First check for a previously cached result.
-    id dirmap = [_dirmapCache valueForKey:uri.name];
+    id dirmap = [_dirmapCache objectForKey:uri.name];
     if (dirmap == [NSNull null]) {
         // Previous directory miss.
         dirmap = nil;
@@ -110,6 +112,7 @@
         else {
             // Named directory not found; store NSNull to indicate miss.
             [_dirmapCache setObject:[NSNull null] forKey:uri.name];
+            
         }
     }
     return dirmap;
