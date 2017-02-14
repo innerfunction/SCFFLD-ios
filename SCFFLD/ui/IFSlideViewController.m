@@ -61,14 +61,14 @@
 
 - (void)setSlidePosition:(NSString *)slidePosition {
     if ([@"right" isEqualToString:slidePosition]) {
-        slideOpenPosition = FrontViewPositionRight;
+        slideOpenPosition = FrontViewPositionLeft;
         slideClosedPosition = FrontViewPositionRightMostRemoved;
     }
     else {
-        slideOpenPosition = FrontViewPositionLeft;
+        slideOpenPosition = FrontViewPositionRight;
         slideClosedPosition = FrontViewPositionLeftSideMostRemoved;
     }
-    self.frontViewPosition = slideOpenPosition;
+    self.frontViewPosition = slideClosedPosition;
 }
 
 #pragma mark - IFMessageRouter
@@ -113,12 +113,12 @@
     }
     if ([message hasName:@"open-slide"] || [message hasName:@"show-slide"]) {
         // Open the slide view.
-        self.frontViewPosition = slideOpenPosition;
+        [self setFrontViewPosition:slideOpenPosition animated:YES];
         return YES;
     }
     if ([message hasName:@"close-slide"] || [message hasName:@"hide-slide"]) {
         // Close the slide view.
-        self.frontViewPosition = slideClosedPosition;
+        [self setFrontViewPosition:slideClosedPosition animated:YES];
         return YES;
     }
     if ([message hasName:@"toggle-slide"]) {

@@ -159,7 +159,7 @@
     [_appURIHandler addHandler:[[IFNamedSchemeHandler alloc] initWithContainer:self] forScheme:@"named"];
     [_appURIHandler addHandler:[[IFPostScheme alloc] init] forScheme:@"post"];
     
-    NSString *patternsPath = [MainBundlePath stringByAppendingString:@"SCFFLD/patterns"];
+    NSString *patternsPath = [MainBundlePath stringByAppendingPathComponent:@"SCFFLD/patterns"];
     IFFileBasedSchemeHandler *patternScheme = [[IFFileBasedSchemeHandler alloc] initWithPath:patternsPath extension:@"json"];
     [_appURIHandler addHandler:patternScheme forScheme:@"pattern"];
     

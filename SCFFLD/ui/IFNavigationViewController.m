@@ -95,12 +95,7 @@
     if ([message hasName:@"show"] || [message hasName:@"open"]) {
         UIViewController *view = nil;
         // Resolve the view to a view controller instance.
-        id maybeView = [message.parameters valueForKey:@"view"];
-        /*
-        if ([maybeView isKindOfClass:[IFResource class]]) {
-            maybeView = ((IFResource *)maybeView).data;
-        }
-        */
+        id maybeView = message.parameters[@"view"];
         if ([maybeView isKindOfClass:[UIViewController class]]) {
             view = (UIViewController *)maybeView;
         }

@@ -20,7 +20,7 @@
 #import "IFFileBasedSchemeHandler.h"
 #import "IFFileResource.h"
 
-@interface IFDirmap : NSDictionary {
+@interface IFDirmap : NSDictionary <IFURIContextAware> {
     IFDirectoryResource *_dirResource;
     NSArray *_keys;
 }

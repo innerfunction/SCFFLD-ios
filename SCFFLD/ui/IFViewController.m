@@ -29,7 +29,7 @@
     self = [super init];
     if (self) {
         _hideTitleBar = NO;
-        _namedViews = @{};
+        _layoutViews = @{};
         _actionProxyLookup = [NSMutableDictionary new];
         _behaviours = @[];
         _useAutoLayout = YES;
@@ -143,7 +143,7 @@
 - (BOOL)routeMessage:(IFMessage *)message sender:(id)sender {
     BOOL routed = NO;
     id targetName = [message targetHead];
-    id targetView = _namedViews[targetName];
+    id targetView = _layoutViews[targetName];
     if (!targetView) {
         @try {
             targetView = [self valueForKey:targetName];
@@ -189,7 +189,7 @@
     // (See https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/LoadingResources/CocoaNibs/CocoaNibs.html#//apple_ref/doc/uid/10000051i-CH4-SW19)
     // Use this to keep track of view placeholders.
     if (_loadingLayout) {
-        [_namedViewPlaceholders setObject:value forKey:key];
+        _namedViewPlaceholders[key] = value;
     }
     [super setValue:value forKey:key];
 }
@@ -215,7 +215,7 @@
 
 - (void)replaceViewPlaceholders {
     for (NSString *name in _namedViewPlaceholders) {
-        id view = [_namedViews objectForKey:name];
+        id view = [_layoutViews objectForKey:name];
         if (!view) {
             view = [self valueForKey:name];
         }

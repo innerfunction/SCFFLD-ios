@@ -25,25 +25,11 @@
  * An object that can be used to represent the value returned by an internal URI.
  * Allows access to different representations of the same underlying value.
  */
-@interface IFResource : NSObject {
+@interface IFResource : NSObject <IFURIContextAware> {
 }
 
 /// The resource data i.e. the value referenced by the resource's URI.
 @property (nonatomic, strong) id data;
-/// The URI which returned this resource.
-@property (nonatomic, strong) IFCompoundURI *uri;
-/**
- * The URI handler used to resolve this resource.
- * If the resource has been resolved using a URI in a scheme that supports relative URI
- * references, then this URI handler's scheme context will have this resource's absolute
- * URI as the reference URI for the scheme.
- * What this means in practice is that if the resource data contains relative URI references
- * in the same scheme then those URIs will be interpreted relative to this resource's URI.
- * This allows, for example, a configuration to be instantiated from a resource's data, and
- * for that configuration to contain file references relative to the configuration's source
- * file.
- */
-@property (nonatomic, strong) id<IFURIHandler> uriHandler;
 
 /// Initialize a resource with the specified data and URI.
 - (id)initWithData:(id)data uri:(IFCompoundURI *)uri;

@@ -92,3 +92,23 @@
 - (IFCompoundURI *)resolve:(IFCompoundURI *)uri against:(IFCompoundURI *)reference;
 
 @end
+
+/** A protocol for notifying a value of the URI and handler used to dereference it. */
+@protocol IFURIContextAware <NSObject>
+
+/// The URI which returned this value.
+@property (nonatomic, strong) IFCompoundURI *uri;
+/**
+ * The URI handler used to resolve this value.
+ * If the value has been resolved using a URI in a scheme that supports relative URI
+ * references, then this URI handler's scheme context will have this value's absolute
+ * URI as the reference URI for the scheme.
+ * What this means in practice is that if the value data contains relative URI references
+ * in the same scheme then those URIs will be interpreted relative to this resource's URI.
+ * This allows, for example, a configuration to be instantiated from a resource's data, and
+ * for that configuration to contain file references relative to the configuration's source
+ * file.
+ */
+@property (nonatomic, strong) id<IFURIHandler> uriHandler;
+
+@end

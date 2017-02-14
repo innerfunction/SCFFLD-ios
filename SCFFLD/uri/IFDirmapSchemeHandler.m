@@ -18,17 +18,27 @@
 
 #import "IFDirmapSchemeHandler.h"
 #import "IFConfiguration.h"
-#import "IFStandardURIHandler.h"
 
 @implementation IFDirmap
+
+@synthesize uri=_uri, uriHandler=_uriHandler;
 
 - (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource {
     self = [super init];
     if (self) {
         _dirResource = dirResource;
-        _dirResource.uriHandler = [IFStandardURIHandler uriHandler];
     }
     return self;
+}
+
+- (void)setUri:(IFCompoundURI *)uri {
+    _uri = uri;
+    _dirResource.uri = uri;
+}
+
+- (void)setUriHandler:(id<IFURIHandler>)uriHandler {
+    _uriHandler = uriHandler;
+    _dirResource.uriHandler = uriHandler;
 }
 
 - (id)objectForKey:(NSString *)key {

@@ -75,12 +75,12 @@
 
 // Test whether this resolver has a handler for a URI's scheme.
 - (BOOL)hasHandlerForURIScheme:(NSString *)scheme {
-    return [_schemeHandlers valueForKey:scheme] != nil;
+    return _schemeHandlers[scheme] != nil;
 }
 
 // Register a new scheme handler.
 - (void)addHandler:(id<IFSchemeHandler>)handler forScheme:(NSString *)scheme {
-    [_schemeHandlers setValue:handler forKey:scheme];
+    _schemeHandlers[scheme] = handler;
 }
 
 // Return a list of registered URI scheme names.
@@ -90,7 +90,7 @@
 
 // Return the URI handler for the named scheme.
 - (id<IFSchemeHandler>)getHandlerForURIScheme:(NSString *)scheme {
-    return [_schemeHandlers valueForKey:scheme];
+    return _schemeHandlers[scheme];
 }
 
 - (id)dereference:(id)uriRef {
@@ -98,12 +98,12 @@
     id value = nil;
     if (uri) {
         // Resolve a handler for the URI scheme.
-        id<IFSchemeHandler> schemeHandler = [_schemeHandlers valueForKey:uri.scheme];
+        id<IFSchemeHandler> schemeHandler = _schemeHandlers[uri.scheme];
         if (schemeHandler) {
             NSDictionary *params = [self dereferenceParameters:uri];
             // Resolve the current URI to an absolute form (potentially).
             if ([schemeHandler respondsToSelector:@selector(resolve:against:)]) {
-                IFCompoundURI *reference = [_schemeContexts valueForKey:uri.scheme];
+                IFCompoundURI *reference = _schemeContexts[uri.scheme];
                 if (reference) {
                     uri = [schemeHandler resolve:uri against:reference];
                 }
@@ -121,12 +121,12 @@
             NSString *reason = [NSString stringWithFormat:@"Handler not found for scheme %@:", uri.scheme];
             @throw [[NSException alloc] initWithName:@"IFURIResolver" reason:reason userInfo:nil];
         }
-        // If the value is a resource then set its URI, and its URI handler as a copy of this handler,
+        // If the value is URI context aware then set its URI, and its URI handler as a copy of this handler,
         // with the scheme context modified with the resource's URI.
-        if ([value isKindOfClass:[IFResource class]]) {
-            IFResource *resource = (IFResource *)value;
-            resource.uri = uri;
-            resource.uriHandler = [self modifySchemeContext:uri];
+        if ([value conformsToProtocol:@protocol(IFURIContextAware)]) {
+            id<IFURIContextAware> contextAware = (id<IFURIContextAware>)value;
+            contextAware.uri = uri;
+            contextAware.uriHandler = [self modifySchemeContext:uri];
         }
         // If the URI specifies a formatter then apply it to the URI result.
         if (uri.format) {

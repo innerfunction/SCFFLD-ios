@@ -73,10 +73,10 @@
  */
 @property (nonatomic, strong) NSString *layoutName;
 /**
- * Map of named view components. Allows placeholder elements within the layout to be replaced with components
- * built from the configurations described in this map.
+ * Map of named view components in the layout. Allows placeholder elements within the layout to be replaced with
+ * components built from the configurations described in this map.
  */
-@property (nonatomic, strong) NSDictionary *namedViews;
+@property (nonatomic, strong) NSDictionary *layoutViews;
 /// Flag indicating whether the layout uses auto-layout.
 @property (nonatomic, assign) BOOL useAutoLayout;
 

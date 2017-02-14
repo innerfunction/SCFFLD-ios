@@ -158,7 +158,7 @@
             message = [url absoluteString];
             // NSURL will represent URIs such as post:#fragment to post:%23fragment (i.e. it
             // will escape the leading #; it won't do this for URIs such as post:name#fragment).
-            IFRegExp *re = [[IFRegExp alloc] initWithPattern:@"(\\w+):%23(\\w+)"];
+            IFRegExp *re = [[IFRegExp alloc] initWithPattern:@"(\\w+):%23(.*)"];
             NSArray *groups = [re match:message];
             if (groups) {
                 message = [NSString stringWithFormat:@"%@:#%@", groups[1], groups[2]];

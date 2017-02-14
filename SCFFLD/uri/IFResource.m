@@ -24,6 +24,8 @@
 // and resolves different representations appropriately.
 @implementation IFResource
 
+@synthesize uri=_uri, uriHandler=_uriHandler;
+
 - (id)initWithData:(id)data uri:(IFCompoundURI *)uri {
     self = [super init];
     self.data = data;
