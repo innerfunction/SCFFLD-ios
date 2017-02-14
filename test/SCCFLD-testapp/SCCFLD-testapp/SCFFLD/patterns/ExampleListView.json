@@ -1,0 +1,5 @@
+{
+    "-type": "ListView",
+    "title": "List",
+    "rows": "@app:example-list-data.json"
+}
