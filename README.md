@@ -17,3 +17,6 @@ Install using CocoaPods:
 pod 'SCFFLD'
 ```
 
+## Sample app
+
+A sample app with example configurations and code can be found under _test/SCFFLD-testapp_.
