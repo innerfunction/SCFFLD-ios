@@ -17,16 +17,21 @@
 //
 
 #import "IFCoreTypes.h"
+#import "IFViewController.h"
+#import "IFNavigationViewController.h"
+#import "IFSlideViewController.h"
+#import "IFWebViewController.h"
+#import "IFTableViewController.h"
 
 @implementation IFCoreTypes
 
 + (NSDictionary *)types {
     return @{
-        @"View":           @"IFViewController",
-        @"NavigationView": @"IFNavigationViewController",
-        @"SlideView":      @"IFSlideViewController",
-        @"WebView":        @"IFWebViewController",
-        @"ListView":       @"IFTableViewController"
+        @"View":           NSStringFromClass([IFViewController class]),
+        @"NavigationView": NSStringFromClass([IFNavigationViewController class]),
+        @"SlideView":      NSStringFromClass([IFSlideViewController class]),
+        @"WebView":        NSStringFromClass([IFWebViewController class]),
+        @"ListView":       NSStringFromClass([IFTableViewController class])
     };
 }
 
