@@ -21,6 +21,8 @@
 #import "IFCompoundURI.h"
 #import "IFURIHandling.h"
 
+@class IFConfiguration;
+
 /**
  * An object that can be used to represent the value returned by an internal URI.
  * Allows access to different representations of the same underlying value.
@@ -55,6 +57,8 @@
 - (NSURL *)asURL;
 /// Return the resource as an NSData object.
 - (NSData *)asData;
+/// Return the resource as configuration data.
+- (IFConfiguration *)asConfiguration;
 /**
  * Return the named resource representation.
  * @see <IFTypeConversions> for a list of supported representation names.

@@ -25,7 +25,7 @@
 
 @protocol IFTableViewCellDecorator <NSObject>
 
-- (UITableViewCell *)decorateCell:(UITableViewCell *)cell data:(NSDictionary *)data factory:(IFTableViewCellFactory *)factory;
+- (UITableViewCell *)decorateCell:(UITableViewCell *)cell data:(IFConfiguration *)data factory:(IFTableViewCellFactory *)factory;
 
 @end
 

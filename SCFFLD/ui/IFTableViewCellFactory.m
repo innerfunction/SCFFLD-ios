@@ -19,7 +19,6 @@
 #import "IFTableViewCellFactory.h"
 #import "IFTableViewController.h"
 #import "UIColor+IF.h"
-#import "NSDictionary+IFValues.h"
 #import "IFTypeConversions.h"
 
 #define DefaultRowHeight        [NSNumber numberWithFloat:44.0]
@@ -36,18 +35,14 @@
 }
 
 - (UITableViewCell *)resolveCellForTable:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    IFTableViewController *ifTableView = nil;
-    if ([tableView isKindOfClass:[IFTableViewController class]]) {
-        ifTableView = (IFTableViewController *)tableView;
-    }
     
-    NSDictionary *rowData = [_tableData rowDataForIndexPath:indexPath];
+    IFConfiguration *rowData = [_tableData rowDataForIndexPath:indexPath];
     
     NSString *style = [rowData getValueAsString:@"style" defaultValue:_style];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:style];
     
     NSString *title       = [rowData getValueAsString:@"title" defaultValue:@""];
-    NSString *description = [rowData getValueAsString:@"description" defaultValue:@""];
+    NSString *description = [rowData getValueAsString:@"description"];
 
     if (!cell) {
         UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
@@ -98,7 +93,7 @@
     if ([rowData hasValue:@"imageWidth"]) {
         imageWidth = [[rowData getValueAsNumber:@"imageWidth" defaultValue:_imageWidth] floatValue];
     }
-    UIImage *image = [ifTableView loadImageWithRowData:rowData dataName:@"image" width:imageWidth height:imageHeight defaultImage:_image];
+    UIImage *image = [_tableData loadImageWithRowData:rowData dataName:@"image" width:imageWidth height:imageHeight defaultImage:_image];
     if (image) {
         cell.imageView.image = image;
         // Add rounded corners to image.
@@ -123,8 +118,8 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
-    UIImage *backgroundImage  = [ifTableView loadImageWithRowData:rowData dataName:@"backgroundImage" defaultImage:_backgroundImage];
-    UIImage *selectedImage    = [ifTableView loadImageWithRowData:rowData dataName:@"selectedBackgroundImage" defaultImage:_selectedBackgroundImage];
+    UIImage *backgroundImage  = [_tableData loadImageWithRowData:rowData dataName:@"backgroundImage" defaultImage:_backgroundImage];
+    UIImage *selectedImage    = [_tableData loadImageWithRowData:rowData dataName:@"selectedBackgroundImage" defaultImage:_selectedBackgroundImage];
     
     if (backgroundImage) {
         cell.backgroundView = [[UIImageView alloc] initWithImage:backgroundImage];
@@ -142,7 +137,7 @@
 }
 
 - (CGFloat)heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *rowData = [_tableData rowDataForIndexPath:indexPath];
+    IFConfiguration *rowData = [_tableData rowDataForIndexPath:indexPath];
     CGFloat height = [[rowData getValueAsNumber:@"height" defaultValue:_height] floatValue];
     return height;
 }

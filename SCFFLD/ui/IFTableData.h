@@ -18,6 +18,7 @@
 
 #import <Foundation/Foundation.h>
 #import "IFURIHandling.h"
+#import "IFConfiguration.h"
 
 @class IFTableData;
 
@@ -51,20 +52,29 @@ typedef BOOL (^IFTableDataFilterBlock) (NSDictionary *row);
  */
 @interface IFTableData : NSObject {
     /// An array of the currently visible data items (i.e. after a filter has been applied).
-    NSArray *visibleData;
+    NSArray *_visibleData;
     /// An array of section header titles.
-    NSArray *sectionHeaderTitles;
+    NSArray *_sectionHeaderTitles;
     /// A flag indicating whether the data is grouped.
-    BOOL isGrouped;
+    BOOL _isGrouped;
+    /**
+     *  A configuration object used to return row data.
+     * This is used to allow any URI references within data to resolve correctly.
+     */
+    IFConfiguration *_currentRowData;
+    /// A cache of table cell images.
+    NSCache *_imageCache;
 }
 
+/// Configure the table data using a configuration object.
+@property (nonatomic, strong) IFConfiguration *rowsConfiguration;
 /**
  * Configure the table data. Can be either an array of cell data dictionaries; or an array of section dictionaries.
  * A section dictionary should have the following properties:
  * - _sectionTitle_: The section title.
  * - _sectionData_: An array of cell data items for the section.
  */
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSArray *rowsData;
 /**
  * An array of searchable field names.
  * If a filter is applied then the search term is applied to each named field on each cell data item.
@@ -76,10 +86,12 @@ typedef BOOL (^IFTableDataFilterBlock) (NSDictionary *row);
 /// The URI handler to use to resolve table data.
 @property (nonatomic, strong) id<IFURIHandler> uriHandler;
 
-/// Return an IPTableData object initialized with the specified data.
-+ (IFTableData *)withData:(NSArray *)data;
-/// Get row data for the specified path.
-- (NSDictionary *)rowDataForIndexPath:(NSIndexPath *)path;
+/**
+ * Get row data for the specified path.
+ * This is returned as a configuration object, so that type conversions and URI resolving methods
+ * are available.
+ */
+- (IFConfiguration *)rowDataForIndexPath:(NSIndexPath *)path;
 /// Test whether the data is empty - i.e. contains no rows.
 - (BOOL)isEmpty;
 /// Test whether the data is grouped.
@@ -107,5 +119,13 @@ typedef BOOL (^IFTableDataFilterBlock) (NSDictionary *row);
 - (void)clearFilter;
 /// Return the index path of the first row with the specified field name set to the specified value.
 - (NSIndexPath *)pathForRowWithValue:(NSString *)value forField:(NSString *)name;
+/// Load an image from row data.
+- (UIImage *)loadImageWithRowData:(IFConfiguration *)rowData dataName:(NSString *)dataName defaultImage:(UIImage *)defaultImage;
+/// Load an image from row data.
+- (UIImage *)loadImageWithRowData:(IFConfiguration *)rowData dataName:(NSString *)dataName width:(CGFloat)width height:(CGFloat)height defaultImage:(UIImage *)defaultImage;
+/*
+/// Resolve an image from an image reference.
+- (UIImage *)dereferenceImage:(NSString *)imageRef;
+*/
 
 @end

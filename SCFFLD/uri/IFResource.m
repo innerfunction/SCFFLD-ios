@@ -18,6 +18,7 @@
 
 #import "IFResource.h"
 #import "IFCompoundURI.h"
+#import "IFConfiguration.h"
 #import "IFTypeConversions.h"
 
 // Standard URI resource. Recognizes NSString, NSNumber and NSData resource types
@@ -68,6 +69,10 @@
 
 - (NSURL *)asURL {
     return [IFTypeConversions asURL:[self asDefault]];
+}
+
+- (IFConfiguration *)asConfiguration {
+    return [[IFConfiguration alloc] initWithResource:self];
 }
 
 - (id)asRepresentation:(NSString *)representation {

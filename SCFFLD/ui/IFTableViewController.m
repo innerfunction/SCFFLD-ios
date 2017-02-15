@@ -21,7 +21,6 @@
 #import "IFAppContainer.h"
 #import "UIViewController+Toast.h"
 #import "NSDictionary+IFValues.h"
-#import "UIImage+CropScale.h"
 #import "IFTypeConversions.h"
 #import "IFLogger.h"
 
@@ -59,7 +58,7 @@
     }
     self = [super initWithStyle:style];
     if (self) {
-        _tableData = [[IFTableData alloc] init];
+        _tableData = [IFTableData new];
         UIColor *backgroundColor = [configuration getValueAsColor:@"backgroundColor"];
         if (backgroundColor) {
             self.tableView.backgroundView = nil;
@@ -74,14 +73,7 @@
 }
 
 #pragma mark - IFIOCTypeInspectable
-/*
-- (BOOL)isDataCollection:(NSString *)propertyName {
-    if ([@"content" isEqualToString:propertyName]) {
-        return YES;
-    }
-    return NO;
-}
-*/
+
 - (Class)memberClassForCollection:(NSString *)propertyName {
     if ([@"cellFactoriesByDisplayMode" isEqualToString:propertyName]) {
         return [IFTableViewCellFactory class];
@@ -113,32 +105,30 @@
 }
 
 - (void)setContent:(id)content {
-    _content = content;
-    NSArray *rows = nil;
-    if ([content isKindOfClass:[NSArray class]]) {
-        rows = (NSArray *)content;
+    if ([content isKindOfClass:[IFResource class]]) {
+        self.rows = [(IFResource *)content asConfiguration];
     }
-    else if ([content isKindOfClass:[IFResource class]]) {
-        // TODO Data which potentially contains relative URI refs (e.g. row image refs in table data)
-        // should probably be processed within an IFConfiguration wrapper, which has the necessary
-        // functionality to resolve such refs properly; downside is the potential efficiency overhead
-        // for large data sets.
-        IFResource *resource = (IFResource *)content;
-        id jsonData = [resource asJSONData];
-        if ([jsonData isKindOfClass:[NSArray class]]) {
-            rows = (NSArray *)jsonData;
-        }
-        _tableData.uriHandler = resource.uriHandler;
+    else if ([content isKindOfClass:[IFConfiguration class]]) {
+        self.rows = (IFConfiguration *)content;
     }
-    else {
-        [IFLogger withTag:@"IFTableViewController" error:@"Unable to set content of type %@", [[content class] description]];
+    else if ([content isKindOfClass:[NSArray class]]) {
+        self.rowsArray = (NSArray *)content;
     }
-    self.rows = rows;
+}
+    
+- (void)setRows:(IFConfiguration *)rows {
+    id sourceData = rows.sourceData;
+    if ([sourceData isKindOfClass:[NSArray class]]) {
+        rows.sourceData = [self formatData:(NSArray *)rows.sourceData];
+        _tableData.rowsConfiguration = rows;
+        // Reset the filter name to apply any active filter & reload the table view.
+        self.filterName = _filterName;
+    }
 }
 
-- (void)setRows:(IFJSONArray *)rows {
-    if (rows) {
-        _tableData.data = [self formatData:rows];
+- (void)setRowsArray:(NSArray *)rowsArray {
+    if (rowsArray) {
+        _tableData.rowsData = [self formatData:rowsArray];
         // Reset the filter name to apply any active filter & reload the table view.
         self.filterName = _filterName;
     }
@@ -408,68 +398,5 @@
     return NO;
 }
 
-#pragma mark - Image handling methods
-
-- (UIImage *)loadImageWithRowData:(NSDictionary *)rowData dataName:(NSString *)dataName defaultImage:(UIImage *)defaultImage {
-    UIImage *image = defaultImage;
-    NSString *imageName = [rowData getValueAsString:dataName];
-    if (imageName) {
-        image = [imageCache objectForKey:imageName];
-        if (!image) {
-            image = [self dereferenceImage:imageName];
-            if (image) {
-                [imageCache setObject:image forKey:imageName];
-            }
-            else {
-                [imageCache setObject:[NSNull null] forKey:imageName];
-            }
-        }
-        else if ([[NSNull null] isEqual:image]) {
-            // NSNull in the image cache indicates image not found, so return nil.
-            image = nil;
-        }
-    }
-    return image;
-}
-
-- (UIImage *)loadImageWithRowData:(NSDictionary *)rowData dataName:(NSString *)dataName width:(CGFloat)width height:(CGFloat)height defaultImage:(UIImage *)defaultImage {
-    UIImage *image = defaultImage;
-    NSString *imageName = [rowData getValueAsString:dataName];
-    if (imageName) {
-        NSString *cacheName = [NSString stringWithFormat:@"%@-%fx%f", imageName, width, height];
-        image = [imageCache objectForKey:cacheName];
-        if (!image) {
-            image = [self dereferenceImage:imageName];
-            // Scale the image if we have an image and width * height is not zero (implying that neither value is zero).
-            if (image && (width * height)) {
-                image = [[image scaleToWidth:width] cropToHeight:height];
-                [imageCache setObject:image forKey:cacheName];
-            }
-            else {
-                [imageCache setObject:[NSNull null] forKey:imageCache];
-            }
-        }
-        else if ([[NSNull null] isEqual:image]) {
-            // NSNull in the image cache indicates image not found, so return nil.
-            image = nil;
-        }
-    }
-    return image;
-}
-
-- (UIImage *)dereferenceImage:(NSString *)imageRef {
-    UIImage *image = nil;
-    if ([imageRef hasPrefix:@"@"]) {
-        NSString* uri = [imageRef substringFromIndex:1];
-        IFResource *imageRsc = [_tableData.uriHandler dereference:uri];
-        if (imageRsc) {
-            image = [imageRsc asImage];
-        }
-    }
-    else {
-        image = [IFTypeConversions asImage:imageRef];
-    }
-    return image;
-}
 
 @end

@@ -66,8 +66,6 @@
     /// The default factory for generating table cells.
     IFTableViewCellFactory *defaultFactory;
     BOOL isFirstShow;
-    /// A cache of table cell images.
-    NSCache *imageCache;
     /// A dictionary used by the _IFActionProxy_ protocol methods.
     NSMutableDictionary *_actionProxyLookup;
 }
@@ -103,8 +101,10 @@
 @property (nonatomic, strong) NSString *clearFilterMessage;
 /// The table's content.
 @property (nonatomic, strong) id content;
-/// The table's row data.
-@property (nonatomic, strong) IFJSONArray *rows;
+/// The table's row data. Use this to configure a rows data.
+@property (nonatomic, strong) IFConfiguration *rows;
+/// The table's row data. Use this when passing row data programmatically.
+@property (nonatomic, strong) NSArray *rowsArray;
 /// A named filter to apply to the content before displaying.
 @property (nonatomic, strong) NSString *filterName;
 
@@ -116,11 +116,5 @@
 - (void)postMessage:(NSString *)message;
 /// Return a table data filter block for the named filter.
 - (IFTableDataFilterBlock)filterBlockForName:(NSString *)filterName;
-
-// Image loading methods.
-
-- (UIImage *)loadImageWithRowData:(NSDictionary *)rowData dataName:(NSString *)dataName defaultImage:(UIImage *)defaultImage;
-- (UIImage *)loadImageWithRowData:(NSDictionary *)rowData dataName:(NSString *)dataName width:(CGFloat)width height:(CGFloat)height defaultImage:(UIImage *)defaultImage;
-- (UIImage *)dereferenceImage:(NSString *)imageRef;
 
 @end
