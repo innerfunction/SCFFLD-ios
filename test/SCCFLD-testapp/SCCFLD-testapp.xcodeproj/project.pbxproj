@@ -11,9 +11,12 @@
 		07093DC31E52004900977900 /* home.html in Resources */ = {isa = PBXBuildFile; fileRef = 07093DC21E52004900977900 /* home.html */; };
 		07093DC51E52007300977900 /* example.html in Resources */ = {isa = PBXBuildFile; fileRef = 07093DC41E52007300977900 /* example.html */; };
 		07093DD91E5209EA00977900 /* SCFFLD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07093DD11E52035600977900 /* SCFFLD.framework */; };
-		07093DDE1E530BEF00977900 /* example-list-data.json in Resources */ = {isa = PBXBuildFile; fileRef = 07093DDD1E530BEF00977900 /* example-list-data.json */; };
 		07093DE31E5330E900977900 /* TopBottomLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07093DE21E5330E900977900 /* TopBottomLayout.xib */; };
 		07093DE61E53324200977900 /* TopBottomLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07093DE51E53324200977900 /* TopBottomLayoutViewController.m */; };
+		07093DEA1E533E3600977900 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 07093DE71E533E3600977900 /* logo.png */; };
+		07093DEB1E533E3600977900 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07093DE81E533E3600977900 /* logo@2x.png */; };
+		07093DEC1E533E3600977900 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07093DE91E533E3600977900 /* logo@3x.png */; };
+		07093DEF1E54A80700977900 /* countries in Resources */ = {isa = PBXBuildFile; fileRef = 07093DEE1E54A80700977900 /* countries */; };
 		07778EE11E51E37A00D492DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07778EE01E51E37A00D492DC /* main.m */; };
 		07778EE41E51E37A00D492DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07778EE31E51E37A00D492DC /* AppDelegate.m */; };
 		07778EEC1E51E37A00D492DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07778EEB1E51E37A00D492DC /* Assets.xcassets */; };
@@ -35,11 +38,14 @@
 		07093DC21E52004900977900 /* home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = home.html; sourceTree = "<group>"; };
 		07093DC41E52007300977900 /* example.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example.html; sourceTree = "<group>"; };
 		07093DCC1E52035600977900 /* SCFFLD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SCFFLD.xcodeproj; path = ../../SCFFLD/SCFFLD.xcodeproj; sourceTree = "<group>"; };
-		07093DDD1E530BEF00977900 /* example-list-data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "example-list-data.json"; sourceTree = "<group>"; };
 		07093DE21E5330E900977900 /* TopBottomLayout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBottomLayout.xib; sourceTree = "<group>"; };
 		07093DE41E53324200977900 /* TopBottomLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBottomLayoutViewController.h; sourceTree = "<group>"; };
 		07093DE51E53324200977900 /* TopBottomLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBottomLayoutViewController.m; sourceTree = "<group>"; };
-		07778EDC1E51E37A00D492DC /* SCCFLD-testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCCFLD-testapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07093DE71E533E3600977900 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		07093DE81E533E3600977900 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		07093DE91E533E3600977900 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		07093DEE1E54A80700977900 /* countries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = countries; sourceTree = "<group>"; };
+		07778EDC1E51E37A00D492DC /* SCFFLD-testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCFFLD-testapp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07778EE01E51E37A00D492DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07778EE21E51E37A00D492DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07778EE31E51E37A00D492DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +74,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		07093DED1E533F9A00977900 /* Classes and layouts */ = {
+			isa = PBXGroup;
+			children = (
+				07778EE21E51E37A00D492DC /* AppDelegate.h */,
+				07778EE31E51E37A00D492DC /* AppDelegate.m */,
+				07778EED1E51E37A00D492DC /* LaunchScreen.storyboard */,
+				07093DE21E5330E900977900 /* TopBottomLayout.xib */,
+				07093DE41E53324200977900 /* TopBottomLayoutViewController.h */,
+				07093DE51E53324200977900 /* TopBottomLayoutViewController.m */,
+			);
+			name = "Classes and layouts";
+			sourceTree = "<group>";
+		};
 		07778ED31E51E37A00D492DC = {
 			isa = PBXGroup;
 			children = (
@@ -80,7 +99,7 @@
 		07778EDD1E51E37A00D492DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07778EDC1E51E37A00D492DC /* SCCFLD-testapp.app */,
+				07778EDC1E51E37A00D492DC /* SCFFLD-testapp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,13 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				07093DBD1E51E48300977900 /* SCFFLD */,
-				07778EE21E51E37A00D492DC /* AppDelegate.h */,
-				07778EE31E51E37A00D492DC /* AppDelegate.m */,
+				07093DED1E533F9A00977900 /* Classes and layouts */,
 				07778EEB1E51E37A00D492DC /* Assets.xcassets */,
-				07778EED1E51E37A00D492DC /* LaunchScreen.storyboard */,
-				07093DE21E5330E900977900 /* TopBottomLayout.xib */,
-				07093DE41E53324200977900 /* TopBottomLayoutViewController.h */,
-				07093DE51E53324200977900 /* TopBottomLayoutViewController.m */,
 				07778EF01E51E37A00D492DC /* Info.plist */,
 				07778EDF1E51E37A00D492DC /* Supporting Files */,
 			);
@@ -105,10 +119,13 @@
 		07778EDF1E51E37A00D492DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07093DEE1E54A80700977900 /* countries */,
+				07093DE71E533E3600977900 /* logo.png */,
+				07093DE81E533E3600977900 /* logo@2x.png */,
+				07093DE91E533E3600977900 /* logo@3x.png */,
 				07778EE01E51E37A00D492DC /* main.m */,
 				07093DC21E52004900977900 /* home.html */,
 				07093DC41E52007300977900 /* example.html */,
-				07093DDD1E530BEF00977900 /* example-list-data.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -130,7 +147,7 @@
 			);
 			name = "SCCFLD-testapp";
 			productName = "SCCFLD-testapp";
-			productReference = 07778EDC1E51E37A00D492DC /* SCCFLD-testapp.app */;
+			productReference = 07778EDC1E51E37A00D492DC /* SCFFLD-testapp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -187,9 +204,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				07093DC31E52004900977900 /* home.html in Resources */,
+				07093DEF1E54A80700977900 /* countries in Resources */,
+				07093DEB1E533E3600977900 /* logo@2x.png in Resources */,
+				07093DEC1E533E3600977900 /* logo@3x.png in Resources */,
 				07093DE31E5330E900977900 /* TopBottomLayout.xib in Resources */,
 				07093DBE1E51E48300977900 /* SCFFLD in Resources */,
-				07093DDE1E530BEF00977900 /* example-list-data.json in Resources */,
+				07093DEA1E533E3600977900 /* logo.png in Resources */,
 				07093DC51E52007300977900 /* example.html in Resources */,
 				07778EEF1E51E37A00D492DC /* LaunchScreen.storyboard in Resources */,
 				07778EEC1E51E37A00D492DC /* Assets.xcassets in Resources */,
@@ -319,7 +339,7 @@
 					"-licucore",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.innerfunction.SCCFLD-testapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SCFFLD-testapp";
 			};
 			name = Debug;
 		};
@@ -337,7 +357,7 @@
 					"-licucore",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.innerfunction.SCCFLD-testapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SCFFLD-testapp";
 			};
 			name = Release;
 		};
