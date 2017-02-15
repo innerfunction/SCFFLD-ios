@@ -19,4 +19,4 @@ pod 'SCFFLD'
 
 ## Sample app
 
-A sample app with example configurations and code can be found under _test/SCFFLD-testapp_.
+A sample app with example configurations and code can be found under [test/SCFFLD-testapp](tree/master/test/SCCFLD-testapp).
