@@ -4,6 +4,11 @@
         "-type": "ListView",
         "rows": [
             {
+                "title":        "Home",
+                "description":  "Return to home screen",
+                "action":       "post:mainView#home"
+            },
+            {
                 "title":        "Web view",
                 "description":  "Example of HTML page within a view",
                 "action":       "post:mainView#show+view@make:ExampleWebView"
@@ -22,10 +27,12 @@
     },
     "mainView": {
         "-type": "NavigationView",
+        "titleBarColor": "#000000",
+        "titleTextColor": "#FFFFFF",
         "rootView": {
-            "-type":    "WebView",
-            "title":    "Home",
-            "content":  "@app:/home.html"
+            "-type": "WebView",
+            "hideTitleBar": true,
+            "content": "@app:/home.html"
         }
     }
 }
