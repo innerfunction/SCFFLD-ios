@@ -4,7 +4,9 @@
         "rows": [
             {
                 "title": "Austria",
-                "image": "@app:austria.png"
+                "image": "@app:austria.png",
+                "accessory": "DisclosureIndicator",
+                "action": "#show+view@make:WebView+html@app:data.json#austria"
             },
             {
                 "title": "Belgium",
