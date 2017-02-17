@@ -92,8 +92,6 @@
  * mappings for such names.
  */
 - (id)getNamed:(NSString *)name;
-/** Set the type map. */
-- (void)setTypes:(IFConfiguration *)types;
 /** Add additional type name mappings to the type map. */
 - (void)addTypes:(id)types;
 

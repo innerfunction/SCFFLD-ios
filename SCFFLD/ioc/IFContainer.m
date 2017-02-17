@@ -78,10 +78,6 @@
     return self;
 }
 
-- (void)setTypes:(IFConfiguration *)types {
-    _types = _types ? _types : [IFConfiguration emptyConfiguration];
-}
-
 - (void)addTypes:(id)types {
     if (types) {
         IFConfiguration *typeConfig;
