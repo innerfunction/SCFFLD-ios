@@ -264,7 +264,7 @@
 - (UIViewController *)getRootView {
     id rootView = [self.uriHandler dereference:@"make:RootView"];
     if (!rootView) {
-        [_logger error:@"Root view not found, check that a RootView make configuration exists"];
+        [_logger error:@"Root view not found, check that a RootView pattern exists"];
     }
     else if ([rootView isKindOfClass:[UIView class]]) {
         // Promote UIView to a view controller.
@@ -278,7 +278,7 @@
     // If unable to resolve a root view then use a blank view displaying an error message.
     if (!rootView) {
         IFWebViewController *webView = [[IFWebViewController alloc] init];
-        webView.content = @"<p>Root view not found, check that a RootView make configuration exists and defines a view instance</p>";
+        webView.content = @"<p>Root view not found, check that a RootView pattern exists and defines a view instance</p>";
         rootView = webView;
     }
     return rootView;
