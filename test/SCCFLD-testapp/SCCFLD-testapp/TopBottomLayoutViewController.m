@@ -18,4 +18,14 @@
     return self;
 }
 
+- (void)setTopView:(id)topView {
+    _topView = topView;
+    [self addViewComponent:topView withName:@"topView"];
+}
+
+- (void)setBottomView:(id)bottomView {
+    _bottomView = bottomView;
+    [self addViewComponent:bottomView withName:@"bottomView"];
+}
+
 @end

@@ -20,6 +20,7 @@
 #import "IFAppContainer.h"
 #import "UIViewController+Toast.h"
 #import "UIViewController+ImageView.h"
+#import "NSDictionary+IF.h"
 
 @implementation IFViewController
 
@@ -112,6 +113,10 @@
 
 - (void)postMessage:(NSString *)message {
     [IFAppContainer postMessage:message sender:self];
+}
+
+- (void)addViewComponent:(UIView *)component withName:(NSString *)name {
+    _layoutViews = [_layoutViews dictionaryWithAddedObject:component forKey:name];
 }
 
 #pragma mark - IFMessageReceiver protocol
@@ -215,12 +220,12 @@
 
 - (void)replaceViewPlaceholders {
     for (NSString *name in _namedViewPlaceholders) {
-        id view = [_layoutViews objectForKey:name];
+        id view = _layoutViews[name];
         if (!view) {
             view = [self valueForKey:name];
         }
         if (view) {
-            UIView *placeholder = [_namedViewPlaceholders objectForKey:name];
+            UIView *placeholder = _namedViewPlaceholders[name];
             // Replace the placeholder with the named view.
             if ([view isKindOfClass:[UIView class]]) {
                 [self replaceSubview:placeholder withView:view];

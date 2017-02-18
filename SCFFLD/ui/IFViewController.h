@@ -83,6 +83,8 @@
 - (id)initWithView:(UIView *)view;
 /// Post a message.
 - (void)postMessage:(NSString *)message;
+/// Add a view component to the layout views.
+- (void)addViewComponent:(UIView *)component withName:(NSString *)name;
 /**
  * Load the view's layout. The object should be configured with a _layoutName_ value, which it will use
  * as the name of a XIB file to load the layout from.
