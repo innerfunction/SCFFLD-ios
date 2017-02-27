@@ -5,6 +5,6 @@ if [ "$1" == "--private" ]; then
     pod repo push if-podspecs SCFFLD.podspec --allow-warnings
 else
     echo "Publishing to public pod spec repo"
-    pod trunk push SCFFLD.podspec --allow-warnings
+    pod trunk push SCFFLD.podspec
 fi
 
