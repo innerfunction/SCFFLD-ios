@@ -26,16 +26,16 @@ Pod::Spec.new do |s|
   s.requires_arc    = true
 
   s.subspec 'noarc' do |sp|
-    sp.source_files = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
-    sp.requires_arc = false
-sp.compiler_flags  = '-Wdeprecated-declarations', '-Wmismatched-return-types', '-Wdeprecated-objc-pointer-introspection'
+    sp.source_files    = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
+    sp.requires_arc    = false
+    sp.compiler_flags  = '-w'
   end
 
   s.frameworks      = "UIKit", "Foundation"
   s.libraries       = "z"
   s.xcconfig        = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
   #s.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
-s.compiler_flags  = '-Wdeprecated-declarations', '-Wmismatched-return-types', '-Wdeprecated-objc-pointer-introspection'
+  s.compiler_flags  = '-w'
 
   s.dependency 'ZipArchive'
 end

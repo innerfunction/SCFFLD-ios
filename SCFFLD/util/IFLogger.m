@@ -68,4 +68,12 @@
     NSLog(@"%@: %@", tag, msg);
 }
 
++ (void)withTag:(NSString *)tag warn:(NSString *)message, ... {
+    va_list args;
+    va_start(args, message);
+    NSString *msg = [[NSString alloc] initWithFormat:message arguments:args];
+    va_end(args);
+    NSLog(@"%@: %@", tag, msg);
+}
+
 @end
