@@ -61,11 +61,11 @@
 @interface IFTableViewController : UITableViewController <UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate, IFIOCTypeInspectable, IFIOCConfigurationInitable, IFIOCContainerAware, IFIOCConfigurationAware, IFMessageReceiver, IFActionProxy> {
     
     /// The table's search bar.
-    UISearchBar *searchBar;
-    UISearchDisplayController *searchDisplayController;
+    UISearchBar *_searchBar;
+    UISearchDisplayController *_searchDisplayController;
     /// The default factory for generating table cells.
-    IFTableViewCellFactory *defaultFactory;
-    BOOL isFirstShow;
+    IFTableViewCellFactory *_defaultFactory;
+    BOOL _isFirstShow;
     /// A dictionary used by the _IFActionProxy_ protocol methods.
     NSMutableDictionary *_actionProxyLookup;
 }

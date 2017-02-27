@@ -11,31 +11,30 @@ Pod::Spec.new do |s|
     * Basic UI views;
     * Supporting utility functions.
                  DESC
-  s.homepage        = "https://github.com/innerfunction/SCFFLD-ios"
-  s.license         = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
-  s.author          = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
-  s.platform        = :ios
+  s.homepage            = "https://github.com/innerfunction/SCFFLD-ios"
+  s.license             = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
+  s.author              = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
+  s.platform            = :ios
   s.ios.deployment_target = '8.0'
-  s.source         = { :git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
-  #s.source          = { :git => "git@github.com:innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
-  s.source_files    = "SCFFLD/*.{h,m}", "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
-  s.exclude_files   = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
+  s.source              = { :git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
+  #s.source              = { :git => "git@github.com:innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
+  s.source_files        = "SCFFLD/*.{h,m}", "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
+  s.exclude_files       = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
 
   s.public_header_files = 'SCFFLD/util/*.h', 'SCFFLD/uri/*.h', 'SCFFLD/ioc/*.h', 'SCFFLD/app/*.h', 'SCFFLD/ui/*.h'
-
-  s.requires_arc    = true
-
-  s.subspec 'noarc' do |sp|
-    sp.source_files    = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
-    sp.requires_arc    = false
-    sp.compiler_flags  = '-w'
-  end
-
-  s.frameworks      = "UIKit", "Foundation"
-  s.libraries       = "z"
-  s.xcconfig        = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+  s.requires_arc        = true
+  s.frameworks          = "UIKit", "Foundation"
+  s.libraries           = "z"
+  s.xcconfig            = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
   #s.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
-  s.compiler_flags  = '-w'
+  s.compiler_flags      = '-w'
 
   s.dependency 'ZipArchive'
+
+  s.subspec 'noarc' do |sp|
+    sp.source_files     = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
+    sp.requires_arc     = false
+    sp.compiler_flags   = '-w'
+  end
+
 end

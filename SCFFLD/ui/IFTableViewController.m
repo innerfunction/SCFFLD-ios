@@ -86,11 +86,11 @@
 - (void)beforeIOCConfiguration:(IFConfiguration *)configuration {}
 
 - (void)afterIOCConfiguration:(IFConfiguration *)configuration {
-    defaultFactory = (IFTableViewCellFactory *)[_cellFactoriesByDisplayMode objectForKey:@"default"];
-    if (!defaultFactory) {
-         defaultFactory = [[IFTableViewCellFactory alloc] init];
-        [_iocContainer configureObject:defaultFactory withConfiguration:configuration identifier:@"IFTableViewController.defaultFactory"];
-         defaultFactory.tableData = _tableData;
+    _defaultFactory = (IFTableViewCellFactory *)[_cellFactoriesByDisplayMode objectForKey:@"default"];
+    if (!_defaultFactory) {
+         _defaultFactory = [[IFTableViewCellFactory alloc] init];
+        [_iocContainer configureObject:_defaultFactory withConfiguration:configuration identifier:@"IFTableViewController.defaultFactory"];
+         _defaultFactory.tableData = _tableData;
     }
 }
 
@@ -161,12 +161,12 @@
     }
     
     if (_hasSearchBar) {
-        searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-        searchBar.delegate = self;
-        searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-        searchDisplayController.delegate = self;
-        searchDisplayController.searchResultsDataSource = self;
-        self.tableView.tableHeaderView = searchBar;
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        _searchBar.delegate = self;
+        _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
+        _searchDisplayController.delegate = self;
+        _searchDisplayController.searchResultsDataSource = self;
+        self.tableView.tableHeaderView = _searchBar;
     }
 }
 
@@ -199,9 +199,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (isFirstShow) {
+    if (_isFirstShow) {
         [self hideSearchBar];
-        isFirstShow = NO;
+        _isFirstShow = NO;
     }
     if (_scrollToSelected) {
         [self.tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
@@ -309,7 +309,7 @@
     NSString *displayMode = [self displayModeForIndexPath:indexPath];
     IFTableViewCellFactory *cellFactory = (IFTableViewCellFactory *)[_cellFactoriesByDisplayMode valueForKey:displayMode];
     if (!cellFactory) {
-        cellFactory = defaultFactory;
+        cellFactory = _defaultFactory;
     }
     return cellFactory;
 }
