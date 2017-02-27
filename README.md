@@ -6,7 +6,7 @@ The core SCFFLD package provides the following:
 * JSON configuration loading;
 * Dependency injection (DI) / inversion of control (IoC) containers;
 * Internal URI system;
-* App container and basic UI components;
+* App container and core UI components;
 
 See the wiki for more information.
 

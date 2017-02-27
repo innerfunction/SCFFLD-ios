@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   s.author          = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
   s.platform        = :ios
   s.ios.deployment_target = '8.0'
-  #s.source         = { :git => "https://github.com/innerfunction/SCFFLD.git" } #, :tag => "0.0.1" }
-  s.source          = { :git => "git@github.com:innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
+  s.source         = { :git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
+  #s.source          = { :git => "git@github.com:innerfunction/SCFFLD-ios.git", :tag => "0.8.0" }
   s.source_files    = "SCFFLD/*.{h,m}", "SCFFLD/{app,ioc,ui,uri,util}/*.{h,m}", "SCFFLD/Externals/**/*.{h,m}"
   s.exclude_files   = "SCFFLD/Externals/ISO8601DateFormatter/*.m", "SCFFLD/Externals/JSONKit/*.m", "SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}"
 
@@ -28,12 +28,14 @@ Pod::Spec.new do |s|
   s.subspec 'noarc' do |sp|
     sp.source_files = "SCFFLD/Externals/ISO8601DateFormatter/*.{h,m}", "SCFFLD/Externals/JSONKit/*.{h,m}"
     sp.requires_arc = false
+sp.compiler_flags  = '-Wdeprecated-declarations', '-Wmismatched-return-types', '-Wdeprecated-objc-pointer-introspection'
   end
 
   s.frameworks      = "UIKit", "Foundation"
   s.libraries       = "z"
   s.xcconfig        = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
   #s.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**", 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+s.compiler_flags  = '-Wdeprecated-declarations', '-Wmismatched-return-types', '-Wdeprecated-objc-pointer-introspection'
 
   s.dependency 'ZipArchive'
 end
