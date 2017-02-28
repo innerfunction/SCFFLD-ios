@@ -29,6 +29,14 @@
     return self;
 }
 
+- (id)initAsWriteable {
+    self = [self init];
+    if (self) {
+        _isWriteable = YES;
+    }
+    return self;
+}
+
 - (id)initWithProperty:(objc_property_t)property {
     self = [super init];
     if (self) {
@@ -68,11 +76,12 @@
     return self;
 }
 
-- (id)initWithClass:(__unsafe_unretained Class)classObj {
+- (id)initAsWriteableWithClass:(__unsafe_unretained Class)classObj {
     self = [super init];
     if (self) {
         _propertyClass = classObj;
         _propertyType = @"";
+        _isWriteable = YES;
     }
     return self;
 }

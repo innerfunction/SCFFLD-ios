@@ -36,10 +36,12 @@
 
 /** Initialize a property which is id/NSObject compatible. */
 - (id)init;
+/** Initialize a writeable id/NSObject compatible property. */
+- (id)initAsWriteable;
 /** Initialize with a property reference. */
 - (id)initWithProperty:(objc_property_t)property;
-/** Initialize with a class reference. */
-- (id)initWithClass:(__unsafe_unretained Class)classObj;
+/** Initialize a writeable property with a type class. */
+- (id)initAsWriteableWithClass:(__unsafe_unretained Class)classObj;
 /** Test whether the property is a _boolean_ type. */
 - (BOOL)isBoolean;
 /** Test whether the property is an _integer_ type. */

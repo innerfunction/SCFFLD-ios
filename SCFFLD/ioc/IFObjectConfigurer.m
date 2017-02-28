@@ -339,7 +339,16 @@
         // Keep count of the number of pending value refs for the current object.
         [_container incPendingValueRefCountForPendingObject:pending];
     }
-    else if (value != nil) {
+    else if (value != nil && [propInfo isWriteable] && [propInfo isAssignableFrom:[value class]]) {
+        if ([value isKindOfClass:[NSArray class]]) {
+            // If value is an array then filter out any NSNull values; these are inserted by the code
+            // below to pad intermediate values when initially populating the array.
+            // Alternative behaviour here would be to wrap the array value in an NSArray subclass,
+            // which overrides the objectAtIndex: method to return nil when the in-place value is NSNull.
+            value = [(NSArray *)value filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nonnull object, NSDictionary<NSString *,id> * _Nullable bindings) {
+                return object != [NSNull null];
+            }]];
+        }
         // Check for dictionary or map collections...
         if ([object isKindOfClass:[NSDictionary class]]) {
             // Dictionary collection entry.
@@ -356,11 +365,8 @@
             array[idx] = value;
         }
         else {
-            // ...configuring an object which isn't a collection.
-            if ([propInfo isWriteable] && [propInfo isAssignableFrom:[value class]]) {
-                // Standard object property reference.
-                [object setValue:value forKey:name];
-            }
+            // ...configuring an standard object property.
+            [object setValue:value forKey:name];
         }
     }
     return value;
@@ -395,12 +401,12 @@
         if ([parent conformsToProtocol:@protocol(IFIOCTypeInspectable)]) {
             __unsafe_unretained Class memberClass = [(id<IFIOCTypeInspectable>)parent memberClassForCollection:propName];
             if (memberClass) {
-                _memberTypeInfo = [[IFPropertyInfo alloc] initWithClass:memberClass];
+                _memberTypeInfo = [[IFPropertyInfo alloc] initAsWriteableWithClass:memberClass];
             }
         }
         if (!_memberTypeInfo) {
             // Can't resolve any class for the collection's members, use an all-type info.
-            _memberTypeInfo = [IFPropertyInfo new];
+            _memberTypeInfo = [[IFPropertyInfo alloc] initAsWriteable];
         }
     }
     return self;
@@ -432,7 +438,7 @@
     // return a generic property info. This is necessary to allow arbitrary named objects to be
     // created and configured on the container.
     if (!propInfo) {
-        propInfo = [IFPropertyInfo new];
+        propInfo = [[IFPropertyInfo alloc] initAsWriteable];
     }
     return propInfo;
 }
