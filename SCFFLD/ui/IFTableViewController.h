@@ -27,6 +27,12 @@
 #import "IFActionProxy.h"
 #import "IFJSONData.h"
 
+// Following pragmas are to disable build warning caused by use of UISearchDisplayController;
+// these can be removed (and the trailing pragma at end of file) once this class is migrated
+// to the replacement UISearchController class.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /**
  * A configurable table view component.
  * The following configuration keys are used to control the table's basic display:
@@ -118,4 +124,7 @@
 - (IFTableDataFilterBlock)filterBlockForName:(NSString *)filterName;
 
 @end
+
+// See note on pragmas at top of file.
+#pragma clang diagnostic pop
 
