@@ -146,6 +146,9 @@
     id object = nil;
     NSString *className = [configuration getValueAsString:@"-ios-class"];
     if (!className) {
+        className = [configuration getValueAsString:@"-ios:class"];
+    }
+    if (!className) {
         className = [configuration getValueAsString:@"-class"];
     }
     if (!className) {

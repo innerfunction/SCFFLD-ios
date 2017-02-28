@@ -231,17 +231,27 @@
             value = [_container buildObjectWithConfiguration:valueConfig identifier:kpRef];
             if (value == nil) {
                 // Couldn't build a value, so see if the object already has a value in-place.
-                @try {
-                    value = [object valueForKey:propName];
-                }
-                @catch (NSException *e) {
-                    BOOL isCollection = [object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]];
-                    if (isCollection && [@"NSUnknownKeyException" isEqualToString:e.name]) {
-                        // Ignore: Can happen when e.g. configuring the container with named objects which
-                        // aren't properties of the container.
+                if ([object isKindOfClass:[NSArray class]]) {
+                    // Read the nth item from the object array. Note that if propName isn't a valid
+                    // integer then idx will be 0, and the first array item (if any) will always be read.
+                    NSInteger idx = [propName integerValue];
+                    NSArray *array = (NSArray *)object;
+                    if (idx < [array count]) {
+                        value = [array objectAtIndex:idx];
                     }
-                    else {
-                        [_logger error:@"Reading %@ %@", kpRef, e];
+                }
+                else {
+                    @try {
+                        value = [object valueForKey:propName];
+                    }
+                    @catch (NSException *e) {
+                        if ([object isKindOfClass:[NSDictionary class]] && [@"NSUnknownKeyException" isEqualToString:e.name]) {
+                            // Ignore: Can happen when e.g. configuring the container with named objects which
+                            // aren't properties of the container.
+                        }
+                        else {
+                            [_logger error:@"Reading %@ %@", kpRef, e];
+                        }
                     }
                 }
                 if (value != nil) {
