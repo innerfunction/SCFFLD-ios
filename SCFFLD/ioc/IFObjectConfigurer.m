@@ -438,7 +438,8 @@
     // return a generic property info. This is necessary to allow arbitrary named objects to be
     // created and configured on the container.
     if (!propInfo) {
-        propInfo = [[IFPropertyInfo alloc] initAsWriteable];
+        // Note that this is a non-writeable property.
+        propInfo = [IFPropertyInfo new];
     }
     return propInfo;
 }
