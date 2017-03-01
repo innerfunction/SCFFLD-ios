@@ -40,8 +40,10 @@
 - (id)initAsWriteable;
 /** Initialize with a property reference. */
 - (id)initWithProperty:(objc_property_t)property;
-/** Initialize a writeable property with a type class. */
+/** Initialize a writeable property with a class type. */
 - (id)initAsWriteableWithClass:(__unsafe_unretained Class)classObj;
+/** Initialize a writeable property with a protocol type. */
+- (id)initAsWriteableWithProtocol:(Protocol *)protocol;
 /** Test whether the property is a _boolean_ type. */
 - (BOOL)isBoolean;
 /** Test whether the property is an _integer_ type. */

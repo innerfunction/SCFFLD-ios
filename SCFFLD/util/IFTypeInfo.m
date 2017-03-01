@@ -86,6 +86,17 @@
     return self;
 }
 
+- (id)initAsWriteableWithProtocol:(Protocol *)protocol {
+    self = [super init];
+    if (self) {
+        _propertyClass = NULL;
+        _propertyType = @"";
+        _propertyProtocol = protocol;
+        _isWriteable = YES;
+    }
+    return self;
+}
+
 - (BOOL)isBoolean {
     return strcmp(_propertyType.UTF8String, @encode(BOOL)) == 0 || strcmp(_propertyType.UTF8String, @encode(Boolean)) == 0;
 }
