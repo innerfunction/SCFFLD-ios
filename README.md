@@ -11,14 +11,12 @@ The core SCFFLD package provides the following:
 See the wiki for more information.
 
 ## Installation
-
 Install using CocoaPods:
 ```ruby
 pod 'SCFFLD'
 ```
 
 ## Sample app
-
 A sample app with example configurations and code can be found under [test/SCFFLD-testapp](test/SCCFLD-testapp).
 
 
