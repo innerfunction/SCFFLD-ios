@@ -23,10 +23,11 @@
 
 @synthesize uri=_uri, uriHandler=_uriHandler;
 
-- (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource {
+- (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource staticResources:(NSDictionary *)staticResources {
     self = [super init];
     if (self) {
         _dirResource = dirResource;
+        _staticResources = staticResources;
     }
     return self;
 }
@@ -48,6 +49,13 @@
     IFFileResource *fileRsc = [_dirResource resourceForPath:path];
     if (fileRsc) {
         return [[IFConfiguration alloc] initWithResource:fileRsc];
+    }
+    // If no matching file found then check for a statically mapped resource
+    // under the requested key. Doing this second means that static resources
+    // can be overridden by a file entry with a matching name.
+    id staticRsc = _staticResources[key];
+    if (staticRsc) {
+        return staticRsc;
     }
     return nil;
 }
@@ -78,7 +86,7 @@
     if (_keys == nil) {
         NSArray *files = [_dirResource list];
         // Filter JSON files and extract keys as filename less the .json extension.
-        NSMutableArray *keys = [NSMutableArray new];
+        NSMutableArray *keys = [[NSMutableArray alloc] initWithArray:[_staticResources allKeys]];
         for (NSString *filename in files) {
             if ([filename hasSuffix:@".json"]) {
                 NSString *key = [filename substringToIndex:[filename length] - 5];
@@ -116,8 +124,13 @@
         IFCompoundURI *dirURI = [[IFCompoundURI alloc] initWithScheme:@"app" uri:uri];
         id dirRsc = [super dereference:dirURI parameters:params];
         if (dirRsc) {
-            dirmap = [[IFDirmap alloc] initWithDirectoryResource:dirRsc];
+            dirmap = [[IFDirmap alloc] initWithDirectoryResource:dirRsc staticResources:params];
             [_dirmapCache setObject:dirmap forKey:uri.name];
+        }
+        else if ([params count] > 0) {
+            // Map directory not found, but static resources specified in the URI params
+            // so return these as the result, but don't cache.
+            dirmap = params;
         }
         else {
             // Named directory not found; store NSNull to indicate miss.

@@ -20,12 +20,20 @@
 #import "IFFileBasedSchemeHandler.h"
 #import "IFFileResource.h"
 
+/**
+ * A directory map.
+ * This object is used to map JSON files on the app: file system into the configuration space.
+ * Note that the URI scheme allows directory maps to be initialized with static resources
+ * which are specified as parameters to the dirmap: URI. This allows some of the directory
+ * map entries to be specified in the URI, rather than on the file system.
+ */
 @interface IFDirmap : NSDictionary <IFURIContextAware> {
     IFDirectoryResource *_dirResource;
+    NSDictionary *_staticResources;
     NSArray *_keys;
 }
 
-- (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource;
+- (id)initWithDirectoryResource:(IFDirectoryResource *)dirResource staticResources:(NSDictionary *)staticResources;
 
 @end
 

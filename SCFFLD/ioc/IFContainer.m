@@ -174,7 +174,7 @@
 - (id)newInstanceForTypeName:(NSString *)typeName withConfiguration:(IFConfiguration *)configuration {
     NSString *className = [_types getValueAsString:typeName];
     if (!className) {
-        [_logger error:@"newInstanceForTypeName, no class name found for type %@", typeName];
+        [_logger warn:@"newInstanceForTypeName, no class name found for type %@", typeName];
         return nil;
     }
     return [self newInstanceForClassName:className withConfiguration:configuration];
