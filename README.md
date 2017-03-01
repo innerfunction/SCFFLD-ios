@@ -10,18 +10,18 @@ The core SCFFLD package provides the following:
 
 See the wiki for more information.
 
-# Installation
+## Installation
 
 Install using CocoaPods:
 ```ruby
 pod 'SCFFLD'
 ```
 
-# Sample app
+## Sample app
 
 A sample app with example configurations and code can be found under [test/SCFFLD-testapp](test/SCCFLD-testapp).
 
 
-# Status
+## Status
 SCFFLD is currently beta software. Much of the core code is well tested and has been used in a variety of production products, but some details - particularly configuration APIs of core UI components - may still be changed.
 
