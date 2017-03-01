@@ -25,6 +25,7 @@
 #import "IFIOCConfigurationAware.h"
 #import "IFMessageReceiver.h"
 #import "IFActionProxy.h"
+#import "IFAppContainer.h"
 #import "IFJSONData.h"
 
 // Following pragmas are to disable build warning caused by use of UISearchDisplayController;
@@ -74,6 +75,8 @@
     BOOL _isFirstShow;
     /// A dictionary used by the _IFActionProxy_ protocol methods.
     NSMutableDictionary *_actionProxyLookup;
+    /// The app container.
+    IFAppContainer *_appContainer;
 }
 
 /// Flag indicating whether to hide the screen's title bar.

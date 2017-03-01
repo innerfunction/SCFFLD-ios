@@ -23,6 +23,7 @@
 #import "IFMessageRouter.h"
 #import "IFActionProxy.h"
 #import "IFViewBehaviour.h"
+#import "IFAppContainer.h"
 #import "IFLogger.h"
 
 /**
@@ -57,6 +58,7 @@
     BOOL _loadingLayout;
     NSMutableDictionary *_namedViewPlaceholders;
     IFLogger *_logger;
+    IFAppContainer *_appContainer;
 }
 
 /** Flag indicating whether to show or hide the title bar. */

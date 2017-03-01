@@ -17,7 +17,6 @@
 //
 
 #import "IFViewController.h"
-#import "IFAppContainer.h"
 #import "UIViewController+Toast.h"
 #import "UIViewController+ImageView.h"
 #import "NSDictionary+IF.h"
@@ -45,6 +44,13 @@
         self.view = view;
     }
     return self;
+}
+
+#pragma mark - IFIOCContainerAware
+
+- (void)setIocContainer:(IFContainer *)iocContainer {
+    _iocContainer = iocContainer;
+    _appContainer = [IFAppContainer findAppContainer:iocContainer];
 }
 
 #pragma mark - IFIOCConfigurationAware protocol
@@ -112,7 +118,7 @@
 #pragma mark - Instance methods
 
 - (void)postMessage:(NSString *)message {
-    [IFAppContainer postMessage:message sender:self];
+    [_appContainer postMessage:message sender:self];
 }
 
 - (void)addViewComponent:(UIView *)component withName:(NSString *)name {

@@ -18,7 +18,6 @@
 
 #import "IFTableViewController.h"
 #import "IFContainer.h"
-#import "IFAppContainer.h"
 #import "UIViewController+Toast.h"
 #import "NSDictionary+IFValues.h"
 #import "IFTypeConversions.h"
@@ -70,6 +69,13 @@
         self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return self;
+}
+
+#pragma mark - IFIOCContainerAware
+
+- (void)setIocContainer:(IFContainer *)iocContainer {
+    _iocContainer = iocContainer;
+    _appContainer = [IFAppContainer findAppContainer:iocContainer];
 }
 
 #pragma mark - IFIOCTypeInspectable
@@ -300,7 +306,7 @@
 }
 
 - (void)postMessage:(NSString *)message {
-    [IFAppContainer postMessage:message sender:self];
+    [_appContainer postMessage:message sender:self];
 }
 
 - (IFTableDataFilterBlock)filterBlockForName:(NSString *)filterName {

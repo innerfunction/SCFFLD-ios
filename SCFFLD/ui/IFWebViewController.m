@@ -48,10 +48,10 @@
         _useHTMLTitle = YES;
         self.edgesForExtendedLayout = UIRectEdgeNone;
         
-        webView = [[UIWebView alloc] init];
-        webView.delegate = self;
+        _webView = [[UIWebView alloc] init];
+        _webView.delegate = self;
         
-        self.view = webView;
+        self.view = _webView;
         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     }
     return self;
@@ -59,7 +59,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    loadingImageView.frame = webView.bounds;
+    _loadingImageView.frame = _webView.bounds;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -71,19 +71,19 @@
 
 - (void)afterIOCConfiguration:(id)configuration {
     [super afterIOCConfiguration:configuration];
-    webView.backgroundColor = _backgroundColor;
-    webView.opaque = _opaque;
-    webView.scrollView.bounces = _scrollViewBounces;
+    _webView.backgroundColor = _backgroundColor;
+    _webView.opaque = _opaque;
+    _webView.scrollView.bounces = _scrollViewBounces;
     if (_loadingImage) {
-        loadingImageView = [[UIImageView alloc] initWithImage:_loadingImage];
-        loadingImageView.contentMode = UIViewContentModeCenter;
-        loadingImageView.backgroundColor = _backgroundColor;
-        [self.view addSubview:loadingImageView];
+        _loadingImageView = [[UIImageView alloc] initWithImage:_loadingImage];
+        _loadingImageView.contentMode = UIViewContentModeCenter;
+        _loadingImageView.backgroundColor = _backgroundColor;
+        [self.view addSubview:_loadingImageView];
     }
     if (_showLoadingIndicator) {
-        loadingIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:webView.frame];
-        loadingIndicatorView.hidden = YES;
-        [self.view addSubview:loadingIndicatorView];
+        _loadingIndicatorView = [[UIActivityIndicatorView alloc] initWithFrame:_webView.frame];
+        _loadingIndicatorView.hidden = YES;
+        [self.view addSubview:_loadingIndicatorView];
     }
 }
 
@@ -91,8 +91,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)view {
     [self hideLoadingImage];
-    if (loadingIndicatorView) {
-        loadingIndicatorView.hidden = YES;
+    if (_loadingIndicatorView) {
+        _loadingIndicatorView.hidden = YES;
     }
     if (_useHTMLTitle) {
         NSString *title = [view stringByEvaluatingJavaScriptFromString:@"document.title"];
@@ -104,10 +104,10 @@
         }
     }
     // Disable long touch events. See http://stackoverflow.com/questions/4314193/how-to-disable-long-touch-in-uiwebview
-    [webView stringByEvaluatingJavaScriptFromString:@"document.body.style.webkitTouchCallout='none'; document.body.style.KhtmlUserSelect='none'"];
+    [_webView stringByEvaluatingJavaScriptFromString:@"document.body.style.webkitTouchCallout='none'; document.body.style.KhtmlUserSelect='none'"];
     // Change console.log to use the epConsoleLog function.
     //[view stringByEvaluatingJavaScriptFromString:@"console.log = epConsoleLog"];
-    webViewLoaded = YES;
+    _webViewLoaded = YES;
 }
 
 // TODO: Note that the web view will URI encode any square brackets in the URL - this can interfere with compound URI parsing.
@@ -136,27 +136,27 @@
     }
     // Always load file: URLs.
     if ([@"file" isEqualToString:url.scheme]) {
-        loadingExternalURL = NO;
+        _loadingExternalURL = NO;
         return YES;
     }
     // Always load data: URLs.
     if ([@"data" isEqualToString:url.scheme]) {
-        loadingExternalURL = NO;
+        _loadingExternalURL = NO;
         return YES;
     }
     // If loading a pre-configured exernal URL...
-    if (loadingExternalURL) {
-        loadingExternalURL = NO;
+    if (_loadingExternalURL) {
+        _loadingExternalURL = NO;
         return YES;
     }
     else if (_loadExternalLinks && ([@"http" isEqualToString:url.scheme] || [@"https" isEqualToString:url.scheme])) {
         return YES;
     }
-    else if (webViewLoaded && (navigationType != UIWebViewNavigationTypeOther)) {
+    else if (_webViewLoaded && (navigationType != UIWebViewNavigationTypeOther)) {
         NSString *message;
-        if ([[IFAppContainer getAppContainer] isInternalURISchemeName:url.scheme]) {
+        if ([_appContainer isInternalURISchemeName:url.scheme]) {
             message = [url absoluteString];
-            // NSURL will represent URIs such as post:#fragment to post:%23fragment (i.e. it
+            // NSURL will present URIs such like 'post:#fragment' as 'post:%23fragment' (i.e. it
             // will escape the leading #; it won't do this for URIs such as post:name#fragment).
             IFRegExp *re = [[IFRegExp alloc] initWithPattern:@"(\\w+):%23(.*)"];
             NSArray *groups = [re match:message];
@@ -188,24 +188,24 @@
             if (!contentURL && resource.externalURL) {
                 contentURL = resource.externalURL;
             }
-            [webView loadHTMLString:html baseURL:contentURL];
+            [_webView loadHTMLString:html baseURL:contentURL];
         }
         else {
             // Assume content's description will yield valid HTML.
             NSString *html = [_content description];
-            [webView loadHTMLString:html baseURL:contentURL];
+            [_webView loadHTMLString:html baseURL:contentURL];
         }
     }
     else if (_contentURL) {
         NSURLRequest* req = [NSURLRequest requestWithURL:contentURL];
-        loadingExternalURL = YES;
-        [webView loadRequest:req];
+        _loadingExternalURL = YES;
+        [_webView loadRequest:req];
     }
 }
 
 - (void)showLoadingIndicatorWithCompletion:(void(^)(void))completion {
-    if (loadingIndicatorView) {
-        loadingIndicatorView.hidden = NO;
+    if (_loadingIndicatorView) {
+        _loadingIndicatorView.hidden = NO;
         // Execute the completion on the main ui thread, after the spinner has had a chance to display.
         dispatch_async(dispatch_get_main_queue(), completion );
     }
@@ -213,12 +213,12 @@
 }
 
 - (void)hideLoadingImage {
-    if (loadingImageView && !loadingImageView.hidden) {
+    if (_loadingImageView && !_loadingImageView.hidden) {
         [UIView animateWithDuration: 0.5f
                               delay: 0.0f
                             options: UIViewAnimationOptionCurveLinear
-                         animations: ^{ loadingImageView.alpha = 0.0; }
-                         completion: ^(BOOL finished) { loadingImageView.hidden = YES; }];
+                         animations: ^{ _loadingImageView.alpha = 0.0; }
+                         completion: ^(BOOL finished) { _loadingImageView.hidden = YES; }];
     }
 }
 

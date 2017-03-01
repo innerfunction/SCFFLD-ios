@@ -64,11 +64,7 @@
 @property (nonatomic) NSDictionary *formats;
 /// URI aliases.
 @property (nonatomic) IFJSONObject *aliases;
-/// The container's standard configuration.
-@property (nonatomic, strong) id standardConfiguration;
 
-/** Load the app's standard configuration. */
-- (void)loadStandardConfiguration;
 /** Load the app configuration. */
 - (void)loadConfiguration:(id)configSource;
 /** Return the app's root view. */
@@ -77,7 +73,12 @@
 - (void)postMessage:(NSString *)messageURI sender:(id)sender;
 /** Test whether a URI scheme name belongs to an internal URI scheme. */
 - (BOOL)isInternalURISchemeName:(NSString *)schemeName;
-
+/**
+ * Find the root app container in a container heirarchy.
+ * Checks the container argument, and then its parent and so on until the root
+ * app container is found. Returns nil if no app container is found.
+ */
++ (IFAppContainer *)findAppContainer:(IFContainer *)container;
 /** Return the app container singleton instance. */
 + (IFAppContainer *)getAppContainer;
 
@@ -87,8 +88,5 @@
  * rootViewController property.
  */
 + (UIWindow *)window;
-
-/** Post a message URI. */
-+ (void)postMessage:(NSString *)messageURI sender:(id)sender;
 
 @end

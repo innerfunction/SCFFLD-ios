@@ -27,15 +27,15 @@
  */
 @interface IFWebViewController : IFViewController <UIWebViewDelegate, IFMessageReceiver> {
     /// The underlying web view.
-    UIWebView *webView;
+    UIWebView *_webView;
     /// An image to display whilst the web view content is loading.
-    UIImageView *loadingImageView;
+    UIImageView *_loadingImageView;
     /// An activity indicator to display whilst loading content.
-    UIActivityIndicatorView *loadingIndicatorView;
+    UIActivityIndicatorView *_loadingIndicatorView;
     /// A flag indicating that an external URL is loading.
-    BOOL loadingExternalURL;
+    BOOL _loadingExternalURL;
     /// A flag indicating that content has loaded.
-    BOOL webViewLoaded;
+    BOOL _webViewLoaded;
 }
 
 /** An image to be displayed whilst the initial page loads. */

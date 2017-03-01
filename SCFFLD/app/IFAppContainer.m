@@ -41,13 +41,6 @@
     if (self) {
         // The container's logger.
         _logger = [[IFLogger alloc] initWithTag:@"IFAppContainer"];
-        // The container's standard configuration.
-        _standardConfiguration = @{
-            @"types":       @"@app:/SCFFLD/types.json",
-            @"schemes":     @"@dirmap:/SCFFLD/schemes",
-            @"patterns":    @"@dirmap:/SCFFLD/patterns",
-            @"nameds":      @"@dirmap:/SCFFLD/nameds"
-        };
         // Use the standard URI handler singleton instance
         _appURIHandler = [IFStandardURIHandler uriHandler];
         self.uriHandler = _appURIHandler;
@@ -61,10 +54,6 @@
     _window = window;
     _window.rootViewController = [self getRootView];
     _window.backgroundColor = _appBackgroundColor;
-}
-
-- (void)loadStandardConfiguration {
-    [self loadConfiguration:_standardConfiguration];
 }
 
 - (void)loadConfiguration:(id)configSource {
@@ -407,26 +396,36 @@
 
 static IFAppContainer *IFAppContainer_instance;
 
-+ (void)initialize {
-    IFAppContainer_instance = [IFAppContainer new];
-    [IFAppContainer_instance addTypes:[IFCoreTypes types]];
-}
-
 + (IFAppContainer *)getAppContainer {
+    if (IFAppContainer_instance == nil) {
+        IFAppContainer_instance = [IFAppContainer new];
+        [IFAppContainer_instance addTypes:[IFCoreTypes types]];
+        [IFAppContainer_instance loadConfiguration:@{
+            @"types":       @"@app:/SCFFLD/types.json",
+            @"schemes":     @"@dirmap:/SCFFLD/schemes",
+            @"patterns":    @"@dirmap:/SCFFLD/patterns",
+            @"nameds":      @"@dirmap:/SCFFLD/nameds"
+        }];
+        [IFAppContainer_instance startService];
+    }
     return IFAppContainer_instance;
 }
 
 + (UIWindow *)window {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     IFAppContainer *container = [IFAppContainer getAppContainer];
-    [container loadStandardConfiguration];
-    [container startService];
     container.window = window;
     return window;
 }
 
-+ (void)postMessage:(NSString *)messageURI sender:(id)sender {
-    [IFAppContainer_instance postMessage:messageURI sender:sender];
++ (IFAppContainer *)findAppContainer:(IFContainer *)container {
+    while (container) {
+        if ([container isKindOfClass:[IFAppContainer class]]) {
+            return (IFAppContainer *)container;
+        }
+        container = container.parentContainer;
+    }
+    return nil;
 }
 
 @end
