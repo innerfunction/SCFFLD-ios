@@ -74,9 +74,9 @@
 
 #pragma mark - IFIOCTypeInspectable
 
-- (Class)memberClassForCollection:(NSString *)propertyName {
+- (IFPropertyInfo *)memberPropertyInfoForCollection:(NSString *)propertyName {
     if ([@"cellFactoriesByDisplayMode" isEqualToString:propertyName]) {
-        return [IFTableViewCellFactory class];
+        return [[IFPropertyInfo alloc] initAsWriteableWithClass:[IFTableViewCellFactory class]];
     }
     return nil;
 }

@@ -413,6 +413,7 @@
 }
 
 #pragma mark - IFConfigurationData
+
 // TODO: Review the need for this protocol
 - (id)getValue:(NSString *)keyPath asRepresentation:(NSString *)representation {
     id value = [self getNamed:keyPath];

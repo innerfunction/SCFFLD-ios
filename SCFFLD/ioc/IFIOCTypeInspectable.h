@@ -17,6 +17,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IFTypeInfo.h"
 
 /**
  * A protocol which allows an IOC container to interrogate an object about the default
@@ -39,12 +40,12 @@
 //- (BOOL)isDataCollection:(NSString *)propertyName;
 
 /**
- * Return the expected class for members of the named property collection.
+ * Return the expected property type information for members of the named property collection.
  * @param propertyName  The name of a collection property.
- * @return Returns the default class of member items of the specified collection.
- * Can return _nil_ if the property name isn't recognized, or if the collection has
- * no default member class.
+ * @return Returns an _IFPropertyInfo_ object encapsulating the default class or protocol
+ * of member items of the specified collection. Can return _nil_ if the property name
+ * isn't recognized, or if the collection has no default member class.
  */
-- (__unsafe_unretained Class)memberClassForCollection:(NSString *)propertyName;
+- (IFPropertyInfo *)memberPropertyInfoForCollection:(NSString *)propertyName;
 
 @end

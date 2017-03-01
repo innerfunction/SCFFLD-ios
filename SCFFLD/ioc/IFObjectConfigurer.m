@@ -399,10 +399,7 @@
     self = [super init];
     if (self) {
         if ([parent conformsToProtocol:@protocol(IFIOCTypeInspectable)]) {
-            __unsafe_unretained Class memberClass = [(id<IFIOCTypeInspectable>)parent memberClassForCollection:propName];
-            if (memberClass) {
-                _memberTypeInfo = [[IFPropertyInfo alloc] initAsWriteableWithClass:memberClass];
-            }
+            _memberTypeInfo = [(id<IFIOCTypeInspectable>)parent memberPropertyInfoForCollection:propName];
         }
         if (!_memberTypeInfo) {
             // Can't resolve any class for the collection's members, use an all-type info.
