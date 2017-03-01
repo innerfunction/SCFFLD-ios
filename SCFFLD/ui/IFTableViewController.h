@@ -114,6 +114,12 @@
 /// A named filter to apply to the content before displaying.
 @property (nonatomic, strong) NSString *filterName;
 
+/**
+ * Get the action for the row at the specified index path.
+ * Called when a table row is selected. Default implementation reads the "action"
+ * property of the row's data item.
+ */
+- (NSString *)actionForRowAtIndexPath:(NSIndexPath *)indexPath;
 /// Format incoming list data. Principally intended as a mechanism for subclasses to interface with specific data sources.
 - (NSArray *)formatData:(NSArray *)data;
 /// Clear any currently applied table data filter.

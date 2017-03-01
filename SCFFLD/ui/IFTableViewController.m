@@ -245,7 +245,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *action = [[_tableData rowDataForIndexPath:indexPath] getValueAsString:@"action"];
+    NSString *action = [self actionForRowAtIndexPath:indexPath];
     if (action) {
         [self postMessage:action];
     }
@@ -289,6 +289,10 @@
     if (_clearFilterMessage) {
         [self showToastMessage:_clearFilterMessage];
     }
+}
+
+- (NSString *)actionForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[_tableData rowDataForIndexPath:indexPath] getValueAsString:@"action"];
 }
 
 - (NSArray *)formatData:(NSArray *)data {
