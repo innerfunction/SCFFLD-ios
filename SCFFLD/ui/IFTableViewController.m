@@ -80,11 +80,10 @@
 
 #pragma mark - IFIOCTypeInspectable
 
-- (IFPropertyInfo *)memberPropertyInfoForCollection:(NSString *)propertyName {
-    if ([@"cellFactoriesByDisplayMode" isEqualToString:propertyName]) {
-        return [[IFPropertyInfo alloc] initAsWriteableWithClass:[IFTableViewCellFactory class]];
-    }
-    return nil;
+- (NSDictionary *)collectionMemberTypeInfo {
+    return @{
+        @"cellFactoriesByDisplayMode": [IFTableViewCellFactory class]
+    };
 }
 
 #pragma mark - IFIOCConfigurationAware

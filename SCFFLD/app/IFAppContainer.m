@@ -310,8 +310,8 @@
 
 #pragma mark - IFIOCTypeInspectable
 
-- (IFPropertyInfo *)memberPropertyInfoForCollection:(NSString *)propertyName {
-    return nil;
+- (NSDictionary *)collectionMemberTypeInfo {
+    return @{};
 }
 
 #pragma mark - IFMessageRouter

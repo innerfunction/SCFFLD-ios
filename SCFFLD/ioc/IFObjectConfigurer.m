@@ -399,7 +399,16 @@
     self = [super init];
     if (self) {
         if ([parent conformsToProtocol:@protocol(IFIOCTypeInspectable)]) {
-            _memberTypeInfo = [(id<IFIOCTypeInspectable>)parent memberPropertyInfoForCollection:propName];
+            NSDictionary *typeInfo = [(id<IFIOCTypeInspectable>)parent collectionMemberTypeInfo];
+            if (typeInfo) {
+                id type = typeInfo[propName];
+                if (object_isClass(type)) {
+                    _memberTypeInfo = [[IFPropertyInfo alloc] initAsWriteableWithClass:(Class)type];
+                }
+                else if (type == NSClassFromString(@"Protocol")) {
+                    _memberTypeInfo = [[IFPropertyInfo alloc] initAsWriteableWithProtocol:(Protocol *)type];
+                }
+            }
         }
         if (!_memberTypeInfo) {
             // Can't resolve any class for the collection's members, use an all-type info.

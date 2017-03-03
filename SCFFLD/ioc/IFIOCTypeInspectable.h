@@ -17,7 +17,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IFTypeInfo.h"
 
 /**
  * A protocol which allows an IOC container to interrogate an object about the default
@@ -33,19 +32,12 @@
 @protocol IFIOCTypeInspectable <NSObject>
 
 /**
- * Test whether a named property represents a data collection. Data collections contain
- * 'plain' data, i.e. the container doesn't need to be scanned by the container for
- * objects to instantiate.
+ * Return a dictionary of collection property names onto expected types.
+ * The dictionary's keys should be the names of property collections of the current object.
+ * Each corresponding value should be a _Class_ or _Protocol_ instance specifying the expected
+ * type of members of the named collection. If no member type information is provided for any
+ * property then the type mapping defaults to _id_.
  */
-//- (BOOL)isDataCollection:(NSString *)propertyName;
-
-/**
- * Return the expected property type information for members of the named property collection.
- * @param propertyName  The name of a collection property.
- * @return Returns an _IFPropertyInfo_ object encapsulating the default class or protocol
- * of member items of the specified collection. Can return _nil_ if the property name
- * isn't recognized, or if the collection has no default member class.
- */
-- (IFPropertyInfo *)memberPropertyInfoForCollection:(NSString *)propertyName;
+- (NSDictionary *)collectionMemberTypeInfo;
 
 @end
