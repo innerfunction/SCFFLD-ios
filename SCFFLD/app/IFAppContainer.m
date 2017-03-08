@@ -44,6 +44,8 @@
         // Use the standard URI handler singleton instance
         _appURIHandler = [IFStandardURIHandler uriHandler];
         self.uriHandler = _appURIHandler;
+        // Add core types.
+        [self addTypes:[IFCoreTypes types]];
         // Core names which should be built before processing the rest of the container's configuration.
         self.priorityNames = @[ @"types", @"formats", @"schemes", @"aliases", @"patterns" ];
     }
@@ -399,7 +401,6 @@ static IFAppContainer *IFAppContainer_instance;
 + (IFAppContainer *)getAppContainer {
     if (IFAppContainer_instance == nil) {
         IFAppContainer_instance = [IFAppContainer new];
-        [IFAppContainer_instance addTypes:[IFCoreTypes types]];
         [IFAppContainer_instance loadConfiguration:@{
             @"types":       @"@app:/SCFFLD/types.json",
             @"schemes":     @"@dirmap:/SCFFLD/schemes",
