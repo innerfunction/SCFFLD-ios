@@ -20,10 +20,10 @@
 #define SCFFLD_app_h
 
 // app
-#import <IFAppContainer.h>
-#import <IFPostScheme.h>
-#import <IFMakeScheme.h>
-#import <IFNamedScheme.h>
-#import <IFNewScheme.h>
+#import <SCAppContainer.h>
+#import <SCPostScheme.h>
+#import <SCMakeScheme.h>
+#import <SCNamedScheme.h>
+#import <SCNewScheme.h>
 
 #endif /* SCFFLD_app_h */

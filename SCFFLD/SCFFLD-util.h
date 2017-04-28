@@ -20,17 +20,17 @@
 #define SCFFLD_util_h
 
 // util
-#import <IFFileIO.h>
-#import <IFI18nMap.h>
-#import <IFLocals.h>
-#import <IFLogger.h>
-#import <IFRegExp.h>
-#import <IFStringTemplate.h>
-#import <IFTypeConversions.h>
-#import <IFTypeInfo.h>
-#import <NSArray+IF.h>
-#import <NSDictionary+IF.h>
-#import <NSString+IF.h>
-#import <UIColor+IF.h>
+#import <SCFileIO.h>
+#import <SCI18nMap.h>
+#import <SCLocals.h>
+#import <SCLogger.h>
+#import <SCRegExp.h>
+#import <SCStringTemplate.h>
+#import <SCTypeConversions.h>
+#import <SCTypeInfo.h>
+#import <NSArray+SC.h>
+#import <NSDictionary+SC.h>
+#import <NSString+SC.h>
+#import <UIColor+SC.h>
 
 #endif /* SCFFLD_util_h */

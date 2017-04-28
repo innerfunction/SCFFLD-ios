@@ -22,6 +22,7 @@
 		07778EE41E51E37A00D492DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07778EE31E51E37A00D492DC /* AppDelegate.m */; };
 		07778EEC1E51E37A00D492DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07778EEB1E51E37A00D492DC /* Assets.xcassets */; };
 		07778EEF1E51E37A00D492DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07778EED1E51E37A00D492DC /* LaunchScreen.storyboard */; };
+		07793F541E82A16E0039095E /* ssbundle in Resources */ = {isa = PBXBuildFile; fileRef = 07793F531E82A16E0039095E /* ssbundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		07778EEB1E51E37A00D492DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07778EEE1E51E37A00D492DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07778EF01E51E37A00D492DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07793F531E82A16E0039095E /* ssbundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ssbundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		07778EDF1E51E37A00D492DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				07793F531E82A16E0039095E /* ssbundle */,
 				073BFC941E578F4500B07DAE /* splashscreen.jpg */,
 				07093DEE1E54A80700977900 /* countries */,
 				07093DE71E533E3600977900 /* logo.png */,
@@ -206,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07793F541E82A16E0039095E /* ssbundle in Resources */,
 				07093DC31E52004900977900 /* home.html in Resources */,
 				07093DEF1E54A80700977900 /* countries in Resources */,
 				07093DEB1E533E3600977900 /* logo@2x.png in Resources */,

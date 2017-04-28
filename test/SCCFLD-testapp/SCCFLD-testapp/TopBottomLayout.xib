@@ -20,7 +20,7 @@
                     <rect key="frame" x="8" y="8" width="304" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="6HQ-Zs-83m" userLabel="top">
@@ -33,9 +33,16 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.5211785968" blue="0.84267391030000005" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afghanistan.png" id="ePF-uV-zB6">
+                    <rect key="frame" x="8" y="0.0" width="172" height="52"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.87769573720000005" green="1" blue="0.30269227859999998" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="403" y="200"/>
         </view>
     </objects>
+    <resources>
+        <image name="afghanistan.png" width="23" height="15"/>
+    </resources>
 </document>
