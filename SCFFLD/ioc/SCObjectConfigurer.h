@@ -21,7 +21,7 @@
 #import "SCTypeInfo.h"
 #import "SCLogger.h"
 
-@protocol SCContainer;
+@class SCIOCContainer;
 
 /**
  * A class responsible for configuring an object. Processes the object's configuration
@@ -29,7 +29,7 @@
  */
 @interface SCObjectConfigurer : NSObject {
     /// The object container.
-    id<SCContainer> _container;
+    SCIOCContainer *_container;
     /// The container's property type information.
     SCTypeInfo *_containerTypeInfo;
     /// The object logger.
@@ -42,7 +42,7 @@
  * member type of 'id'.
  * @param container The container to be configured.
  */
--(id)initWithContainer:(id<SCContainer>)container;
+-(id)initWithContainer:(SCIOCContainer *)container;
 /// Perform the object configuration.
 - (void)configureWith:(id<SCConfiguration>)configuration;
 /**

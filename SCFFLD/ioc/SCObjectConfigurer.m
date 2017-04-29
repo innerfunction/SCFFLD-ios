@@ -17,7 +17,7 @@
 //
 
 #import "SCObjectConfigurer.h"
-#import "SCContainer.h"
+#import "SCIOCContainer.h"
 #import "SCIOCConfigurationAware.h"
 #import "SCIOCTypeInspectable.h"
 #import "SCIOCObjectFactory.h"
@@ -51,13 +51,13 @@
 /// A version of SCTypeInfo that handles undeclared named properties of a collection.
 @interface SCContainerTypeInfo : SCTypeInfo
 
-- (id)initWithContainer:(id<SCContainer>)container;
+- (id)initWithContainer:(SCIOCContainer *)container;
 
 @end
 
 @implementation SCObjectConfigurer
 
-- (id)initWithContainer:(id<SCContainer>)container {
+- (id)initWithContainer:(SCIOCContainer *)container {
     self = [super init];
     if (self) {
         _container = container;
