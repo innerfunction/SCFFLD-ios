@@ -41,3 +41,22 @@
 - (NSDictionary *)collectionMemberTypeInfo;
 
 @end
+
+/**
+ * A protocol used to indicate raw JSON collection member types.
+ * The protocol is used in conjunction with the _SCIOCTypeInspectable_ protocol to indicate
+ * collection properties which should be passed the raw, unparsed JSON configuration value
+ * when being configured by SCFFLD IOC. It is intended as an optimization, and allows the
+ * object configurer to avoid parsing a configuration sub-tree when instantating an object
+ * graph from a JSON configuration. The protocol should not be implemented; instead, return
+ * the protocol type from _collectionMemberTypeInfo_, e.g.:
+ * <code>
+ *  - (NSDictionary *)collectionMemberTypeInfo {
+ *      return @{
+ *          @"data": @protocol(SCJSONValue)
+ *      };
+ *  }
+ * </code>
+ */
+@protocol SCJSONValue  <NSObject>
+@end

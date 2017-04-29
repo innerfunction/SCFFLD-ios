@@ -24,7 +24,6 @@
 #import "SCIOCObjectAware.h"
 #import "SCIOCProxy.h"
 #import "SCPendingNamed.h"
-#import "SCJSONData.h"
 
 @interface SCObjectConfigurer ()
 
@@ -151,6 +150,8 @@
     [_container doPostConfiguration:object];
 }
 
+#define PropInfoIsCollectionType(propInfo)  ([propInfo isSubclassOf:[NSDictionary class]] || [propInfo isSubclassOf:[NSArray class]])
+
 - (id)buildValueForObject:(id)object
                  property:(NSString *)propName
         withConfiguration:(id<SCConfiguration>)configuration
@@ -195,11 +196,16 @@
         else if ([propInfo isConformantTo:@protocol(SCConfiguration)]) {
             value = [configuration getValueAsConfiguration:propName];
         }
-        else if ([propInfo isSubclassOf:[SCJSONObject class]] || [propInfo isSubclassOf:[SCJSONArray class]]) {
-            // The SCJSONObject and SCJSONArray types are equivalent to NSDictionary and NSArray,
-            // but their use allows a property to indicate that it will accept the raw JSON data
-            // value, i.e. without further processing by this class.
-            value = [configuration getValueAsJSONData:propName];
+        else if (PropInfoIsCollectionType(propInfo) && [object conformsToProtocol:@protocol(SCIOCTypeInspectable)]) {
+            // The current property is a collection type (i.e. dictionary or list); test whether it accepts
+            // raw JSON values, and if so then set the value to the raw, unparsed JSON configuration value.
+            NSDictionary *typeInfo = [(id<SCIOCTypeInspectable>)object collectionMemberTypeInfo];
+            if (typeInfo) {
+                id type = typeInfo[propName];
+                if (type == @protocol(SCJSONValue)) {
+                    value = [configuration getValueAsJSONData:propName];
+                }
+            }
         }
     }
     
@@ -306,7 +312,7 @@
         if (value == nil) {
             // If still no value at this point then the config either contains a realised value, or the config data can't
             // be used to resolve a new value.
-            // TODO: Some way to convert raw values directly to required object types?
+            // TODO: Some way to convert raw values directly to required object types? e.g. String -> Number
             // e.g. [SCValueConversions convertValue:rawValue toPropertyType:propInfo]
             value = rawValue;
         }

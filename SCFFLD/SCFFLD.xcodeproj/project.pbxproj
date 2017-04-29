@@ -23,8 +23,6 @@
 		071327A71EB347F6000C973C /* SCIOCProxyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0713277D1EB347F5000C973C /* SCIOCProxyObject.m */; };
 		071327A81EB347F6000C973C /* SCIOCSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0713277E1EB347F5000C973C /* SCIOCSingleton.h */; };
 		071327A91EB347F6000C973C /* SCIOCTypeInspectable.h in Headers */ = {isa = PBXBuildFile; fileRef = 0713277F1EB347F5000C973C /* SCIOCTypeInspectable.h */; };
-		071327AA1EB347F6000C973C /* SCJSONData.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327801EB347F5000C973C /* SCJSONData.h */; };
-		071327AB1EB347F6000C973C /* SCJSONData.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327811EB347F5000C973C /* SCJSONData.m */; };
 		071327AC1EB347F6000C973C /* SCMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327821EB347F5000C973C /* SCMessage.h */; };
 		071327AD1EB347F6000C973C /* SCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327831EB347F5000C973C /* SCMessage.m */; };
 		071327AE1EB347F6000C973C /* SCMessageReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327841EB347F5000C973C /* SCMessageReceiver.h */; };
@@ -220,8 +218,6 @@
 		0713277D1EB347F5000C973C /* SCIOCProxyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCIOCProxyObject.m; sourceTree = "<group>"; };
 		0713277E1EB347F5000C973C /* SCIOCSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIOCSingleton.h; sourceTree = "<group>"; };
 		0713277F1EB347F5000C973C /* SCIOCTypeInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIOCTypeInspectable.h; sourceTree = "<group>"; };
-		071327801EB347F5000C973C /* SCJSONData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCJSONData.h; sourceTree = "<group>"; };
-		071327811EB347F5000C973C /* SCJSONData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCJSONData.m; sourceTree = "<group>"; };
 		071327821EB347F5000C973C /* SCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMessage.h; sourceTree = "<group>"; };
 		071327831EB347F5000C973C /* SCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMessage.m; sourceTree = "<group>"; };
 		071327841EB347F5000C973C /* SCMessageReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMessageReceiver.h; sourceTree = "<group>"; };
@@ -439,8 +435,6 @@
 				0713277D1EB347F5000C973C /* SCIOCProxyObject.m */,
 				0713277E1EB347F5000C973C /* SCIOCSingleton.h */,
 				0713277F1EB347F5000C973C /* SCIOCTypeInspectable.h */,
-				071327801EB347F5000C973C /* SCJSONData.h */,
-				071327811EB347F5000C973C /* SCJSONData.m */,
 				071327821EB347F5000C973C /* SCMessage.h */,
 				071327831EB347F5000C973C /* SCMessage.m */,
 				071327841EB347F5000C973C /* SCMessageReceiver.h */,
@@ -832,7 +826,6 @@
 				0744142A1EB391CF0013C127 /* SCAppContainer.h in Headers */,
 				0713280A1EB3485A000C973C /* SCLocals.h in Headers */,
 				071328061EB3485A000C973C /* SCHTMLString.h in Headers */,
-				071327AA1EB347F6000C973C /* SCJSONData.h in Headers */,
 				074414221EB391CF0013C127 /* SCWebViewController.h in Headers */,
 				071327AC1EB347F6000C973C /* SCMessage.h in Headers */,
 				07BD8ABF1C7653930058D7A8 /* SCLocalSchemeHandler.h in Headers */,
@@ -1035,7 +1028,6 @@
 				0744141A1EB391CF0013C127 /* SCUILabelProxy.m in Sources */,
 				074414331EB391CF0013C127 /* SCPostScheme.m in Sources */,
 				074414251EB391CF0013C127 /* UIImage+CropScale.m in Sources */,
-				071327AB1EB347F6000C973C /* SCJSONData.m in Sources */,
 				074414291EB391CF0013C127 /* UIViewController+Toast.m in Sources */,
 				074414311EB391CF0013C127 /* SCNewScheme.m in Sources */,
 				0744142B1EB391CF0013C127 /* SCAppContainer.m in Sources */,
