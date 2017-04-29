@@ -71,7 +71,7 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
     }
     else if ([@"application/msgpack" isEqualToString:contentType]) {
         NSError *error;
-        data = [MPMessagePackReader readData:_data error:&error];
+        data = [MessagePackReader readData:_data error:&error];
         if (error) {
             NSLog(@"%@", error );
         }

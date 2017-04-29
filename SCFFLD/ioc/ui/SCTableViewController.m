@@ -112,7 +112,7 @@
 
 - (void)setContent:(id)content {
     if ([content isKindOfClass:[SCResource class]]) {
-        self.rows = [(SCResource *)content asConfiguration];
+        self.rows = [[IFIOCConfiguration alloc] initWithResource:(SCResource *)content];
     }
     else if ([content conformsToProtocol:@protocol(SCConfiguration)]) {
         self.rows = (id<SCConfiguration>)content;
