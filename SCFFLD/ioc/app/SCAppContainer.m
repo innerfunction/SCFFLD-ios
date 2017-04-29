@@ -314,7 +314,9 @@
 #pragma mark - SCIOCTypeInspectable
 
 - (NSDictionary *)collectionMemberTypeInfo {
-    return @{};
+    return @{
+        @"aliases": @protocol(SCJSONValue)
+    };
 }
 
 #pragma mark - SCMessageRouter

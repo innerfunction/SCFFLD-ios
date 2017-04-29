@@ -18,7 +18,7 @@
 
 #import "SCHTTPClient.h"
 #import "SSKeychain.h"
-#import "MPMessagePack.h"
+#import <MPMessagePack.h>
 
 #define LogJSONResponse (0)
 

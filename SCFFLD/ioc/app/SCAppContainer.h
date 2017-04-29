@@ -62,7 +62,7 @@
 /// URI formatters.
 @property (nonatomic) NSDictionary *formats;
 /// URI aliases.
-@property (nonatomic) SCJSONObject *aliases;
+@property (nonatomic) NSDictionary *aliases;
 
 /** Load the app configuration. */
 - (void)loadConfiguration:(id)configSource;
