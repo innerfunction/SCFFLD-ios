@@ -44,7 +44,7 @@ This library provides:
 
     s.subspec 'Core' do |core|
         core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
-        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.m, 'SCFFLD/Externals/JSONKit/*';
+        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.m', 'SCFFLD/Externals/JSONKit/*';
         core.requires_arc = true;
         core.compiler_flags = '-w';
         core.dependency 'SCFFLD/NoArc';
@@ -64,10 +64,11 @@ This library provides:
         http.dependency 'SCFFLD/Core';
         http.dependency 'Q';
         http.dependency 'SSKeychain';
+        http.dependency 'MessagePack';
     end
 
     s.subspec 'IOC' do |ioc|
-        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}';
+        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}', 'SCFFLD/uri/SCStandardURIHandler.h';
         ioc.requires_arc = true;
         ioc.compiler_flags = '-w';
         ioc.dependency 'SCFFLD/Core';

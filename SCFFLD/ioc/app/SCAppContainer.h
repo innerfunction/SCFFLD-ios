@@ -21,7 +21,6 @@
 #import "SCStandardURIHandler.h"
 #import "SCLocals.h"
 #import "SCNamedScheme.h"
-#import "SCJSONData.h"
 #import "SCIOCTypeInspectable.h"
 #import "SCLogger.h"
 
