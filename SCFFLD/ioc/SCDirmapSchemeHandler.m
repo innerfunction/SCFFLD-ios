@@ -17,7 +17,7 @@
 //
 
 #import "SCDirmapSchemeHandler.h"
-#import "SCConfiguration.h"
+#import "SCIOCConfiguration.h"
 
 @implementation SCDirmap
 

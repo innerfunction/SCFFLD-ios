@@ -34,8 +34,6 @@ This library provides:
       # of a deprecated API; it can be removed once the class is updated to remove the warning.
       'OTHER_LDFLAGS' => '-w' }
 
-    s.dependency 'ZipArchive'
-
     s.subspec 'NoArc' do |noarc|
         noarc.source_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
         noarc.requires_arc = false;
@@ -46,25 +44,27 @@ This library provides:
     s.subspec 'Core' do |core|
         core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
         core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
+        core.public_header_files = 'SCFFLD/{core,util}/*.h';
         core.requires_arc = true;
         core.compiler_flags = '-w';
         core.dependency 'SCFFLD/NoArc';
+        core.dependency 'ZipArchive'
     end
-=begin
+
     s.subspec 'DB' do |db|
         db.source_files = 'SCFFLD/db/*.{h,m}';
+        db.public_header_files = 'SCFFLD/db/*.h';
         db.requires_arc = true;
         db.compiler_flags = '-w';
         db.libraries = 'sqlite3'
-        db.dependency 'SCFFLD/NoArc';
         db.dependency 'SCFFLD/Core';
     end
 
     s.subspec 'HTTP' do |http|
         http.source_files = 'SCFFLD/http/*.{h,m}';
+        http.public_header_files = 'SCFFLD/http/*.h';
         http.requires_arc = true;
         http.compiler_flags = '-w';
-        http.dependency 'SCFFLD/NoArc';
         http.dependency 'SCFFLD/Core';
         http.dependency 'Q';
         http.dependency 'SSKeychain';
@@ -72,11 +72,11 @@ This library provides:
     end
 
     s.subspec 'IOC' do |ioc|
-        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}', 'SCFFLD/uri/*.h';
+        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/{app,ui}/*.{h,m}', 'SCFFLD/uri/*.{h,m}';
+        ioc.public_header_files = 'SCFFLD/ioc/*.h', 'SCFFLD/ioc/{app,ui}/*.h', 'SCFFLD/uri/*.h';
         ioc.requires_arc = true;
         ioc.compiler_flags = '-w';
-        ioc.dependency 'SCFFLD/NoArc';
         ioc.dependency 'SCFFLD/Core';
     end
-=end
+
 end

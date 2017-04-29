@@ -89,8 +89,6 @@
 		071328181EB3485C000C973C /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327ED1EB34858000C973C /* ZipArchive.h */; };
 		071328191EB3485C000C973C /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 071327EE1EB34858000C973C /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0713281B1EB35848000C973C /* SCIOCContainerAware.h in Headers */ = {isa = PBXBuildFile; fileRef = 0713281A1EB35848000C973C /* SCIOCContainerAware.h */; };
-		071463821E312082005263CF /* SCDirmapSchemeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 071463801E312082005263CF /* SCDirmapSchemeHandler.h */; };
-		071463831E312082005263CF /* SCDirmapSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 071463811E312082005263CF /* SCDirmapSchemeHandler.m */; };
 		072DA4A01C848D680023FAEC /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */; };
 		072DA4A11C848D680023FAEC /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA4951C848D680023FAEC /* JTSAnimatedGIFUtility.m */; };
 		072DA4A21C848D680023FAEC /* JTSImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4961C848D680023FAEC /* JTSImageInfo.h */; };
@@ -199,6 +197,8 @@
 		07D761151D9578CC0043F371 /* SCObjectConfigurer.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D760F21D9578CC0043F371 /* SCObjectConfigurer.m */; };
 		07D761161D9578CC0043F371 /* SCPendingNamed.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760F31D9578CC0043F371 /* SCPendingNamed.h */; };
 		07D761171D9578CC0043F371 /* SCPendingNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D760F41D9578CC0043F371 /* SCPendingNamed.m */; };
+		07FC13C91EB5190000C200EE /* SCDirmapSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FC13C71EB5190000C200EE /* SCDirmapSchemeHandler.m */; };
+		07FC13CA1EB5190000C200EE /* SCDirmapSchemeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07FC13C81EB5190000C200EE /* SCDirmapSchemeHandler.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,8 +284,6 @@
 		071327ED1EB34858000C973C /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		071327EE1EB34858000C973C /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		0713281A1EB35848000C973C /* SCIOCContainerAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIOCContainerAware.h; sourceTree = "<group>"; };
-		071463801E312082005263CF /* SCDirmapSchemeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCDirmapSchemeHandler.h; path = uri/SCDirmapSchemeHandler.h; sourceTree = SOURCE_ROOT; };
-		071463811E312082005263CF /* SCDirmapSchemeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCDirmapSchemeHandler.m; path = uri/SCDirmapSchemeHandler.m; sourceTree = SOURCE_ROOT; };
 		072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
 		072DA4951C848D680023FAEC /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
 		072DA4961C848D680023FAEC /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
@@ -400,6 +398,8 @@
 		07D760F21D9578CC0043F371 /* SCObjectConfigurer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCObjectConfigurer.m; sourceTree = "<group>"; };
 		07D760F31D9578CC0043F371 /* SCPendingNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPendingNamed.h; sourceTree = "<group>"; };
 		07D760F41D9578CC0043F371 /* SCPendingNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPendingNamed.m; sourceTree = "<group>"; };
+		07FC13C71EB5190000C200EE /* SCDirmapSchemeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDirmapSchemeHandler.m; sourceTree = "<group>"; };
+		07FC13C81EB5190000C200EE /* SCDirmapSchemeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDirmapSchemeHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,8 +654,6 @@
 		07BD8ACA1C76539E0058D7A8 /* uri */ = {
 			isa = PBXGroup;
 			children = (
-				071463801E312082005263CF /* SCDirmapSchemeHandler.h */,
-				071463811E312082005263CF /* SCDirmapSchemeHandler.m */,
 				07BD8AAA1C7653930058D7A8 /* SCFileBasedSchemeHandler.h */,
 				07BD8AAB1C7653930058D7A8 /* SCFileBasedSchemeHandler.m */,
 				07BD8AAC1C7653930058D7A8 /* SCFileResource.h */,
@@ -767,13 +765,14 @@
 		07D760D51D9578CC0043F371 /* ioc */ = {
 			isa = PBXGroup;
 			children = (
-				074413DE1EB391CF0013C127 /* ui */,
 				074413FF1EB391CF0013C127 /* app */,
 				07D760D61D9578CC0043F371 /* SCConfigurable.h */,
-				07D760D71D9578CC0043F371 /* SCIOCConfiguration.h */,
-				07D760D81D9578CC0043F371 /* SCIOCConfiguration.m */,
 				07D760D91D9578CC0043F371 /* SCConfiguredLocals.h */,
 				07D760DA1D9578CC0043F371 /* SCConfiguredLocals.m */,
+				07FC13C81EB5190000C200EE /* SCDirmapSchemeHandler.h */,
+				07FC13C71EB5190000C200EE /* SCDirmapSchemeHandler.m */,
+				07D760D71D9578CC0043F371 /* SCIOCConfiguration.h */,
+				07D760D81D9578CC0043F371 /* SCIOCConfiguration.m */,
 				07D760DB1D9578CC0043F371 /* SCIOCContainer.h */,
 				07D760DC1D9578CC0043F371 /* SCIOCContainer.m */,
 				07D760E51D9578CC0043F371 /* SCIOCObjectFactoryBase.h */,
@@ -782,6 +781,7 @@
 				07D760F21D9578CC0043F371 /* SCObjectConfigurer.m */,
 				07D760F31D9578CC0043F371 /* SCPendingNamed.h */,
 				07D760F41D9578CC0043F371 /* SCPendingNamed.m */,
+				074413DE1EB391CF0013C127 /* ui */,
 			);
 			path = ioc;
 			sourceTree = SOURCE_ROOT;
@@ -845,7 +845,6 @@
 				071327B21EB347F6000C973C /* SCService.h in Headers */,
 				07BD8B481C7653FC0058D7A8 /* crypt.h in Headers */,
 				074414261EB391CF0013C127 /* UIViewController+ImageView.h in Headers */,
-				071463821E312082005263CF /* SCDirmapSchemeHandler.h in Headers */,
 				07D760F91D9578CC0043F371 /* SCConfigurable.h in Headers */,
 				07BD8B4A1C7653FC0058D7A8 /* ioapi.h in Headers */,
 				071328141EB3485B000C973C /* SCTypeInfo.h in Headers */,
@@ -873,6 +872,7 @@
 				0744142E1EB391CF0013C127 /* SCNamedScheme.h in Headers */,
 				074414281EB391CF0013C127 /* UIViewController+Toast.h in Headers */,
 				071327BB1EB347F7000C973C /* SCDBORM.h in Headers */,
+				07FC13CA1EB5190000C200EE /* SCDirmapSchemeHandler.h in Headers */,
 				071327A31EB347F6000C973C /* SCIOCObjectAware.h in Headers */,
 				071327A11EB347F5000C973C /* SCIOCConfigurationAware.h in Headers */,
 				0713280E1EB3485B000C973C /* SCRegExp.h in Headers */,
@@ -997,6 +997,7 @@
 				072DA4AB1C848D680023FAEC /* UIImage+JTSImageEffects.m in Sources */,
 				072DA4A91C848D680023FAEC /* UIApplication+JTSImageViewController.m in Sources */,
 				07BD8B4B1C7653FC0058D7A8 /* mztools.c in Sources */,
+				07FC13C91EB5190000C200EE /* SCDirmapSchemeHandler.m in Sources */,
 				07D761091D9578CC0043F371 /* SCIOCObjectFactoryBase.m in Sources */,
 				074414211EB391CF0013C127 /* SCViewController.m in Sources */,
 				07BD8AC61C7653930058D7A8 /* SCStandardURIHandler.m in Sources */,
@@ -1015,7 +1016,6 @@
 				07D760FD1D9578CC0043F371 /* SCConfiguredLocals.m in Sources */,
 				071327BE1EB347F7000C973C /* SCSqlite.m in Sources */,
 				074414271EB391CF0013C127 /* UIViewController+ImageView.m in Sources */,
-				071463831E312082005263CF /* SCDirmapSchemeHandler.m in Sources */,
 				071328111EB3485B000C973C /* SCStringTemplate.m in Sources */,
 				0713280B1EB3485B000C973C /* SCLocals.m in Sources */,
 				072DA4A11C848D680023FAEC /* JTSAnimatedGIFUtility.m in Sources */,
