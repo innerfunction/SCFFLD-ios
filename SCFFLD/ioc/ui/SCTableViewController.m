@@ -19,6 +19,7 @@
 #import "SCTableViewController.h"
 #import "SCContainer.h"
 #import "SCResource.h"
+#import "SCIOCConfiguration.h"
 #import "UIViewController+Toast.h"
 #import "NSDictionary+SCValues.h"
 #import "SCTypeConversions.h"
@@ -112,7 +113,7 @@
 
 - (void)setContent:(id)content {
     if ([content isKindOfClass:[SCResource class]]) {
-        self.rows = [[IFIOCConfiguration alloc] initWithResource:(SCResource *)content];
+        self.rows = [[SCIOCConfiguration alloc] initWithResource:(SCResource *)content];
     }
     else if ([content conformsToProtocol:@protocol(SCConfiguration)]) {
         self.rows = (id<SCConfiguration>)content;

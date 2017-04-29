@@ -70,11 +70,7 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
         // TODO: Parse error handling.
     }
     else if ([@"application/msgpack" isEqualToString:contentType]) {
-        NSError *error;
-        data = [MessagePackReader readData:_data error:&error];
-        if (error) {
-            NSLog(@"%@", error );
-        }
+        data = [_data messagePackParse];
     }
     else if ([@"application/x-www-form-urlencoded" isEqualToString:contentType]) {
         // Adapted from http://stackoverflow.com/questions/8756683/best-way-to-parse-url-string-to-get-values-for-keys
