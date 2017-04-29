@@ -21,7 +21,7 @@
 #import "UIViewController+ImageView.h"
 #import "NSDictionary+SC.h"
 //#import "NSBundle+SC.h"
-#import "SCBundle.h"
+//#import "SCBundle.h"
 
 @implementation SCViewController
 
@@ -215,9 +215,11 @@
     if (_layoutName) {
         _namedViewPlaceholders = [NSMutableDictionary new];
         _loadingLayout = YES;
-        //NSArray *result = [[NSBundle mainBundle] loadNibNamed:_layoutName owner:self options:nil];
+        NSArray *result = [[NSBundle mainBundle] loadNibNamed:_layoutName owner:self options:nil];
+        /*
         SCBundle *bundle = [[SCBundle alloc] initWithPath:@"ssbundle"];
         NSArray *result = [bundle loadNibNamed:_layoutName owner:self options:nil];
+        */
         
         if (![result count]) {
             [_logger warn:@"Failed to load layout from %@.xib", _layoutName];

@@ -22,7 +22,7 @@ This library provides:
       #:git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.9.5" }
       :git => '/Users/juliangoacher/Work/Github/SCFFLD-ios/.git' }
 
-    s.public_header_files     = 'SCFFLD/util/*.h', 'SCFFLD/uri/*.h', 'SCFFLD/ioc/*.h', 'SCFFLD/app/*.h', 'SCFFLD/ui/*.h'
+    #s.public_header_files     = 'SCFFLD/util/*.h', 'SCFFLD/uri/*.h', 'SCFFLD/ioc/*.h', 'SCFFLD/app/*.h', 'SCFFLD/ui/*.h'
 
     s.frameworks              = "UIKit", "Foundation"
 
