@@ -23,7 +23,6 @@
 #import "SCStandardURIHandler.h"
 #import "NSDictionary+SC.h"
 #import "UIColor+SC.h"
-#import "SCJSONData.h"
 
 #define ValueOrDefault(v,dv) (v == nil ? dv : v)
 
@@ -355,12 +354,6 @@
     id value = [self getValue:keyPath asRepresentation:@"raw"];
     if ([value isKindOfClass:[SCResource class]]) {
         value = [(SCResource *)value asJSONData];
-    }
-    if ([value isKindOfClass:[NSDictionary class]]) {
-        value = [[SCJSONObject alloc] initWithDictionary:(NSDictionary *)value];
-    }
-    else if ([value isKindOfClass:[NSArray class]]) {
-        value = [[SCJSONArray alloc] initWithArray:(NSArray *)value];
     }
     return value;
 }

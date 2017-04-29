@@ -93,8 +93,7 @@
 - (id<SCConfiguration>)getValueAsConfiguration:(NSString *)keyPath defaultValue:(id<SCConfiguration>)defaultValue;
 /**
  * Return the value as JSON data.
- * This will be essentially the raw data read from the configuration file. JSON object or array values
- * will be returned as instances of JSONObject or JSONArray as appropriate (see JSONData.h).
+ * This will be essentially the raw data read from the configuration file.
  */
 - (id)getValueAsJSONData:(NSString *)keyPath;
 

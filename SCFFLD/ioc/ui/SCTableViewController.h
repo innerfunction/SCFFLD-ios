@@ -26,7 +26,6 @@
 #import "SCMessageReceiver.h"
 #import "SCActionProxy.h"
 #import "SCAppContainer.h"
-#import "SCJSONData.h"
 
 // Following pragmas are to disable build warning caused by use of UISearchDisplayController;
 // these can be removed (and the trailing pragma at end of file) once this class is migrated

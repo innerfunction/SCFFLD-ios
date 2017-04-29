@@ -35,7 +35,6 @@
 #import <SCIOCProxyObject.h>
 #import <SCIOCSingleton.h>
 #import <SCIOCTypeInspectable.h>
-#import <SCJSONData.h>
 #import <SCMessage.h>
 #import <SCMessageReceiver.h>
 #import <SCMessageRouter.h>

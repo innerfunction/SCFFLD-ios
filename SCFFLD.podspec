@@ -68,7 +68,7 @@ This library provides:
     end
 
     s.subspec 'IOC' do |ioc|
-        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}', 'SCFFLD/uri/SCStandardURIHandler.h';
+        ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}', 'SCFFLD/uri/*.h';
         ioc.requires_arc = true;
         ioc.compiler_flags = '-w';
         ioc.dependency 'SCFFLD/Core';
