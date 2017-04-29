@@ -45,14 +45,14 @@ Pod::Spec.new do |s|
   #end
 
     s.subspec 'NoArc' do |noarc|
-        noarc.source_files = 'SCFFLD/core/IOS8601DateFormatter.*', 'SCFFLD/util/ZipArchive.*', 'SCFFLD/util/minizip/*';
+        noarc.source_files = 'SCFFLD/util/IOS8601DateFormatter.*', 'SCFFLD/util/ZipArchive.*', 'SCFFLD/util/minizip/*';
         noarc.requires_arc = false;
         noarc.compiler_flags = '-w';
     end
 
     s.subspec 'Core' do |core|
         core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
-        core.exclude_files = 'SCFFLD/core/IOS8601DateFormatter.*', 'SCFFLD/utils/ZipArchive.*', 'SCFFLD/utils/minizip/*', 'SCFFLD/Externals/JSONKit/*';
+        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/utils/ZipArchive.*', 'SCFFLD/utils/minizip/*', 'SCFFLD/Externals/JSONKit/*';
         core.requires_arc = true;
         core.compiler_flags = '-w';
         #core.frameworks = 'UIKit', 'Foundation';
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'DB' do |db|
-        db.source_files = 'SCFFLD/db/*.{h.m}';
+        db.source_files = 'SCFFLD/db/*.{h,m}';
         db.requires_arc = true;
         db.compiler_flags = '-w';
         #db.frameworks = 'Foundation';
