@@ -52,12 +52,11 @@ Pod::Spec.new do |s|
 
     s.subspec 'Core' do |core|
         core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
-        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/utils/ZipArchive.*', 'SCFFLD/utils/minizip/*', 'SCFFLD/Externals/JSONKit/*';
+        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/utils/ZipArchive.*', 'SCFFLD/utils/minizip/*', 'SCFFLD/Externals/JSONKit/*', 'SCFFLD/Externals/ZipArchive/**/*.{h,c,mm}';
         core.requires_arc = true;
         core.compiler_flags = '-w';
         #core.frameworks = 'UIKit', 'Foundation';
         core.dependency 'SCFFLD/NoArc';
-
     end
 
     s.subspec 'DB' do |db|
@@ -74,6 +73,7 @@ Pod::Spec.new do |s|
         http.compiler_flags = '-w';
         #http.frameworks = 'Foundation';
         http.dependency 'SCFFLD/Core';
+        http.dependency 'Q';
     end
 
     s.subspec 'IOC' do |ioc|
