@@ -48,7 +48,7 @@
     NSString *path = [key stringByAppendingPathExtension:@"json"];
     SCFileResource *fileRsc = [_dirResource resourceForPath:path];
     if (fileRsc) {
-        return [[SCConfiguration alloc] initWithResource:fileRsc];
+        return [[SCIOCConfiguration alloc] initWithResource:fileRsc];
     }
     // If no matching file found then check for a statically mapped resource
     // under the requested key. Doing this second means that static resources
