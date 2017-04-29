@@ -19,7 +19,7 @@
 #import <Foundation/Foundation.h>
 #import "SCConfiguration.h"
 
-@class SCContainer;
+@protocol SCContainer;
 
 /**
  * Protocol for objects which wish to control their own configuration.

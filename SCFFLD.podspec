@@ -37,23 +37,26 @@ This library provides:
     s.dependency 'ZipArchive'
 
     s.subspec 'NoArc' do |noarc|
-        noarc.source_files = 'SCFFLD/util/IOS8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
+        noarc.source_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
         noarc.requires_arc = false;
         noarc.compiler_flags = '-w';
+        noarc.public_header_files = 'SCFFLD/util/ISO8601DateFormatter.h', 'SCFFLD/Externals/JSONKit/*.h';
     end
 
     s.subspec 'Core' do |core|
         core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
-        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.m', 'SCFFLD/Externals/JSONKit/*';
+        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
         core.requires_arc = true;
         core.compiler_flags = '-w';
         core.dependency 'SCFFLD/NoArc';
     end
-
+=begin
     s.subspec 'DB' do |db|
         db.source_files = 'SCFFLD/db/*.{h,m}';
         db.requires_arc = true;
         db.compiler_flags = '-w';
+        db.libraries = 'sqlite3'
+        db.dependency 'SCFFLD/NoArc';
         db.dependency 'SCFFLD/Core';
     end
 
@@ -61,6 +64,7 @@ This library provides:
         http.source_files = 'SCFFLD/http/*.{h,m}';
         http.requires_arc = true;
         http.compiler_flags = '-w';
+        http.dependency 'SCFFLD/NoArc';
         http.dependency 'SCFFLD/Core';
         http.dependency 'Q';
         http.dependency 'SSKeychain';
@@ -71,7 +75,8 @@ This library provides:
         ioc.source_files = 'SCFFLD/ioc/*.{h,m}', 'SCFFLD/ioc/app/*.{h,m}', 'SCFFLD/ioc/ui/*.{h,m}', 'SCFFLD/uri/*.h';
         ioc.requires_arc = true;
         ioc.compiler_flags = '-w';
+        ioc.dependency 'SCFFLD/NoArc';
         ioc.dependency 'SCFFLD/Core';
     end
-
+=end
 end
