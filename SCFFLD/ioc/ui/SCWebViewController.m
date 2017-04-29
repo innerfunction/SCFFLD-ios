@@ -19,6 +19,7 @@
 #import "SCWebViewController.h"
 #import "UIViewController+ImageView.h"
 #import "SCAppContainer.h"
+#import "SCResource.h"
 #import "SCRegExp.h"
 
 @interface SCWebViewController ()
