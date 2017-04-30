@@ -1,4 +1,10 @@
 Pod::Spec.new do |s|
+
+    # Set following to true to use local .git dir as the
+    # project source; useful for test/debug of the spec.
+    debug = true; 
+    # --------------------------------------------------
+
     s.name        = "SCFFLD"
     s.version     = "0.9.5"
     s.summary     = "Dependency Injection framework for iOS"
@@ -11,21 +17,21 @@ This library provides:
 * Basic UI views;
 * Supporting utility functions.
     DESC
-    s.homepage                = "https://github.com/innerfunction/SCFFLD-ios"
-    s.license                 = {
+    s.homepage = "https://github.com/innerfunction/SCFFLD-ios"
+    s.license = {
       :type => "Apache License, Version 2.0",
       :file => "LICENSE" }
-    s.author                  = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
-    s.platform                = :ios
-    s.ios.deployment_target   = '8.0'
-    s.source                  = {
-      #:git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.9.5" }
-      :git => '/Users/juliangoacher/Work/Github/SCFFLD-ios/.git' }
+    s.author = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
+    s.platform = :ios
+    s.ios.deployment_target = '8.0'
 
-    s.frameworks              = "UIKit", "Foundation"
+    localSource = { :git => Dir.pwd+'/.git' };
+    remoteSource = { :git => 'https://github.com/innerfunction/SCFFLD-ios.git', :tag => s.version };
+    s.source = (debug) ? localSource : remoteSource;
 
-    #s.libraries               = "z"
-    s.xcconfig                = {
+    s.frameworks = "UIKit", "Foundation"
+
+    s.xcconfig = {
       "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**",
       'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
       # NOTE: The following flag is to disable a warning generated from SCTableViewController.h due to usage
