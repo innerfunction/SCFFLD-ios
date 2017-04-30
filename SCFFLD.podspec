@@ -22,11 +22,9 @@ This library provides:
       #:git => "https://github.com/innerfunction/SCFFLD-ios.git", :tag => "0.9.5" }
       :git => '/Users/juliangoacher/Work/Github/SCFFLD-ios/.git' }
 
-    #s.public_header_files     = 'SCFFLD/util/*.h', 'SCFFLD/uri/*.h', 'SCFFLD/ioc/*.h', 'SCFFLD/app/*.h', 'SCFFLD/ui/*.h'
-
     s.frameworks              = "UIKit", "Foundation"
 
-    s.libraries               = "z"
+    #s.libraries               = "z"
     s.xcconfig                = {
       "HEADER_SEARCH_PATHS" => "$(SRCROOT)/**",
       'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
@@ -42,11 +40,11 @@ This library provides:
     end
 
     s.subspec 'Core' do |core|
-        core.source_files = 'SCFFLD/{core,util}/*.{h,m}', 'SCFFLD/Externals/**/*.{h,m}'
-        core.exclude_files = 'SCFFLD/util/ISO8601DateFormatter.*', 'SCFFLD/Externals/JSONKit/*';
+        core.source_files = 'SCFFLD/{core,util}/*.{h,m}';
         core.public_header_files = 'SCFFLD/{core,util}/*.h';
         core.requires_arc = true;
         core.compiler_flags = '-w';
+        core.libraries = 'z';
         core.dependency 'SCFFLD/NoArc';
         core.dependency 'ZipArchive'
     end
@@ -77,6 +75,8 @@ This library provides:
         ioc.requires_arc = true;
         ioc.compiler_flags = '-w';
         ioc.dependency 'SCFFLD/Core';
+        ioc.dependency 'JTSImageViewController'
+        ioc.dependency 'SWRevealViewController'
     end
 
 end

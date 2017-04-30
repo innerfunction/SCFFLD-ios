@@ -49,15 +49,6 @@
 		071327F01EB34858000C973C /* IFBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327C41EB34858000C973C /* IFBundle.m */; };
 		071327F11EB34858000C973C /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327C51EB34858000C973C /* ISO8601DateFormatter.h */; };
 		071327F21EB34858000C973C /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327C61EB34858000C973C /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		071327F31EB34858000C973C /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327C81EB34858000C973C /* crypt.h */; };
-		071327F41EB34858000C973C /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 071327C91EB34858000C973C /* ioapi.c */; };
-		071327F51EB34859000C973C /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327CA1EB34858000C973C /* ioapi.h */; };
-		071327F61EB34859000C973C /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 071327CB1EB34858000C973C /* mztools.c */; };
-		071327F71EB34859000C973C /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327CC1EB34858000C973C /* mztools.h */; };
-		071327F81EB34859000C973C /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 071327CD1EB34858000C973C /* unzip.c */; };
-		071327F91EB34859000C973C /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327CE1EB34858000C973C /* unzip.h */; };
-		071327FA1EB34859000C973C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 071327CF1EB34858000C973C /* zip.c */; };
-		071327FB1EB34859000C973C /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327D01EB34858000C973C /* zip.h */; };
 		071327FC1EB34859000C973C /* NSArray+SC.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327D11EB34858000C973C /* NSArray+SC.h */; };
 		071327FD1EB34859000C973C /* NSArray+SC.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327D21EB34858000C973C /* NSArray+SC.m */; };
 		071327FE1EB34859000C973C /* NSBundle+IF.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327D31EB34858000C973C /* NSBundle+IF.h */; };
@@ -86,21 +77,9 @@
 		071328151EB3485C000C973C /* SCTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327EA1EB34858000C973C /* SCTypeInfo.m */; };
 		071328161EB3485C000C973C /* UIColor+SC.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327EB1EB34858000C973C /* UIColor+SC.h */; };
 		071328171EB3485C000C973C /* UIColor+SC.m in Sources */ = {isa = PBXBuildFile; fileRef = 071327EC1EB34858000C973C /* UIColor+SC.m */; };
-		071328181EB3485C000C973C /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 071327ED1EB34858000C973C /* ZipArchive.h */; };
-		071328191EB3485C000C973C /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 071327EE1EB34858000C973C /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0713281B1EB35848000C973C /* SCIOCContainerAware.h in Headers */ = {isa = PBXBuildFile; fileRef = 0713281A1EB35848000C973C /* SCIOCContainerAware.h */; };
-		072DA4A01C848D680023FAEC /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */; };
-		072DA4A11C848D680023FAEC /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA4951C848D680023FAEC /* JTSAnimatedGIFUtility.m */; };
-		072DA4A21C848D680023FAEC /* JTSImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4961C848D680023FAEC /* JTSImageInfo.h */; };
-		072DA4A31C848D680023FAEC /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA4971C848D680023FAEC /* JTSImageInfo.m */; };
-		072DA4A41C848D680023FAEC /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA4981C848D680023FAEC /* JTSImageViewController.h */; };
-		072DA4A51C848D680023FAEC /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA4991C848D680023FAEC /* JTSImageViewController.m */; };
-		072DA4A61C848D680023FAEC /* JTSSimpleImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA49A1C848D680023FAEC /* JTSSimpleImageDownloader.h */; };
-		072DA4A71C848D680023FAEC /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA49B1C848D680023FAEC /* JTSSimpleImageDownloader.m */; };
-		072DA4A81C848D680023FAEC /* UIApplication+JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA49C1C848D680023FAEC /* UIApplication+JTSImageViewController.h */; };
-		072DA4A91C848D680023FAEC /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA49D1C848D680023FAEC /* UIApplication+JTSImageViewController.m */; };
-		072DA4AA1C848D680023FAEC /* UIImage+JTSImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 072DA49E1C848D680023FAEC /* UIImage+JTSImageEffects.h */; };
-		072DA4AB1C848D680023FAEC /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 072DA49F1C848D680023FAEC /* UIImage+JTSImageEffects.m */; };
+		071AB27C1EB6234D000281D5 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 071AB27A1EB6234D000281D5 /* UIView+Toast.h */; };
+		071AB27D1EB6234D000281D5 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 071AB27B1EB6234D000281D5 /* UIView+Toast.m */; };
 		0744140A1EB391CF0013C127 /* SCActionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 074413DF1EB391CF0013C127 /* SCActionProxy.h */; };
 		0744140B1EB391CF0013C127 /* SCNavigationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 074413E01EB391CF0013C127 /* SCNavigationViewController.h */; };
 		0744140C1EB391CF0013C127 /* SCNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 074413E11EB391CF0013C127 /* SCNavigationViewController.m */; };
@@ -165,24 +144,8 @@
 		07BD8AC61C7653930058D7A8 /* SCStandardURIHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AB51C7653930058D7A8 /* SCStandardURIHandler.m */; };
 		07BD8AC71C7653930058D7A8 /* SCStringSchemeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8AB61C7653930058D7A8 /* SCStringSchemeHandler.h */; };
 		07BD8AC81C7653930058D7A8 /* SCStringSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8AB71C7653930058D7A8 /* SCStringSchemeHandler.m */; };
-		07BD8B401C7653FC0058D7A8 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B281C7653FC0058D7A8 /* ISO8601DateFormatter.h */; };
-		07BD8B411C7653FC0058D7A8 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B291C7653FC0058D7A8 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		07BD8B421C7653FC0058D7A8 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B2B1C7653FC0058D7A8 /* JSONKit.h */; };
 		07BD8B431C7653FC0058D7A8 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B2C1C7653FC0058D7A8 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		07BD8B441C7653FC0058D7A8 /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B2E1C7653FC0058D7A8 /* SWRevealViewController.h */; };
-		07BD8B451C7653FC0058D7A8 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B2F1C7653FC0058D7A8 /* SWRevealViewController.m */; };
-		07BD8B461C7653FC0058D7A8 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B311C7653FC0058D7A8 /* UIView+Toast.h */; };
-		07BD8B471C7653FC0058D7A8 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B321C7653FC0058D7A8 /* UIView+Toast.m */; };
-		07BD8B481C7653FC0058D7A8 /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B351C7653FC0058D7A8 /* crypt.h */; };
-		07BD8B491C7653FC0058D7A8 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B361C7653FC0058D7A8 /* ioapi.c */; };
-		07BD8B4A1C7653FC0058D7A8 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B371C7653FC0058D7A8 /* ioapi.h */; };
-		07BD8B4B1C7653FC0058D7A8 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B381C7653FC0058D7A8 /* mztools.c */; };
-		07BD8B4C1C7653FC0058D7A8 /* mztools.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B391C7653FC0058D7A8 /* mztools.h */; };
-		07BD8B4D1C7653FC0058D7A8 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B3A1C7653FC0058D7A8 /* unzip.c */; };
-		07BD8B4E1C7653FC0058D7A8 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B3B1C7653FC0058D7A8 /* unzip.h */; };
-		07BD8B4F1C7653FC0058D7A8 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 07BD8B3C1C7653FC0058D7A8 /* zip.c */; };
-		07BD8B501C7653FC0058D7A8 /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B3D1C7653FC0058D7A8 /* zip.h */; };
-		07BD8B511C7653FC0058D7A8 /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B3E1C7653FC0058D7A8 /* ZipArchive.h */; };
 		07BD8B5B1C7654ED0058D7A8 /* SCFFLD-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 07BD8B551C7654ED0058D7A8 /* SCFFLD-Prefix.pch */; };
 		07D760F91D9578CC0043F371 /* SCConfigurable.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760D61D9578CC0043F371 /* SCConfigurable.h */; };
 		07D760FA1D9578CC0043F371 /* SCIOCConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D760D71D9578CC0043F371 /* SCIOCConfiguration.h */; };
@@ -199,6 +162,7 @@
 		07D761171D9578CC0043F371 /* SCPendingNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D760F41D9578CC0043F371 /* SCPendingNamed.m */; };
 		07FC13C91EB5190000C200EE /* SCDirmapSchemeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 07FC13C71EB5190000C200EE /* SCDirmapSchemeHandler.m */; };
 		07FC13CA1EB5190000C200EE /* SCDirmapSchemeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07FC13C81EB5190000C200EE /* SCDirmapSchemeHandler.h */; };
+		416E56729AFF7EE82C366851 /* libPods-SCFFLD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA1F1176378E27B5BD8F20F8 /* libPods-SCFFLD.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,15 +208,6 @@
 		071327C41EB34858000C973C /* IFBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFBundle.m; sourceTree = "<group>"; };
 		071327C51EB34858000C973C /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		071327C61EB34858000C973C /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
-		071327C81EB34858000C973C /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		071327C91EB34858000C973C /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		071327CA1EB34858000C973C /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		071327CB1EB34858000C973C /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		071327CC1EB34858000C973C /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		071327CD1EB34858000C973C /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		071327CE1EB34858000C973C /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		071327CF1EB34858000C973C /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		071327D01EB34858000C973C /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		071327D11EB34858000C973C /* NSArray+SC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SC.h"; sourceTree = "<group>"; };
 		071327D21EB34858000C973C /* NSArray+SC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SC.m"; sourceTree = "<group>"; };
 		071327D31EB34858000C973C /* NSBundle+IF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+IF.h"; sourceTree = "<group>"; };
@@ -281,21 +236,9 @@
 		071327EA1EB34858000C973C /* SCTypeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTypeInfo.m; sourceTree = "<group>"; };
 		071327EB1EB34858000C973C /* UIColor+SC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SC.h"; sourceTree = "<group>"; };
 		071327EC1EB34858000C973C /* UIColor+SC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SC.m"; sourceTree = "<group>"; };
-		071327ED1EB34858000C973C /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		071327EE1EB34858000C973C /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		0713281A1EB35848000C973C /* SCIOCContainerAware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCIOCContainerAware.h; sourceTree = "<group>"; };
-		072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
-		072DA4951C848D680023FAEC /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
-		072DA4961C848D680023FAEC /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
-		072DA4971C848D680023FAEC /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
-		072DA4981C848D680023FAEC /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
-		072DA4991C848D680023FAEC /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
-		072DA49A1C848D680023FAEC /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
-		072DA49B1C848D680023FAEC /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
-		072DA49C1C848D680023FAEC /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
-		072DA49D1C848D680023FAEC /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
-		072DA49E1C848D680023FAEC /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
-		072DA49F1C848D680023FAEC /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		071AB27A1EB6234D000281D5 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		071AB27B1EB6234D000281D5 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		074413DF1EB391CF0013C127 /* SCActionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCActionProxy.h; sourceTree = "<group>"; };
 		074413E01EB391CF0013C127 /* SCNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCNavigationViewController.h; sourceTree = "<group>"; };
 		074413E11EB391CF0013C127 /* SCNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationViewController.m; sourceTree = "<group>"; };
@@ -361,25 +304,8 @@
 		07BD8AB51C7653930058D7A8 /* SCStandardURIHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCStandardURIHandler.m; path = uri/SCStandardURIHandler.m; sourceTree = SOURCE_ROOT; };
 		07BD8AB61C7653930058D7A8 /* SCStringSchemeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCStringSchemeHandler.h; path = uri/SCStringSchemeHandler.h; sourceTree = SOURCE_ROOT; };
 		07BD8AB71C7653930058D7A8 /* SCStringSchemeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCStringSchemeHandler.m; path = uri/SCStringSchemeHandler.m; sourceTree = SOURCE_ROOT; };
-		07BD8B281C7653FC0058D7A8 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
-		07BD8B291C7653FC0058D7A8 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		07BD8B2B1C7653FC0058D7A8 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		07BD8B2C1C7653FC0058D7A8 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		07BD8B2E1C7653FC0058D7A8 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		07BD8B2F1C7653FC0058D7A8 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		07BD8B311C7653FC0058D7A8 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
-		07BD8B321C7653FC0058D7A8 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		07BD8B351C7653FC0058D7A8 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		07BD8B361C7653FC0058D7A8 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		07BD8B371C7653FC0058D7A8 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		07BD8B381C7653FC0058D7A8 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		07BD8B391C7653FC0058D7A8 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		07BD8B3A1C7653FC0058D7A8 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		07BD8B3B1C7653FC0058D7A8 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		07BD8B3C1C7653FC0058D7A8 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		07BD8B3D1C7653FC0058D7A8 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		07BD8B3E1C7653FC0058D7A8 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		07BD8B3F1C7653FC0058D7A8 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		07BD8B531C7654ED0058D7A8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		07BD8B541C7654ED0058D7A8 /* SCFFLD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SCFFLD-Info.plist"; sourceTree = SOURCE_ROOT; };
 		07BD8B551C7654ED0058D7A8 /* SCFFLD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFFLD-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -400,6 +326,9 @@
 		07D760F41D9578CC0043F371 /* SCPendingNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPendingNamed.m; sourceTree = "<group>"; };
 		07FC13C71EB5190000C200EE /* SCDirmapSchemeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDirmapSchemeHandler.m; sourceTree = "<group>"; };
 		07FC13C81EB5190000C200EE /* SCDirmapSchemeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDirmapSchemeHandler.h; sourceTree = "<group>"; };
+		89F6443769C47F340D3361F4 /* Pods-SCFFLD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCFFLD.release.xcconfig"; path = "../Pods/Target Support Files/Pods-SCFFLD/Pods-SCFFLD.release.xcconfig"; sourceTree = "<group>"; };
+		969FA7E1CB266189BE1D90FE /* Pods-SCFFLD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SCFFLD.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-SCFFLD/Pods-SCFFLD.debug.xcconfig"; sourceTree = "<group>"; };
+		EA1F1176378E27B5BD8F20F8 /* libPods-SCFFLD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SCFFLD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +338,7 @@
 			files = (
 				07BD8A2E1C7653260058D7A8 /* Foundation.framework in Frameworks */,
 				07BD8A2C1C76531C0058D7A8 /* UIKit.framework in Frameworks */,
+				416E56729AFF7EE82C366851 /* libPods-SCFFLD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +412,6 @@
 				071327C41EB34858000C973C /* IFBundle.m */,
 				071327C51EB34858000C973C /* ISO8601DateFormatter.h */,
 				071327C61EB34858000C973C /* ISO8601DateFormatter.m */,
-				071327C71EB34858000C973C /* minizip */,
 				071327D11EB34858000C973C /* NSArray+SC.h */,
 				071327D21EB34858000C973C /* NSArray+SC.m */,
 				071327D31EB34858000C973C /* NSBundle+IF.h */,
@@ -511,46 +440,8 @@
 				071327EA1EB34858000C973C /* SCTypeInfo.m */,
 				071327EB1EB34858000C973C /* UIColor+SC.h */,
 				071327EC1EB34858000C973C /* UIColor+SC.m */,
-				071327ED1EB34858000C973C /* ZipArchive.h */,
-				071327EE1EB34858000C973C /* ZipArchive.mm */,
 			);
 			path = util;
-			sourceTree = SOURCE_ROOT;
-		};
-		071327C71EB34858000C973C /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				071327C81EB34858000C973C /* crypt.h */,
-				071327C91EB34858000C973C /* ioapi.c */,
-				071327CA1EB34858000C973C /* ioapi.h */,
-				071327CB1EB34858000C973C /* mztools.c */,
-				071327CC1EB34858000C973C /* mztools.h */,
-				071327CD1EB34858000C973C /* unzip.c */,
-				071327CE1EB34858000C973C /* unzip.h */,
-				071327CF1EB34858000C973C /* zip.c */,
-				071327D01EB34858000C973C /* zip.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
-		072DA4931C848D680023FAEC /* JTSImageViewController */ = {
-			isa = PBXGroup;
-			children = (
-				072DA4941C848D680023FAEC /* JTSAnimatedGIFUtility.h */,
-				072DA4951C848D680023FAEC /* JTSAnimatedGIFUtility.m */,
-				072DA4961C848D680023FAEC /* JTSImageInfo.h */,
-				072DA4971C848D680023FAEC /* JTSImageInfo.m */,
-				072DA4981C848D680023FAEC /* JTSImageViewController.h */,
-				072DA4991C848D680023FAEC /* JTSImageViewController.m */,
-				072DA49A1C848D680023FAEC /* JTSSimpleImageDownloader.h */,
-				072DA49B1C848D680023FAEC /* JTSSimpleImageDownloader.m */,
-				072DA49C1C848D680023FAEC /* UIApplication+JTSImageViewController.h */,
-				072DA49D1C848D680023FAEC /* UIApplication+JTSImageViewController.m */,
-				072DA49E1C848D680023FAEC /* UIImage+JTSImageEffects.h */,
-				072DA49F1C848D680023FAEC /* UIImage+JTSImageEffects.m */,
-			);
-			name = JTSImageViewController;
-			path = Externals/JTSImageViewController;
 			sourceTree = SOURCE_ROOT;
 		};
 		074413DE1EB391CF0013C127 /* ui */ = {
@@ -584,6 +475,8 @@
 				074413F81EB391CF0013C127 /* SCWebViewController.m */,
 				074413F91EB391CF0013C127 /* UIImage+CropScale.h */,
 				074413FA1EB391CF0013C127 /* UIImage+CropScale.m */,
+				071AB27A1EB6234D000281D5 /* UIView+Toast.h */,
+				071AB27B1EB6234D000281D5 /* UIView+Toast.m */,
 				074413FB1EB391CF0013C127 /* UIViewController+ImageView.h */,
 				074413FC1EB391CF0013C127 /* UIViewController+ImageView.m */,
 				074413FD1EB391CF0013C127 /* UIViewController+Toast.h */,
@@ -618,6 +511,7 @@
 				07BD8B061C7653D30058D7A8 /* Externals */,
 				07BD8B5F1C76553E0058D7A8 /* Frameworks */,
 				07BD8A211C7651930058D7A8 /* Products */,
+				4F07D2A0395E0A16D095E529 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -674,26 +568,11 @@
 		07BD8B061C7653D30058D7A8 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
-				072DA4931C848D680023FAEC /* JTSImageViewController */,
-				07BD8B271C7653FC0058D7A8 /* ISO8601DateFormatter */,
 				07BD8B2A1C7653FC0058D7A8 /* JSONKit */,
-				07BD8B2D1C7653FC0058D7A8 /* SWRevealViewController */,
-				07BD8B301C7653FC0058D7A8 /* Toast */,
-				07BD8B331C7653FC0058D7A8 /* ZipArchive */,
 			);
 			name = Externals;
 			path = SCFFLD;
 			sourceTree = "<group>";
-		};
-		07BD8B271C7653FC0058D7A8 /* ISO8601DateFormatter */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B281C7653FC0058D7A8 /* ISO8601DateFormatter.h */,
-				07BD8B291C7653FC0058D7A8 /* ISO8601DateFormatter.m */,
-			);
-			name = ISO8601DateFormatter;
-			path = Externals/ISO8601DateFormatter;
-			sourceTree = SOURCE_ROOT;
 		};
 		07BD8B2A1C7653FC0058D7A8 /* JSONKit */ = {
 			isa = PBXGroup;
@@ -705,59 +584,13 @@
 			path = Externals/JSONKit;
 			sourceTree = SOURCE_ROOT;
 		};
-		07BD8B2D1C7653FC0058D7A8 /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B2E1C7653FC0058D7A8 /* SWRevealViewController.h */,
-				07BD8B2F1C7653FC0058D7A8 /* SWRevealViewController.m */,
-			);
-			name = SWRevealViewController;
-			path = Externals/SWRevealViewController;
-			sourceTree = SOURCE_ROOT;
-		};
-		07BD8B301C7653FC0058D7A8 /* Toast */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B311C7653FC0058D7A8 /* UIView+Toast.h */,
-				07BD8B321C7653FC0058D7A8 /* UIView+Toast.m */,
-			);
-			name = Toast;
-			path = Externals/Toast;
-			sourceTree = SOURCE_ROOT;
-		};
-		07BD8B331C7653FC0058D7A8 /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B341C7653FC0058D7A8 /* minizip */,
-				07BD8B3E1C7653FC0058D7A8 /* ZipArchive.h */,
-				07BD8B3F1C7653FC0058D7A8 /* ZipArchive.mm */,
-			);
-			name = ZipArchive;
-			path = Externals/ZipArchive;
-			sourceTree = SOURCE_ROOT;
-		};
-		07BD8B341C7653FC0058D7A8 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				07BD8B351C7653FC0058D7A8 /* crypt.h */,
-				07BD8B361C7653FC0058D7A8 /* ioapi.c */,
-				07BD8B371C7653FC0058D7A8 /* ioapi.h */,
-				07BD8B381C7653FC0058D7A8 /* mztools.c */,
-				07BD8B391C7653FC0058D7A8 /* mztools.h */,
-				07BD8B3A1C7653FC0058D7A8 /* unzip.c */,
-				07BD8B3B1C7653FC0058D7A8 /* unzip.h */,
-				07BD8B3C1C7653FC0058D7A8 /* zip.c */,
-				07BD8B3D1C7653FC0058D7A8 /* zip.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
 		07BD8B5F1C76553E0058D7A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				07BD8B641C7658AF0058D7A8 /* libz.tbd */,
 				07BD8A2D1C7653260058D7A8 /* Foundation.framework */,
 				07BD8A2B1C76531C0058D7A8 /* UIKit.framework */,
+				EA1F1176378E27B5BD8F20F8 /* libPods-SCFFLD.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -786,6 +619,15 @@
 			path = ioc;
 			sourceTree = SOURCE_ROOT;
 		};
+		4F07D2A0395E0A16D095E529 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				969FA7E1CB266189BE1D90FE /* Pods-SCFFLD.debug.xcconfig */,
+				89F6443769C47F340D3361F4 /* Pods-SCFFLD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -793,26 +635,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				072DA4AA1C848D680023FAEC /* UIImage+JTSImageEffects.h in Headers */,
 				0744141E1EB391CF0013C127 /* SCViewBehaviourObject.h in Headers */,
 				071327BF1EB347F7000C973C /* sqlite3.h in Headers */,
 				074414201EB391CF0013C127 /* SCViewController.h in Headers */,
 				0744140B1EB391CF0013C127 /* SCNavigationViewController.h in Headers */,
-				07BD8B441C7653FC0058D7A8 /* SWRevealViewController.h in Headers */,
 				074414191EB391CF0013C127 /* SCUILabelProxy.h in Headers */,
 				0744141D1EB391CF0013C127 /* SCViewBehaviour.h in Headers */,
 				071327A41EB347F6000C973C /* SCIOCObjectFactory.h in Headers */,
 				07D760FE1D9578CC0043F371 /* SCIOCContainer.h in Headers */,
 				071327EF1EB34858000C973C /* IFBundle.h in Headers */,
 				07D760FC1D9578CC0043F371 /* SCConfiguredLocals.h in Headers */,
-				072DA4A61C848D680023FAEC /* JTSSimpleImageDownloader.h in Headers */,
 				0744142C1EB391CF0013C127 /* SCMakeScheme.h in Headers */,
 				071327A91EB347F6000C973C /* SCIOCTypeInspectable.h in Headers */,
 				076DA48D1DA660AE00E63F0D /* SCFFLD-app.h in Headers */,
 				0713280C1EB3485B000C973C /* SCLogger.h in Headers */,
 				071327C01EB347F7000C973C /* SCHTTPClient.h in Headers */,
 				0713279C1EB347F5000C973C /* SCCompoundURI.h in Headers */,
-				072DA4A81C848D680023FAEC /* UIApplication+JTSImageViewController.h in Headers */,
 				074414131EB391CF0013C127 /* SCTableViewController.h in Headers */,
 				07BD8AC51C7653930058D7A8 /* SCStandardURIHandler.h in Headers */,
 				0744141B1EB391CF0013C127 /* SCUITextFieldProxy.h in Headers */,
@@ -821,7 +659,6 @@
 				07D761141D9578CC0043F371 /* SCObjectConfigurer.h in Headers */,
 				071327A81EB347F6000C973C /* SCIOCSingleton.h in Headers */,
 				076DA48F1DA660AE00E63F0D /* SCFFLD-ui.h in Headers */,
-				072DA4A41C848D680023FAEC /* JTSImageViewController.h in Headers */,
 				071328081EB3485A000C973C /* SCI18nMap.h in Headers */,
 				0744142A1EB391CF0013C127 /* SCAppContainer.h in Headers */,
 				0713280A1EB3485A000C973C /* SCLocals.h in Headers */,
@@ -829,30 +666,21 @@
 				074414221EB391CF0013C127 /* SCWebViewController.h in Headers */,
 				071327AC1EB347F6000C973C /* SCMessage.h in Headers */,
 				07BD8ABF1C7653930058D7A8 /* SCLocalSchemeHandler.h in Headers */,
-				071327FB1EB34859000C973C /* zip.h in Headers */,
 				071327B01EB347F6000C973C /* SCResource.h in Headers */,
 				071327F11EB34858000C973C /* ISO8601DateFormatter.h in Headers */,
-				07BD8B4C1C7653FC0058D7A8 /* mztools.h in Headers */,
 				074414171EB391CF0013C127 /* SCUIBarButtonItemProxy.h in Headers */,
 				076DA4901DA660AE00E63F0D /* SCFFLD-uri.h in Headers */,
-				071328181EB3485C000C973C /* ZipArchive.h in Headers */,
 				0713279F1EB347F5000C973C /* SCConfiguration.h in Headers */,
-				07BD8B501C7653FC0058D7A8 /* zip.h in Headers */,
 				0713279E1EB347F5000C973C /* SCConfigurable.h in Headers */,
 				071328101EB3485B000C973C /* SCStringTemplate.h in Headers */,
 				074414151EB391CF0013C127 /* SCTextStyle.h in Headers */,
-				07BD8B4E1C7653FC0058D7A8 /* unzip.h in Headers */,
 				071327B21EB347F6000C973C /* SCService.h in Headers */,
-				07BD8B481C7653FC0058D7A8 /* crypt.h in Headers */,
 				074414261EB391CF0013C127 /* UIViewController+ImageView.h in Headers */,
 				07D760F91D9578CC0043F371 /* SCConfigurable.h in Headers */,
-				07BD8B4A1C7653FC0058D7A8 /* ioapi.h in Headers */,
 				071328141EB3485B000C973C /* SCTypeInfo.h in Headers */,
 				071328121EB3485B000C973C /* SCTypeConversions.h in Headers */,
 				071327A61EB347F6000C973C /* SCIOCProxyObject.h in Headers */,
-				07BD8B511C7653FC0058D7A8 /* ZipArchive.h in Headers */,
 				071328161EB3485C000C973C /* UIColor+SC.h in Headers */,
-				071327F91EB34859000C973C /* unzip.h in Headers */,
 				07BD8AC71C7653930058D7A8 /* SCStringSchemeHandler.h in Headers */,
 				07BD8AC11C7653930058D7A8 /* SCReprSchemeHandler.h in Headers */,
 				074414301EB391CF0013C127 /* SCNewScheme.h in Headers */,
@@ -866,7 +694,6 @@
 				0713281B1EB35848000C973C /* SCIOCContainerAware.h in Headers */,
 				071328001EB34859000C973C /* NSDictionary+SC.h in Headers */,
 				071327AE1EB347F6000C973C /* SCMessageReceiver.h in Headers */,
-				072DA4A21C848D680023FAEC /* JTSImageInfo.h in Headers */,
 				071327B51EB347F7000C973C /* SCDB.h in Headers */,
 				071328021EB3485A000C973C /* NSString+SC.h in Headers */,
 				0744142E1EB391CF0013C127 /* SCNamedScheme.h in Headers */,
@@ -879,7 +706,6 @@
 				071327BD1EB347F7000C973C /* SCSqlite.h in Headers */,
 				07D760FA1D9578CC0043F371 /* SCIOCConfiguration.h in Headers */,
 				0744140F1EB391CF0013C127 /* SCTableData.h in Headers */,
-				071327F51EB34859000C973C /* ioapi.h in Headers */,
 				07D761161D9578CC0043F371 /* SCPendingNamed.h in Headers */,
 				0744140D1EB391CF0013C127 /* SCSlideViewController.h in Headers */,
 				07BD8B421C7653FC0058D7A8 /* JSONKit.h in Headers */,
@@ -890,17 +716,13 @@
 				071327B91EB347F7000C973C /* SCDBHelper.h in Headers */,
 				071327A21EB347F5000C973C /* SCIOCConfigurationInitable.h in Headers */,
 				071327B41EB347F7000C973C /* SCValues.h in Headers */,
-				072DA4A01C848D680023FAEC /* JTSAnimatedGIFUtility.h in Headers */,
 				071327FE1EB34859000C973C /* NSBundle+IF.h in Headers */,
-				07BD8B461C7653FC0058D7A8 /* UIView+Toast.h in Headers */,
-				07BD8B401C7653FC0058D7A8 /* ISO8601DateFormatter.h in Headers */,
 				074414361EB3927A0013C127 /* SCCoreTypes.h in Headers */,
+				071AB27C1EB6234D000281D5 /* UIView+Toast.h in Headers */,
 				071327B31EB347F6000C973C /* SCURIHandling.h in Headers */,
 				074414241EB391CF0013C127 /* UIImage+CropScale.h in Headers */,
 				071328041EB3485A000C973C /* SCFileIO.h in Headers */,
 				071327FC1EB34859000C973C /* NSArray+SC.h in Headers */,
-				071327F71EB34859000C973C /* mztools.h in Headers */,
-				071327F31EB34858000C973C /* crypt.h in Headers */,
 				071327B71EB347F7000C973C /* SCDBFilter.h in Headers */,
 				076DA48E1DA660AE00E63F0D /* SCFFLD-ioc.h in Headers */,
 			);
@@ -913,10 +735,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07BD8A281C7651930058D7A8 /* Build configuration list for PBXNativeTarget "SCFFLD" */;
 			buildPhases = (
+				F8EFB2DC6DD4E6F4208A6049 /* [CP] Check Pods Manifest.lock */,
 				07BD8A1B1C7651930058D7A8 /* Sources */,
 				07BD8A1C1C7651930058D7A8 /* Frameworks */,
 				07BD8A1D1C7651930058D7A8 /* Headers */,
 				07BD8A1E1C7651930058D7A8 /* Resources */,
+				73C4CDFEED5AF639C18FF073 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -968,18 +792,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73C4CDFEED5AF639C18FF073 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-SCFFLD/Pods-SCFFLD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8EFB2DC6DD4E6F4208A6049 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07BD8A1B1C7651930058D7A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				074414231EB391CF0013C127 /* SCWebViewController.m in Sources */,
-				071327F81EB34859000C973C /* unzip.c in Sources */,
 				0713280F1EB3485B000C973C /* SCRegExp.m in Sources */,
-				072DA4A31C848D680023FAEC /* JTSImageInfo.m in Sources */,
 				071327FF1EB34859000C973C /* NSBundle+IF.m in Sources */,
-				07BD8B4D1C7653FC0058D7A8 /* unzip.c in Sources */,
-				071327F41EB34858000C973C /* ioapi.c in Sources */,
 				071327C11EB347F7000C973C /* SCHTTPClient.m in Sources */,
 				0744142D1EB391CF0013C127 /* SCMakeScheme.m in Sources */,
 				074414121EB391CF0013C127 /* SCTableViewCellFactory.m in Sources */,
@@ -989,23 +842,17 @@
 				071327F21EB34858000C973C /* ISO8601DateFormatter.m in Sources */,
 				07D760FF1D9578CC0043F371 /* SCIOCContainer.m in Sources */,
 				071327B11EB347F6000C973C /* SCResource.m in Sources */,
-				071327F61EB34859000C973C /* mztools.c in Sources */,
-				071328191EB3485C000C973C /* ZipArchive.mm in Sources */,
 				071328051EB3485A000C973C /* SCFileIO.m in Sources */,
 				0713279D1EB347F5000C973C /* SCCompoundURI.m in Sources */,
 				071328031EB3485A000C973C /* NSString+SC.m in Sources */,
-				072DA4AB1C848D680023FAEC /* UIImage+JTSImageEffects.m in Sources */,
-				072DA4A91C848D680023FAEC /* UIApplication+JTSImageViewController.m in Sources */,
-				07BD8B4B1C7653FC0058D7A8 /* mztools.c in Sources */,
 				07FC13C91EB5190000C200EE /* SCDirmapSchemeHandler.m in Sources */,
 				07D761091D9578CC0043F371 /* SCIOCObjectFactoryBase.m in Sources */,
 				074414211EB391CF0013C127 /* SCViewController.m in Sources */,
+				071AB27D1EB6234D000281D5 /* UIView+Toast.m in Sources */,
 				07BD8AC61C7653930058D7A8 /* SCStandardURIHandler.m in Sources */,
 				07BD8AC81C7653930058D7A8 /* SCStringSchemeHandler.m in Sources */,
 				0744140C1EB391CF0013C127 /* SCNavigationViewController.m in Sources */,
 				071327BA1EB347F7000C973C /* SCDBHelper.m in Sources */,
-				07BD8B4F1C7653FC0058D7A8 /* zip.c in Sources */,
-				071327FA1EB34859000C973C /* zip.c in Sources */,
 				07BD8ABC1C7653930058D7A8 /* SCFileBasedSchemeHandler.m in Sources */,
 				071327AD1EB347F6000C973C /* SCMessage.m in Sources */,
 				0744142F1EB391CF0013C127 /* SCNamedScheme.m in Sources */,
@@ -1018,10 +865,8 @@
 				074414271EB391CF0013C127 /* UIViewController+ImageView.m in Sources */,
 				071328111EB3485B000C973C /* SCStringTemplate.m in Sources */,
 				0713280B1EB3485B000C973C /* SCLocals.m in Sources */,
-				072DA4A11C848D680023FAEC /* JTSAnimatedGIFUtility.m in Sources */,
 				071328171EB3485C000C973C /* UIColor+SC.m in Sources */,
 				07BD8AC01C7653930058D7A8 /* SCLocalSchemeHandler.m in Sources */,
-				07BD8B451C7653FC0058D7A8 /* SWRevealViewController.m in Sources */,
 				071328011EB3485A000C973C /* NSDictionary+SC.m in Sources */,
 				07BD8ABE1C7653930058D7A8 /* SCFileResource.m in Sources */,
 				0744141F1EB391CF0013C127 /* SCViewBehaviourObject.m in Sources */,
@@ -1034,18 +879,13 @@
 				071328151EB3485C000C973C /* SCTypeInfo.m in Sources */,
 				0744140E1EB391CF0013C127 /* SCSlideViewController.m in Sources */,
 				071327B61EB347F7000C973C /* SCDB.m in Sources */,
-				07BD8B491C7653FC0058D7A8 /* ioapi.c in Sources */,
 				074414161EB391CF0013C127 /* SCTextStyle.m in Sources */,
 				071327FD1EB34859000C973C /* NSArray+SC.m in Sources */,
-				072DA4A71C848D680023FAEC /* JTSSimpleImageDownloader.m in Sources */,
 				071327F01EB34858000C973C /* IFBundle.m in Sources */,
 				074414371EB3927A0013C127 /* SCCoreTypes.m in Sources */,
-				072DA4A51C848D680023FAEC /* JTSImageViewController.m in Sources */,
-				07BD8B471C7653FC0058D7A8 /* UIView+Toast.m in Sources */,
 				074414181EB391CF0013C127 /* SCUIBarButtonItemProxy.m in Sources */,
 				071328091EB3485A000C973C /* SCI18nMap.m in Sources */,
 				074414141EB391CF0013C127 /* SCTableViewController.m in Sources */,
-				07BD8B411C7653FC0058D7A8 /* ISO8601DateFormatter.m in Sources */,
 				07D761171D9578CC0043F371 /* SCPendingNamed.m in Sources */,
 				0713280D1EB3485B000C973C /* SCLogger.m in Sources */,
 				0744141C1EB391CF0013C127 /* SCUITextFieldProxy.m in Sources */,
@@ -1149,19 +989,20 @@
 		};
 		07BD8A291C7651930058D7A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 969FA7E1CB266189BE1D90FE /* Pods-SCFFLD.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innerfunction.SCFFLD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1171,19 +1012,20 @@
 		};
 		07BD8A2A1C7651930058D7A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89F6443769C47F340D3361F4 /* Pods-SCFFLD.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innerfunction.SCFFLD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
