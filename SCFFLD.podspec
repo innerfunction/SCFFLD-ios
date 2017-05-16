@@ -2,11 +2,11 @@ Pod::Spec.new do |s|
 
     # Set following to true to use local .git dir as the
     # project source; useful for test/debug of the spec.
-    debug = false; 
+    debug = true; 
     # --------------------------------------------------
 
     s.name        = "SCFFLD"
-    s.version     = "0.9.5"
+    s.version     = "0.9.6"
     s.summary     = "Dependency Injection framework for iOS"
     s.description = <<-DESC
 Core functionality for the SCFFLD dependency injection (DI) framework for iOS.
