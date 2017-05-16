@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
     # Set following to true to use local .git dir as the
     # project source; useful for test/debug of the spec.
-    debug = true; 
+    debug = false; 
     # --------------------------------------------------
 
     s.name        = "SCFFLD"
