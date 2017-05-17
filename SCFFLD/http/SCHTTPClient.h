@@ -49,6 +49,8 @@ extern NSString const * _Nonnull SCHTTPClientRequestOptionAcceptEncoding;
 - (id _Nonnull)initWithNSURLSessionTaskDelegate:(id<NSURLSessionTaskDelegate> _Nullable)sessionTaskDelegate;
 
 @property (nonatomic, weak) id<NSURLSessionTaskDelegate> _Nullable sessionTaskDelegate;
+/// Additional HTTP headers to be sent with every request.
+@property (nonatomic, strong) NSDictionary  * _Nullable additionalHTTPHeaders;
 
 /**
  * Get a URL.

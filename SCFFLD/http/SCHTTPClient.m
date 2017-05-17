@@ -241,6 +241,9 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
 - (NSURLSession *)makeSession {
     if (_sessionTaskDelegate) {
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        if (_additionalHTTPHeaders) {
+            configuration.HTTPAdditionalHeaders = _additionalHTTPHeaders;
+        }
         NSOperationQueue *operationQueue = [NSOperationQueue mainQueue];
         return [NSURLSession sessionWithConfiguration:configuration
                                              delegate:_sessionTaskDelegate
