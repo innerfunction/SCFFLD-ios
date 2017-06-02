@@ -24,6 +24,7 @@
 
 NSString const * _Nonnull SCHTTPClientRequestOptionAccept           = @"SCHTTPClientRequestOptionAccept";
 NSString const * _Nonnull SCHTTPClientRequestOptionAcceptEncoding   = @"SCHTTPClientRequestOptionAcceptEncoding";
+NSString const * _Nonnull SCHTTPClientRequestContentType            = @"SCHTTPClientRequestContentType";
 
 typedef QPromise *(^SCHTTPClientAction)();
 
@@ -173,6 +174,8 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
     return [self post:url data:data options:nil];
 }
 
+#define URLEncode(s) ([s stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]])
+
 - (QPromise *)post:(NSString *)url data:(NSDictionary *)data options:(NSDictionary *)options {
     return [self submitAction:^QPromise *{
         QPromise *promise = [QPromise new];
@@ -183,20 +186,38 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:60];
         request.HTTPMethod = @"POST";
-        [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [self setOptions:options onRequest:request];
         if (data) {
-            NSMutableArray *queryItems = [[NSMutableArray alloc] init];
-            for (NSString *name in data) {
-                NSString *pname = [name stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-                NSString *pvalue = [data[name] description];
-                pvalue = [pvalue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-                NSString *param = [NSString stringWithFormat:@"%@=%@", pname, pvalue];
-                [queryItems addObject:param];
+            // Set the post body content encoding.
+            NSString *contentType = @"application/x-www-form-urlencoded";
+            if (options && options[SCHTTPClientRequestContentType]) {
+                contentType = options[SCHTTPClientRequestContentType];
             }
-            NSString *body = [queryItems componentsJoinedByString:@"&"];
-            request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+            [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+            // Encode the post body.
+            if ([contentType isEqualToString:@"application/x-www-form-urlencoded"]) {
+                NSMutableArray *params = [NSMutableArray new];
+                for (NSString *name in data) {
+                    NSString *value = [data[name] description];
+                    NSString *param = [NSString stringWithFormat:@"%@=%@", URLEncode(name), URLEncode(value)];
+                    [params addObject:param];
+                }
+                NSString *body = [params componentsJoinedByString:@"&"];
+                request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+            }
+            else if ([contentType isEqualToString:@"application/json"]) {
+                if ([NSJSONSerialization isValidJSONObject:data]) {
+                    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+                }
+                else {
+                    NSLog(@"SCHTTPClient: Can't serialize POST data to JSON");
+                }
+            }
+            else {
+                NSLog(@"SCHTTPClient: Unsupported POST content type: %@", contentType);
+            }
         }
+        // Send the request.
         NSURLSession *session = [self makeSession];
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request
             completionHandler:^(NSData * _Nullable responseData, NSURLResponse * _Nullable response, NSError * _Nullable error) {

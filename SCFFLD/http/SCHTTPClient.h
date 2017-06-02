@@ -23,6 +23,8 @@
 extern NSString const * _Nonnull SCHTTPClientRequestOptionAccept;
 /// HTTP client request option; set the Accept-Encoding header value.
 extern NSString const * _Nonnull SCHTTPClientRequestOptionAcceptEncoding;
+/// HTTP client request option; set the request content type.
+extern NSString const * _Nonnull SCHTTPClientRequestContentType;
 
 @class SCHTTPClient;
 
