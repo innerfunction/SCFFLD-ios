@@ -24,7 +24,6 @@ This library provides:
     s.author = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
     s.platform = :ios
     s.ios.deployment_target = '8.0'
-    s.osx.deployment_target = '10.8'
 
     localSource = { :git => Dir.pwd+'/.git' };
     remoteSource = { :git => 'https://github.com/innerfunction/SCFFLD-ios.git', :tag => s.version };
@@ -54,6 +53,7 @@ This library provides:
         core.libraries = 'z';
         core.dependency 'SCFFLD/NoArc';
         core.dependency 'ZipArchive'
+        core.osx.deployment_target = '10.8'
     end
 
     s.subspec 'DB' do |db|
@@ -63,6 +63,7 @@ This library provides:
         db.compiler_flags = '-w';
         db.libraries = 'sqlite3'
         db.dependency 'SCFFLD/Core';
+        db.osx.deployment_target = '10.8'
     end
 
     s.subspec 'HTTP' do |http|
