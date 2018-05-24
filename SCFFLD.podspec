@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     # --------------------------------------------------
 
     s.name        = "SCFFLD"
-    s.version     = "0.9.7"
+    s.version     = "0.9.8"
     s.summary     = "Dependency Injection framework for iOS"
     s.description = <<-DESC
 Core functionality for the SCFFLD dependency injection (DI) framework for iOS.
@@ -24,6 +24,7 @@ This library provides:
     s.author = { "Julian Goacher" => "julian.goacher@innerfunction.com" }
     s.platform = :ios
     s.ios.deployment_target = '8.0'
+    s.osx.deployment_target = '10.8'
 
     localSource = { :git => Dir.pwd+'/.git' };
     remoteSource = { :git => 'https://github.com/innerfunction/SCFFLD-ios.git', :tag => s.version };
