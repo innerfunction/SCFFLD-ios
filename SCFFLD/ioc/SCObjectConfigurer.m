@@ -308,6 +308,10 @@
                     [self configureObject:value withConfiguration:valueConfig typeInfo:typeInfo keyPathPrefix:kpRef];
                 }
             }
+            if (value == nil) {
+                // If value not resolved here then use the config value as the result.
+                value = valueConfig;
+            }
         }
         if (value == nil) {
             // If still no value at this point then the config either contains a realised value, or the config data can't

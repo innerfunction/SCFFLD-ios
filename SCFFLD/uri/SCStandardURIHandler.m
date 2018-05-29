@@ -115,7 +115,7 @@
             value = [self dereference:aliasedURI];
         }
         else {
-            NSString *reason = [NSString stringWithFormat:@"Handler not found for scheme %@:", uri.scheme];
+            NSString *reason = [NSString stringWithFormat:@"Handler not found for scheme '%@''", uri.scheme];
             @throw [[NSException alloc] initWithName:@"SCURIResolver" reason:reason userInfo:nil];
         }
         // If the value is URI context aware then set its URI, and its URI handler as a copy of this handler,
@@ -132,7 +132,7 @@
                 value = [formatter formatValue:value fromURI:uri];
             }
             else {
-                NSString *reason = [NSString stringWithFormat:@"Formatter not found for name %@:", uri.format];
+                NSString *reason = [NSString stringWithFormat:@"Formatter not found for name '%@'", uri.format];
                 @throw [[NSException alloc] initWithName:@"SCURIResolver" reason:reason userInfo:nil];
             }
         }
