@@ -59,7 +59,6 @@ static SCLogger *Logger;
 - (id)init {
     self = [super init];
     if (self) {
-        self.name = @"locomote";
         self.version = @1;
         self.tables = @{};
         self.resetDatabase = NO;

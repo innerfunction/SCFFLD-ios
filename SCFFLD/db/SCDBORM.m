@@ -62,7 +62,7 @@
             NSString *join = [NSString stringWithFormat:@"LEFT OUTER JOIN %@ %@ ON %@.%@=%@.%@",
                               mtable,
                               mname,
-                              mtable,
+                              mname,
                               midColumn,
                               _source,
                               sidColumn];
@@ -100,7 +100,7 @@
             [collectionJoins addObject:mname];
             // Order the result by the index column; note that this will be empty for map/dictionary sets (i.e.
             // unordered collections), but will have values for array/list items.
-            NSString *idxColumn = [self columnWithName:mapping.indexColumn orWithTag:@"index" onTable:mtable];
+            NSString *idxColumn = [self columnWithName:mapping.indexColumn orWithTag:@"key" onTable:mtable];
             [orderBys addObject:[NSString stringWithFormat:@"%@.%@", mname, idxColumn]];
         }
     }
@@ -113,7 +113,7 @@
                      where];
     
     if ([orderBys count]) {
-        sql = [sql stringByAppendingString:@"ORDER BY "];
+        sql = [sql stringByAppendingString:@" ORDER BY "];
         sql = [sql stringByAppendingString:[orderBys componentsJoinedByString:@","]];
     }
     
