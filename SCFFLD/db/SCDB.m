@@ -92,6 +92,11 @@ static SCLogger *Logger;
 
 #pragma mark - properties
 
+- (void)setOrm:(SCDBORM *)orm {
+    _orm = orm;
+    orm.db = self;
+}
+
 - (void)setTables:(NSDictionary *)tables {
     _tables = tables;
     // Build lookup of table column tags.
