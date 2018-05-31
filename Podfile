@@ -5,7 +5,8 @@ target 'SCFFLD' do
     pod 'ZipArchive'
     pod 'Q'
     pod 'SSKeychain'
-    pod 'MessagePack'
+    #pod 'MessagePack'
+    pod 'msgpack'
     pod 'JTSImageViewController'
     pod 'SWRevealViewController'
 end

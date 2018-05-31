@@ -73,7 +73,8 @@ This library provides:
         http.dependency 'SCFFLD/Core';
         http.dependency 'Q';
         http.dependency 'SSKeychain';
-        http.dependency 'MessagePack';
+        #http.dependency 'MessagePack';
+        http.dependency 'msgpack';
     end
 
     s.subspec 'IOC' do |ioc|
