@@ -54,6 +54,8 @@
         
         self.view = _webView;
         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
+        self.externalURLSchemes = @[ @"http", @"https" ];
     }
     return self;
 }
@@ -150,7 +152,7 @@
         _loadingExternalURL = NO;
         return YES;
     }
-    else if (_loadExternalLinks && ([@"http" isEqualToString:url.scheme] || [@"https" isEqualToString:url.scheme])) {
+    else if (_loadExternalLinks && [_externalURLSchemes containsObject:url.scheme]) {
         return YES;
     }
     else if (_webViewLoaded && (navigationType != UIWebViewNavigationTypeOther)) {

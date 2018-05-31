@@ -58,5 +58,7 @@
 @property (nonatomic, strong) NSString *contentURL;
 /** The web view content. May be specified using a string or a URI resource. */
 @property (nonatomic, strong) id content;
+/** A list of supported external URL protocols. Defaults to 'http' and 'https'. */
+@property (nonatomic, strong) NSArray *externalURLSchemes;
 
 @end
