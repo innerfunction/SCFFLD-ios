@@ -160,6 +160,10 @@ static SCLogger *Logger;
     return ok;
 }
 
+- (void)closeConnection {
+    [_dbHelper close];
+}
+
 - (NSString *)getColumnWithTag:(NSString *)tag fromTable:(NSString *)table {
     NSDictionary *columns = _taggedTableColumns[table];
     return columns[tag];

@@ -41,8 +41,8 @@
     int _databaseVersion;
     /// The path to the database file.
     NSString *_databasePath;
-    /// The database.
-    SCSqliteDB *_database;
+    /// Flag indicating whether the perform the initial copy check.
+    BOOL _doInitialCopyCheck;
 }
 
 /// Delegate for handling database creation / upgrade.

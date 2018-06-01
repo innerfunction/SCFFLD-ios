@@ -19,6 +19,8 @@
 #import "SCDBHelper.h"
 #import "SCLogger.h"
 
+#define ThreadLocalDB   (@"SCDBHelper.database")
+
 static SCLogger *Logger;
 
 @implementation SCDBHelper
@@ -37,6 +39,8 @@ static SCLogger *Logger;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         _databasePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite", _databaseName]];
+        
+        _doInitialCopyCheck = YES;
     }
     return self;
 }
@@ -56,26 +60,35 @@ static SCLogger *Logger;
 }
 
 - (SCSqliteDB *)getDatabase {
-    // First check whether to deploy the initial database copy.
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:_databasePath] && _initialCopyPath) {
-        [Logger debug:@"Copying initial database from %@", _initialCopyPath];
-        NSError *error = nil;
-        [fileManager copyItemAtPath:_initialCopyPath toPath:_databasePath error:&error];
-        if (error) {
-            [Logger warn:@"Error copying initial database: %@", error];
-        }
-    }
+    NSMutableDictionary *threadLocals = [[NSThread currentThread] threadDictionary];
+    SCSqliteDB *database = threadLocals[ThreadLocalDB];
     // Connect to database.
-    if (!_database.open) {
+    if (!(database != nil && database.open)) {
+
         NSError *error = nil;
-        _database = [[SCSqliteDB alloc] initWithDBPath:_databasePath error:&error];
+
+        // Check whether to copy the initial DB copy.
+        if (_doInitialCopyCheck) {
+            // First check whether to deploy the initial database copy.
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            if (![fileManager fileExistsAtPath:_databasePath] && _initialCopyPath) {
+                [Logger debug:@"Copying initial database from %@", _initialCopyPath];
+                [fileManager copyItemAtPath:_initialCopyPath toPath:_databasePath error:&error];
+                if (error) {
+                    [Logger warn:@"Error copying initial database: %@", error];
+                }
+            }
+            _doInitialCopyCheck = NO;
+        }
+        
+        // Open a connection to the DB.
+        database = [[SCSqliteDB alloc] initWithDBPath:_databasePath error:&error];
         if (error) {
             [Logger error:@"Database open failure: %@", [error localizedDescription]];
         }
-        else if (_database.open) {
+        else if (database.open) {
             // Read the database's current version.
-            SCSqliteResultSet *rs = [_database executeQuery:@"PRAGMA user_version" error:&error];
+            SCSqliteResultSet *rs = [database executeQuery:@"PRAGMA user_version" error:&error];
             if (error) {
                 [Logger error:@"Error reading database version: %@", [error localizedDescription]];
             }
@@ -85,24 +98,24 @@ static SCLogger *Logger;
                 // Begin migration, if needed.
                 if (currentVersion != _databaseVersion) {
                     // Open a new transaction for the migration.
-                    [_database executeUpdate:@"BEGIN EXCLUSIVE TRANSACTION" error:&error];
+                    [database executeUpdate:@"BEGIN EXCLUSIVE TRANSACTION" error:&error];
                     if (!error) {
                         // Perform the migration.
                         if (currentVersion == 0) {
-                            [_delegate onCreate:_database error:&error];
+                            [_delegate onCreate:database error:&error];
                         }
                         else if (currentVersion < _databaseVersion) {
-                            [_delegate onUpgrade:_database from:currentVersion to:_databaseVersion error:&error];
+                            [_delegate onUpgrade:database from:currentVersion to:_databaseVersion error:&error];
                         }
                     }
                     if (!error) {
                         // Update the database version.
                         NSString *sql = [NSString stringWithFormat:@"PRAGMA user_version = %d", _databaseVersion];
-                        [_database executeUpdate:sql error:&error];
+                        [database executeUpdate:sql error:&error];
                     }
                     if (!error) {
                         // Commit the migration.
-                        [_database commitTransaction:&error];
+                        [database commitTransaction:&error];
                     }
                     else {
                         [Logger error:@"Error migrating database: %@", [error localizedDescription]];
@@ -113,13 +126,18 @@ static SCLogger *Logger;
                 [Logger error:@"Unable to read database version"];
             }
         }
+        threadLocals[ThreadLocalDB] = database;
     }
-    return _database.open ? _database : nil;
+    return database.open ? database : nil;
 }
 
 - (void)close {
-    [_database close];
-    _database = nil;
+    NSMutableDictionary *threadLocals = [[NSThread currentThread] threadDictionary];
+    SCSqliteDB *database = threadLocals[ThreadLocalDB];
+    if (database) {
+        [database close];
+        [threadLocals removeObjectForKey:ThreadLocalDB];
+    }
 }
 
 @end

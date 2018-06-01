@@ -56,6 +56,8 @@
 - (BOOL)commitTransaction;
 /** Rollback a DB transaction. */
 - (BOOL)rollbackTransaction;
+/** Close the thread's current DB connection. */
+- (void)closeConnection;
 /** Get the name of the column with the specified tag from the named table. */
 - (NSString *)getColumnWithTag:(NSString *)tag fromTable:(NSString *)table;
 /** Get the record with the specified ID from the named table. */
