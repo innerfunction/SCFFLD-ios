@@ -406,6 +406,7 @@ static SCAppContainer *SCAppContainer_instance;
         SCAppContainer_instance = [SCAppContainer new];
         [SCAppContainer_instance loadConfiguration:@{
             @"types":       @"@app:/SCFFLD/types.json",
+            @"aliases":     @"@app:/SCFFLD/aliases.json",
             @"schemes":     @"@dirmap:/SCFFLD/schemes",
             @"patterns":    @"@dirmap:/SCFFLD/patterns",
             @"nameds":      @"@dirmap:/SCFFLD/nameds"

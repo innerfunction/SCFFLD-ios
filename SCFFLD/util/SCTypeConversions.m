@@ -125,14 +125,19 @@ static void *SCTypeConversions_threadDateFormatter;
 
 + (UIImage *)asImage:(id)value {
     UIImage *result = nil;
-    NSString *baseName = [SCTypeConversions asString:value];
-    if (baseName) {
-        if (IsRetina4) {
-            NSString *name = [NSString stringWithFormat:@"%@-r4", [baseName stringByDeletingPathExtension]];
-            result = [UIImage imageNamed:name];
-        }
-        if (!result) {
-            result = [UIImage imageNamed:baseName];
+    if ([value isKindOfClass:[NSData class]]) {
+        result = [UIImage imageWithData:(NSData *)value];
+    }
+    else {
+        NSString *baseName = [SCTypeConversions asString:value];
+        if (baseName) {
+            if (IsRetina4) {
+                NSString *name = [NSString stringWithFormat:@"%@-r4", [baseName stringByDeletingPathExtension]];
+                result = [UIImage imageNamed:name];
+            }
+            if (!result) {
+                result = [UIImage imageNamed:baseName];
+            }
         }
     }
     return result;

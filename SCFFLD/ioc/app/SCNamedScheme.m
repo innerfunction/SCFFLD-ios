@@ -39,6 +39,15 @@
     // of the named object.
     NSString *name = uri.name;
     NSString *path = uri.fragment;
+    // Alternatively, if no path but the name contains a dot then assume it contains
+    // a dotted path.
+    if (!path) {
+        NSRange range = [name rangeOfString:@"."];
+        if (range.location != NSNotFound) {
+            path = [name substringFromIndex:range.location + 1];
+            name = [name substringToIndex:range.location];
+        }
+    }
     // Get the named object.
     id result = [_container getNamed:name];
     // If a path is specified then evaluate that on the named object.
