@@ -18,6 +18,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef id (^SCArrayMapBlock) (id, NSUInteger);
+
 @interface NSArray (SC)
 
 + (NSArray *)arrayWithDictionaryKeys:(NSDictionary *)dictionary;
@@ -29,5 +31,7 @@
 - (NSArray *)arrayWithoutItem:(id)item;
 
 - (NSArray *)arrayWithoutHeadItem;
+
+- (NSArray *)arrayMapWithBlock:(SCArrayMapBlock)block;
 
 @end
