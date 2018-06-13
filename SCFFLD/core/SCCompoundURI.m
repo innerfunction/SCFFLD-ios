@@ -19,6 +19,7 @@
 #import "SCCompoundURI.h"
 #import "SCRegExp.h"
 #import "NSDictionary+SC.h"
+#import "NSArray+SC.h"
 
 #define URIEncode(string) ([string stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]])
 
@@ -129,9 +130,16 @@
         [serializedParams appendString:[uri canonicalForm]];
         [serializedParams appendString:@"]"];
     }
+    /*
+    NSArray *components = [[self.name componentsSeparatedByString:@"/"] arrayMapWithBlock:^id(NSString *component, NSUInteger idx) {
+        return URIEncode(component);
+    }];
+    NSString *name = [components componentsJoinedByString:@"/"];
+    */
+    NSString *name = self.name;
     NSString *frag = self.fragment ? [NSString stringWithFormat:@"#%@", URIEncode(self.fragment)] : @"";
     NSString *format = self.format ? [NSString stringWithFormat:@"|%@", URIEncode(self.format)] : @"";
-    return [NSString stringWithFormat:@"%@:%@%@%@%@", URIEncode(self.scheme), URIEncode(self.name), frag, serializedParams, format];
+    return [NSString stringWithFormat:@"%@:%@%@%@%@", URIEncode(self.scheme), name, frag, serializedParams, format];
 }
 
 - (SCCompoundURI *)copyOf {
