@@ -51,6 +51,12 @@
  */
 - (NSArray *)selectWhere:(NSString *)where values:(NSArray *)values mappings:(NSArray *)mappings;
 /**
+ * Select the objects matching the specified where condition and order with the specified clause.
+ * Returns an array of object records from the source table, with all related properties
+ * named in the mappings argument joined from the related tables.
+ */
+- (NSArray *)selectWhere:(NSString *)where values:(NSArray *)values mappings:(NSArray *)mappings orderBy:(NSString *)orderBy;
+/**
  * Delete the object with the specified key value.
  * Deletes any related records unique to the deleted object.
  */

@@ -36,14 +36,22 @@
 }
 
 - (NSArray *)selectWhere:(NSString *)where values:(NSArray *)values mappings:(NSArray *)mappings {
+    return [self selectWhere:where values:values mappings:mappings orderBy:nil];
+}
+
+- (NSArray *)selectWhere:(NSString *)where values:(NSArray *)values mappings:(NSArray *)mappings orderBy:(NSString *)orderBy {
+    
     // The name of the ID column on the source table.
     NSString *sidColumn = [self idColumnForTable:_source];
+    
     // Generate SQL to describe each join for each relation.
     NSMutableArray *columns = [NSMutableArray new];     // Array of column name lists for source table and all joins.
     NSMutableArray *joins = [NSMutableArray new];       // Array of join SQL.
     NSMutableArray *orderBys = [NSMutableArray new];    // Array of order by column names.
     NSMutableArray *collectionJoins = [NSMutableArray new];  // Array of collection relation names.
+    
     [columns addObject:[self columnNamesForTable:_source withPrefix:_source]];
+    
     for (NSString *mname in [_mappings keyEnumerator]) {
         
         // Skip the mapping if its name isn't in the list of mappings to include.
@@ -112,6 +120,9 @@
                      [joins componentsJoinedByString:@" "],
                      where];
     
+    if (orderBy) {
+        [orderBys addObject:orderBy];
+    }
     if ([orderBys count]) {
         sql = [sql stringByAppendingString:@" ORDER BY "];
         sql = [sql stringByAppendingString:[orderBys componentsJoinedByString:@","]];
