@@ -276,7 +276,7 @@ NSURL *makeURL(NSString *url, NSDictionary *params);
 NSURL *makeURL(NSString *url, NSDictionary *params) {
     NSURLComponents *urlParts = [NSURLComponents componentsWithString:url];
     if (params) {
-        NSMutableArray *queryItems = [[NSMutableArray alloc] init];
+        NSMutableArray *queryItems = [NSMutableArray new];
         for (NSString *name in params) {
             NSURLQueryItem *queryItem = [NSURLQueryItem queryItemWithName:name value:params[name]];
             [queryItems addObject:queryItem];
