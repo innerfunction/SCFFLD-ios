@@ -61,5 +61,10 @@
 - (NSAttributedString *)asAttributedString;
 /** Return a plain-text representation of the HTML contents. */
 - (NSString *)asString;
+/** Return a plain-text representation of the HTML contents. */
+- (NSString *)asPlainText;
+
+/** Return the plain-text representation of a HTML string. */
++ (NSString *)asPlainText:(NSString *)html;
 
 @end

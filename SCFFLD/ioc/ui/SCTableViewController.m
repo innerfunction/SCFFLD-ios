@@ -99,6 +99,16 @@
         [_iocContainer configureObject:_defaultFactory withConfiguration:configuration identifier:@"SCTableViewController.defaultFactory"];
          _defaultFactory.tableData = _tableData;
     }
+    
+    if (_hasSearchBar) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        _searchBar.delegate = self;
+        _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
+        _searchDisplayController.delegate = self;
+        _searchDisplayController.searchResultsDataSource = self;
+        self.tableView.tableHeaderView = _searchBar;
+    }
+
 }
 
 #pragma mark - configuration properties
@@ -167,14 +177,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     
-    if (_hasSearchBar) {
-        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-        _searchBar.delegate = self;
-        _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar contentsController:self];
-        _searchDisplayController.delegate = self;
-        _searchDisplayController.searchResultsDataSource = self;
-        self.tableView.tableHeaderView = _searchBar;
-    }
+    _isFirstShow = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

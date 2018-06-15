@@ -75,6 +75,10 @@ typedef NSDictionary *(^SCHTMLStringTagAttributes)();
 }
 
 - (NSString *)asString {
+    return [self asPlainText];
+}
+
+- (NSString *)asPlainText {
     return _string;
 }
 
@@ -102,6 +106,14 @@ typedef NSDictionary *(^SCHTMLStringTagAttributes)();
     NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:string attributes:_style];
     [_attrString appendAttributedString:attrStr];
     [_string appendString:string];
+}
+
+#pragma mark - class methods
+
++ (NSString *)asPlainText:(NSString *)html {
+    SCHTMLString *htmlString = [[SCHTMLString alloc] initWithString:html];
+    [htmlString parse];
+    return [htmlString asPlainText];
 }
 
 @end
