@@ -70,4 +70,12 @@
     return result;
 }
 
+- (id)arrayReduceWithBlock:(SCArrayReduceBlock)block accumulator:(id)acc {
+    __block id result = acc;
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        result = block( result, obj, idx );
+    }];
+    return result;
+}
+
 @end

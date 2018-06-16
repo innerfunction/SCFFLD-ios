@@ -19,6 +19,7 @@
 #import <Foundation/Foundation.h>
 
 typedef id (^SCArrayMapBlock) (id, NSUInteger);
+typedef id (^SCArrayReduceBlock) (id, id, NSUInteger);
 
 @interface NSArray (SC)
 
@@ -33,5 +34,7 @@ typedef id (^SCArrayMapBlock) (id, NSUInteger);
 - (NSArray *)arrayWithoutHeadItem;
 
 - (NSArray *)arrayMapWithBlock:(SCArrayMapBlock)block;
+
+- (id)arrayReduceWithBlock:(SCArrayReduceBlock)block accumulator:(id)acc;
 
 @end
