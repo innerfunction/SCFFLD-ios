@@ -43,7 +43,14 @@ typedef NSDictionary *(^SCHTMLStringTagAttributes)();
     SCHTMLStringTagAttributes uTag = ^() {
         return @{ NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle) };
     };
-    _tagHandlers = @{ @"P": pTag, @"B": bTag, @"I": iTag, @"U": uTag };
+    SCHTMLStringTagAttributes emTag = ^() {
+        return @{
+            NSFontAttributeName: [UIFont boldSystemFontOfSize:_fontSize],
+            NSBackgroundColorAttributeName: _highlightBackgroundColor
+        };
+    };
+
+    _tagHandlers = @{ @"P": pTag, @"B": bTag, @"I": iTag, @"U": uTag, @"EM": emTag };
     
     if (![string hasPrefix:@"<html>"]) {
         string = [NSString stringWithFormat:@"<html>%@</html>", string];

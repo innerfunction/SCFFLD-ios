@@ -52,6 +52,8 @@
 @property (nonatomic, assign) CGFloat fontSize;
 /** The font colour to use for attributed text. */
 @property (nonatomic, strong) UIColor *fontColor;
+/** Background colour for highlighted text. */
+@property (nonatomic, strong) UIColor *highlightBackgroundColor;
 
 /** Initialize with an HTML string. */
 - (id)initWithString:(NSString *)string;
